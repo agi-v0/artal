@@ -1,0 +1,201 @@
+---
+// Import the Fragment component from Astro to wrap our list items without adding extra DOM elements
+const contacts = [
+  {
+    title: "Collaborate",
+    email: "collaborate@dusk.com",
+    phoneNumber: "+358 1234 5678",
+  },
+  {
+    title: "Press",
+    email: "press@dusk.com",
+    phoneNumber: "+358 1234 5678",
+  },
+  {
+    title: "Join our team",
+    email: "careers@dusk.com",
+    phoneNumber: "+358 1234 5678",
+  },
+  {
+    title: "Say hello",
+    email: "hello@dusk.com",
+    phoneNumber: "Y+358 1234 5678",
+  },
+];
+const addresses = [
+  {
+    city: "Paris",
+    street: "322 Rue Saint-Honoré",
+    zip: "75001 Paris, France",
+  },
+  {
+    city: "London",
+    street: "47 Brushfield Street",
+    zip: "London E1 6AA, UK",
+  },
+  {
+    city: "Tokyo",
+    street: "5 Chome-52-2 Jingumae",
+    zip: "Tokyo 150-0001, Japan",
+  },
+  {
+    city: "Sydney",
+    street: "483 George Street",
+    zip: "Sydney NSW 2000, Australia",
+  },
+];
+---
+
+<section>
+  <div class="p-8 max-w-7xl mx-auto border-x border-gray border-b lg:py-32">
+    <div class="max-w-2xl">
+      <span class="text-neutral-400 font-light">Contact</span>
+      <h1 class="text-white mt-6 text-2xl font-light">
+        Complete the details below so we can process your request and then
+        schedule a time to discuss your goals.
+      </h1>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="max-w-7xl mx-auto border-x border-gray border-b p-8">
+    <div
+      class="grid gap-8 grid-cols-1 lg:grid-cols-3 lg:divide-x lg:divide-gray">
+      <form
+        class="border border-gray divide-y divide-gray flex flex-col justify-between">
+        <div>
+          <label
+            for="name"
+            class="sr-only"
+            >First name</label
+          >
+          <input
+            id="name"
+            name="name"
+            aria-placeholder="Your name"
+            placeholder="Your name"
+            class="block appearance-none ring-inset bg-transparent border-none border-transparent focus:bg-transparent focus:border-white focus:outline-none focus:ring-white placeholder-white/50 p-8 sm:text-sm text-white w-full"
+          />
+        </div>
+        <div class="col-span-full">
+          <label
+            class="sr-only"
+            for="company"
+            >What is the name of your company / organisation?</label
+          >
+          <input
+            id="company"
+            name="company"
+            aria-placeholder="Company name"
+            placeholder="Company name"
+            class="block appearance-none ring-inset bg-transparent border-none border-transparent focus:bg-transparent focus:border-white focus:outline-none focus:ring-white placeholder-white/50 p-8 sm:text-sm text-white w-full"
+          />
+        </div>
+        <div class="col-span-full">
+          <label
+            class="sr-only"
+            for="email"
+            >How shall we contact you?</label
+          >
+          <input
+            id="email"
+            name="email"
+            type="email"
+            aria-placeholder="email@example.com"
+            placeholder="email@example.com"
+            class="block appearance-none ring-inset bg-transparent border-none border-transparent focus:bg-transparent focus:border-white focus:outline-none focus:ring-white placeholder-white/50 p-8 sm:text-sm text-white w-full"
+          />
+        </div><div>
+          <label
+            class="sr-only"
+            for="message"
+            >Project details</label
+          ><div>
+            <textarea
+              id="message"
+              name="message"
+              aria-placeholder="What are you working on?"
+              placeholder="What are you working on?"
+              class="block appearance-none ring-inset bg-transparent border-none border-transparent focus:bg-transparent focus:border-white focus:outline-none focus:ring-white placeholder-white/50 p-8 sm:text-sm text-white w-full"
+              rows="4"
+            ></textarea>
+          </div>
+        </div>
+        <div class="col-span-full p-8 border-t border-gray">
+          <button
+            type="submit"
+            class="items-center inline-flex focus:outline-none bg-gray border border-gray duration-200 focus:ring-2 focus:ring-offset-2 focus:ring-white hover:bg-white/10 px-6 py-2 ring-1 ring-transparent rounded-full text-sm text-white h-10 w-full justify-center"
+            >Submit your request</button
+          >
+        </div>
+      </form>
+      <div class="lg:col-span-2 pl-8">
+        <div
+          class="mx-auto max-w-2xl space-y-16 divide-y divide-gray lg:mx-0 lg:max-w-none">
+          <div class="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-3">
+            <div>
+              <h2 class="text-white text-2xl font-light">Reach us out</h2>
+              <p class="mt-4 text-neutral-400 font-light">
+                We're always ready to connect with you. Whether you have
+                questions or need assistance.
+              </p>
+            </div>
+            <div
+              class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:col-span-2 lg:gap-8">
+              {
+                contacts.map((contact) => (
+                  <div>
+                    <h3 class="text-base font-light text-white">
+                      {contact.title}
+                    </h3>
+                    <dl class="mt-3 space-y-1 text-sm text-neutral-400">
+                      <div>
+                        <dt class="sr-only">Email</dt>
+                        <dd>
+                          <a
+                            class="text-neutral-500"
+                            href={`mailto:${contact.email}`}>
+                            {contact.email}
+                          </a>
+                        </dd>
+                      </div>
+                      <div class="mt-1">
+                        <dt class="sr-only">Phone number</dt>
+                        <dd>{contact.phoneNumber}</dd>
+                      </div>
+                    </dl>
+                  </div>
+                ))
+              }
+            </div>
+          </div>
+          <div class="grid grid-cols-1 gap-x-8 gap-y-10 pt-16 lg:grid-cols-3">
+            <div>
+              <h2 class="text-white text-2xl font-light">Our locations</h2>
+              <p class="mt-4 text-neutral-400 font-light">
+                Our presence spans across diverse locations, offering premium
+                services and solutions.
+              </p>
+            </div>
+            <div
+              class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:col-span-2 lg:gap-8">
+              {
+                addresses.map((address) => (
+                  <div>
+                    <h3 class="text-base font-light text-white">
+                      {address.city}
+                    </h3>
+                    <address class="mt-3 space-y-1 text-sm not-italic text-neutral-400">
+                      <p>{address.street}</p>
+                      <p>{address.zip}</p>
+                    </address>
+                  </div>
+                ))
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

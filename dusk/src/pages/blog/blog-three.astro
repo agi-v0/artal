@@ -1,0 +1,40 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import EntriesThree from "@/components/blog/EntriesThree.astro";
+const allPosts = await getCollection("posts");
+---
+<BaseLayout>
+  <section>
+    <div class="p-8 max-w-7xl mx-auto border-x border-gray border-b lg:py-32">
+      <div class="max-w-2xl">
+        <span class="text-neutral-400 font-light">Blog</span>
+        <h1 class="text-white mt-6 text-2xl font-light">
+          Here are some insights and reflections on the subjects of design and
+          technology.
+        </h1>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="max-w-7xl mx-auto border-x border-gray border-b">
+      <ul class="text-white grid grid-cols-1 lg:divide-y divide-gray">
+        {
+          allPosts
+            .slice()
+            .map((post) => (
+              <EntriesThree
+                url={"/posts/" + post.slug}
+                title={post.data.title}
+                description={post.data.description}
+                alt={post.data.title}
+                pubDate={post.data.pubDate.toString().slice(0, 10)}
+                author={post.data.author}
+                image={post.data.image.url}
+              />
+            ))
+        }
+      </ul>
+    </div>
+  </section>
+</BaseLayout>

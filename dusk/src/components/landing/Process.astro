@@ -1,0 +1,68 @@
+---
+const jamstackAdvantages = [
+  {
+    title: "Enhanced Performance",
+    description: "By eliminating time-consuming database queries, static sites built with Jamstack offer a significantly improved user experience and faster loading times, sometimes even up to 10 times faster.",
+  },
+  {
+    title: "Competitive Advantage",
+    description: "The Jamstack architecture provides a unique edge that is hard to rival. With Jamstack, your website has the potential to outrank competitors in search engine results.",
+  },
+  {
+    title: "Heightened Security",
+    description: "Static sites remove server-side and database operations, minimizing vulnerabilities. You can bid farewell to worries about potential security breaches.",
+  },
+  {
+    title: "Cost Efficiency",
+    description: "The streamlined development process and reduced maintenance requirements of Jamstack lead to cost savings. Additionally, hosting static files is typically free, adding to the overall cost-effectiveness.",
+  },
+  {
+    title: "Scalable Growth",
+    description: "Should your product gain viral popularity, you can rest assured knowing that downtime and slow performance won't be an issue. Content Delivery Networks (CDNs) seamlessly handle increased traffic and ensure smooth scalability.",
+  },
+  {
+    title: "Unmatched Reliability",
+    description: "The delivery of static sites through CDNs and the absence of complex server architecture contribute to an incredibly stable environment, guaranteeing reliable performance.",
+  },
+];
+---
+
+
+<section>
+  <div class="p-8 max-w-7xl mx-auto border-x border-gray border-b lg:py-32">
+    <div class="max-w-2xl">
+      <span class="text-neutral-400 font-light">The process</span>
+      <h3 class="text-white mt-6 text-2xl font-light text-pretty">
+        We offer a comprehensive design solution for creating high-quality
+        landing pages tailored to your specific requirements and optimized to
+        achieve your goals. By utilizing cutting-edge technologies and
+        frameworks, we deliver a fully functional and visually appealing design
+        that is ready to go live, all at a fixed price.
+      </h3>
+      <p class="text-neutral-400 mt-6">
+        Our service goes beyond using pre-made templates or unnecessary
+        complications. Instead, we focus on creating beautifully functional
+        designs that captivate and engage your target audience. With a single
+        page, we strive to capture the attention, hearts, and minds of your
+        visitors, leaving a lasting impression.
+      </p>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="max-w-7xl mx-auto border-x border-gray border-b divide-y divide-gray">
+    <div
+      class="text-white grid grid-cols-1 md:grid-cols-3 lg:divide-x divide-gray">
+      {
+        jamstackAdvantages.map((advantage) => (
+          <div class="flex flex-col p-8">
+            <div class="font-light">{advantage.title}</div>
+            <p class="text-neutral-400 mt-3 text-pretty">{advantage.description}</p>
+          </div>
+        ))
+      }
+    </div>
+
+
+  </div>
+</section>

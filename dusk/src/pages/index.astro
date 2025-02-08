@@ -1,0 +1,63 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Hero from "@/components/landing/Hero.astro";
+import About from "@/components/landing/About.astro";
+import Services from "@/components/landing/Services.astro";
+import Process from "@/components/landing/Process.astro";
+import Awards from "@/components/landing/Awards.astro";
+import Crafted from "@/components/landing/Crafted.astro";
+import Why from "@/components/landing/Why.astro";
+import Pricing from "@/components/landing/Pricing.astro";
+import Faq from "@/components/landing/Faq.astro";
+import { getCollection } from "astro:content";
+const allPosts = await getCollection("work");
+import WorkCta from "@/components/work/WorkCta.astro";
+---
+
+<BaseLayout>
+  <Hero />
+  <section>
+    <div class="p-8 max-w-7xl mx-auto border-x border-gray border-b">
+      <div class="md:inline-flex items-center text-left justify-between w-full">
+        <div>
+          <h3 class="text-white mt-6 text-2xl font-light">
+            Checkout all our projects
+          </h3>
+        </div>
+        <div class="lg:ml-auto mt-6 lg:mt-0">
+          <a
+            href="/work/home"
+            title="your title"
+            aria-label="your label"
+            class="items-center inline-flex text-sm focus:outline-none bg-gray border border-transparent duration-200 focus:ring-2 focus:ring-offset-2 focus:ring-white hover:bg-white/10 px-6 py-2 ring-1 ring-transparent rounded-full text-white"
+            >SEE ALL WORK</a
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="max-w-7xl mx-auto border-x border-gray border-b">
+      <ul class="grid grid-col-1 md:grid-cols-3 lg:divide-x divide-gray h-full">
+        {
+          allPosts
+            .slice(0, 3)
+            .map((post) => (
+              <WorkCta
+                company={post.data.company}
+                longImage={post.data.longImage.url}
+              />
+            ))
+        }
+      </ul>
+    </div>
+  </section>
+  <Services />
+  <About />
+  <Process />
+  <Awards />
+  <Crafted />
+  <Why />
+  <Pricing />
+  <Faq />
+</BaseLayout>

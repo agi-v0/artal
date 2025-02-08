@@ -1,0 +1,40 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+const allPosts = await getCollection("store");
+import StoreEntries from "@/components/store/StoreEntries.astro";
+---
+
+<BaseLayout>
+  <section>
+    <div class="p-8 max-w-7xl mx-auto border-x border-gray border-b lg:py-32">
+      <div class="max-w-2xl">
+        <span class="text-neutral-400 font-light">Store</span>
+        <h1 class="text-white text-2xl font-light text-pretty">
+          Exploring our curated collection: delve into a world of exceptional
+          products, each telling a story of craftsmanship and innovation
+        </h1>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="max-w-7xl mx-auto border-x border-gray border-b p-8">
+      <ul
+        role="list"
+        class="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-16">
+        {
+          allPosts.map((post) => (
+            <StoreEntries
+              url={"/store/" + post.slug}
+              name={post.data.name}
+              price={post.data.price}
+              description={post.data.description}
+              alt={post.data.name}
+              thumbnail={post.data.thumbnail.url}
+            />
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+</BaseLayout>
