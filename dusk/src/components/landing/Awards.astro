@@ -1,0 +1,111 @@
+---
+// Define the awards array
+const awards = [
+  {
+    year: "2023",
+    award: "Stellar Achievement",
+    contest: "Digital Fusion",
+    project: "Cosmosphere",
+  },
+  {
+    year: "2023",
+    award: "Innovation Master",
+    contest: "Pixel Emporium",
+    project: "TechnoVerse",
+  },
+  {
+    year: "2023",
+    award: "Creative Breakthrough",
+    contest: "Design Oasis",
+    project: "DreamScape",
+  },
+  {
+    year: "2022",
+    award: "Visionary Excellence",
+    contest: "Tech Innovators",
+    project: "FutureLink",
+  },
+  {
+    year: "2022",
+    award: "Exceptional Ingenuity",
+    contest: "WebGlobe Awards",
+    project: "Infinitum",
+  },
+  {
+    year: "2021",
+    award: "Artistic Brilliance",
+    contest: "Design Discovery",
+    project: "ChromaFlow",
+  },
+  {
+    year: "2020",
+    award: "Technological Advancement",
+    contest: "Digital Marvels",
+    project: "ConnectX",
+  },
+];
+---
+
+<section>
+  <div
+    class="p-8 max-w-7xl mx-auto border-x border-b lg:border-b-0 border-gray lg:py-32">
+    <div class="max-w-2xl">
+      <span class="text-neutral-400 font-light">An awarded studio</span>
+      <h3 class="text-white mt-6 text-2xl font-light">Awards & Recognitions</h3>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="max-w-7xl mx-auto p-8 lg:p-0">
+    <div class="w-full flex flex-col">
+      <div class="overflow-x-auto">
+        <div class="min-w-full align-middle inline-block">
+          <div class="border border-gray overflow-hidden">
+            <table class="divide-gray divide-y min-w-full">
+              <thead
+                ><tr class="divide-gray divide-x"
+                  ><th
+                    class="text-white font-light leading-none text-base px-8 py-3.5 text-left"
+                    scope="col"
+                    >Year</th
+                  ><th
+                    class="text-white font-light leading-none text-base py-3.5 text-left px-8"
+                    scope="col"
+                    >Award</th
+                  ><th
+                    class="text-white font-light leading-none text-base py-3.5 text-left px-8"
+                    scope="col"
+                    >Contest</th
+                  ><th
+                    class="text-white font-light leading-none text-base px-8 py-3.5 text-left sm:pr-6"
+                    scope="col"
+                    >Project</th
+                  ></tr
+                ></thead
+              ><tbody class="divide-gray divide-y">
+                {
+                  awards.map((award) => (
+                    <tr class="divide-gray divide-x text-neutral-400 whitespace-nowrap font-light ">
+                      <td class="px-8">
+                        {award.year}
+                      </td>
+                      <td class="px-8">
+                        {award.award}
+                      </td>
+                      <td class="px-8 py-4">
+                        {award.contest}
+                      </td>
+                      <td class="px-8 py-4">
+                        {award.project}
+                      </td>
+                    </tr>
+                  ))
+                }
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

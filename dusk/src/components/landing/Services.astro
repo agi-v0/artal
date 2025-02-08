@@ -1,0 +1,30 @@
+---
+import { getCollection } from "astro:content";
+const allPosts = await getCollection("services");
+import ServicesEntries from "@/components/services/ServicesEntries.astro";
+---
+
+<section>
+  <div
+    class="p-8 max-w-7xl mx-auto border-x border-b  border-gray lg:py-32">
+    <div class="max-w-2xl">
+      <span class="text-neutral-400 font-light">Best in town</span>
+      <h3 class="text-white mt-6 text-2xl font-light">Or services</h3>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="max-w-7xl mx-auto border-x border-gray border-b">
+    <div class="text-white grid grid-cols-1 divide-y divide-gray">
+      {
+        allPosts.map((post) => (
+          <ServicesEntries
+            url={"/services/" + post.slug}
+            service={post.data.service}
+          />
+        ))
+      }
+    </div>
+  </div>
+</section>
+

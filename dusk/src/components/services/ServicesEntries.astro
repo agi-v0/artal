@@ -1,0 +1,13 @@
+---
+const { service, url } = Astro.props;
+---
+
+<a
+  href={url}
+  title={service}
+  aria-label={service}>
+  <div class="flex gap-3 w-full justify-between p-8">
+    <p class="font-light">{service}</p>
+    <span>&rarr;</span>
+  </div>
+</a>

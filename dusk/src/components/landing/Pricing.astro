@@ -1,0 +1,147 @@
+---
+// Define an array of pricing packages with SVG paths and dynamic pricing
+const pricingPackages = [
+  {
+    name: "Figma",
+    images: ["/assets/figma.svg"],
+    monthlyPrice: "1999/mo",
+    annualPrice: "1499/year",
+    description:
+      "Uniquely crafted one-page website designed in Figma, setting you apart and captivating your audience. Includes basic styles and components for easier development.",
+    benefits: [
+      "UNIQUE ONE-PAGE WEBSITE DESIGN",
+      "FIGMA DESKTOP & MOBILE DESIGNS",
+      "FIGMA FILE & STYLEGUIDE",
+      "VIDEO GUIDE & OVERVIEW",
+      "HAND-OVER SUPPORT",
+      "SLACK ACCESS",
+      "LIVE ONE-PAGE WEBSITE",
+      "FULLY RESPONSIVE",
+      "SUBTLE INTERACTIONS",
+      "14 DAY POST-LAUNCH SUPPORT",
+    ],
+    actionText: "PURCHASE DESIGN PACKAGE",
+    actionLink: "#_",
+  },
+  {
+    name: "Figma, Astro & Tailwind",
+    images: ["/assets/figma.svg", "/assets/astro.svg", "/assets/tailwind.svg"],
+    monthlyPrice: "3999/mo",
+    annualPrice: "2599/year",
+    description:
+      "Get a pre-designed website in Figma, developed with Astro & Tailwind, offering a unique user experience through engaging elements and subtle animations.",
+    benefits: [
+      "UNIQUE ONE-PAGE WEBSITE DESIGN",
+      "FIGMA DESKTOP & MOBILE DESIGNS",
+      "CODE FILE & STYLEGUIDE",
+      "VIDEO GUIDE & OVERVIEW",
+      "HAND-OVER SUPPORT",
+      "SLACK ACCESS",
+      "LIVE ONE-PAGE WEBSITE",
+      "FULLY RESPONSIVE",
+      "SUBTLE INTERACTIONS",
+      "14 DAY POST-LAUNCH SUPPORT",
+    ],
+    actionText: "PURCHASE FULL PACKAGE",
+    actionLink: "#_",
+  },
+];
+---
+
+<section x-data="{annual: false}">
+  <div class="p-8 max-w-7xl mx-auto border-x border-gray border-b lg:py-32">
+    <div class="max-w-2xl">
+      <span class="text-neutral-400 font-light">Pricing</span>
+      <h3 class="text-white mt-6 text-2xl font-light">
+        We provide straightforward and convenient pricing options to cater to
+        your specific requirements. Our aim is to make the process of choosing
+        to collaborate with us as seamless as our actual work together.
+      </h3>
+    </div>
+  </div>
+  <div class="max-w-7xl mx-auto border-x border-gray border-b">
+    <div class="inline-flex w-full divide-x divide-gray border-b border-gray">
+      <button
+        @click="annual = false"
+        type="button"
+        class="transition h-14 w-1/2 py-2 uppercase px-8 text-xl font-light focus:outline-none duration-200 focus:ring-1 focus:ring-white hover:bg-white/10 ring-inset"
+        :class="{'bg-gray text-white': !annual, 'bg-transparent text-white': annual}">
+        Monthly
+      </button>
+      <button
+        @click="annual = true"
+        type="button"
+        class="transition h-14 w-1/2 py-2 uppercase px-8 text-xl font-light focus:outline-none duration-200 focus:ring-1 focus:ring-white hover:bg-white/10 ring-inset"
+        :class="{'bg-gray text-white': annual, 'bg-transparent text-white': !annual}">
+        Annual
+      </button>
+    </div>
+    <div
+      class="text-white grid grid-cols-1 md:grid-cols-3 lg:divide-x divide-gray">
+      {
+        pricingPackages.map((plan) => (
+          <div class="flex flex-col p-8">
+            <div>
+              <div class="flex gap-3">
+                {plan.images.map((imageSrc) => (
+                  <img
+                    src={imageSrc}
+                    class="flex-none h-4 w-4"
+                    alt={`${plan.name} logo`}
+                  />
+                ))}
+              </div>
+              <p class="text-white mt-6 text-2xl font-light">{plan.name}</p>
+              <p class="text-white mt-6 text-2xl font-light">
+                <span class="text-2xl tracking-tight">
+                  <span x-show="!annual">${plan.monthlyPrice}</span>
+                  <span x-show="annual">${plan.annualPrice}</span>
+                </span>
+              </p>
+              <p class="text-neutral-400 mt-6 text-pretty">{plan.description}</p>
+              <h3 class="text-white mt-6">What you get</h3>
+              <ul class="text-white mt-6 font-light space-y-2">
+                {plan.benefits.map((benefit) => (
+                  <li>{benefit}</li>
+                ))}
+              </ul>
+              <div class="border-t border-gray pt-6 mt-6">
+                <a
+                  href={plan.actionLink}
+                  title={plan.actionText}
+                  aria-label={plan.actionLink}
+                  class="items-center inline-flex focus:outline-none bg-gray border border-transparent duration-200 focus:ring-2 focus:ring-offset-2 focus:ring-white hover:bg-white/10 px-6 py-2 ring-1 ring-transparent rounded-full text-sm text-white h-10">
+                  {plan.actionText}
+                </a>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+      <div class="flex flex-col h-full justify-between p-8">
+        <div>
+          <p class="text-white text-2xl font-light">CUSTOM</p>
+          <p class="text-neutral-400 mt-6 text-pretty">
+            We can provide you with a custom package designed specifically to
+            meet your unique requirements and preferences. <br /><br /> Our team
+            will work closely with you to understand your needs and goals, ensuring
+            that every aspect of the package is personalized and tailored to your
+            specifications. <br /><br /> By leveraging our expertise and extensive
+            resources, we will develop a comprehensive and customized solution that
+            aligns perfectly with your vision. You can expect a seamless collaboration
+            process, attention to detail, and a final product that exceeds your expectations.
+          </p>
+        </div>
+        <div class="border-t border-gray pt-6 mt-6">
+          <a
+            href="#_"
+            title="your title"
+            aria-label="your label"
+            class="items-center inline-flex focus:outline-none bg-gray border border-transparent duration-200 focus:ring-2 focus:ring-offset-2 focus:ring-white hover:bg-white/10 px-6 py-2 ring-1 ring-transparent rounded-full text-sm text-white h-10"
+            >CONTACT US</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

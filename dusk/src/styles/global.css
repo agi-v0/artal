@@ -1,0 +1,45 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+@plugin "@tailwindcss/forms";
+
+@layer components {
+  .prose-styles {
+    @apply hover:prose-a:text-white prose text-neutral-400 mx-auto prose-a:text-white prose-a:no-underline prose-blockquote:border-l-neutral-400 prose-blockquote:text-neutral-400 prose-code:text-white prose-strong:text-white prose-headings:text-white prose-headings:font-light prose-li:marker:text-neutral-400 prose-pre:border prose-pre:rounded-none prose-pre:border-gray;
+  }
+}
+@theme {
+  /* Typography */
+  --font-sans: "Figtree", sans-serif;
+  --font-mono: "Roboto Mono", monospace;
+  /* Color */
+  --color-black: #1f1f1f;
+  --color-gray: #292929;
+}
+
+:root {
+  /* Styling code blocks */
+  --astro-code-color-text: theme("colors.white");
+  --astro-code-background: theme("colors.neutral.800");
+  --astro-code-token-constant: theme("colors.neutral.200");
+  --astro-code-token-string: theme("colors.neutral.500");
+  --astro-code-token-comment: theme("colors.neutral.400");
+  --astro-code-token-keyword: theme("colors.white");
+  --astro-code-token-parameter: theme("colors.white");
+  --astro-code-token-function: theme("colors.neutral.300");
+  --astro-code-token-string-expression: theme("colors.neutral.200");
+  --astro-code-token-punctuation: theme("colors.neutral.500");
+  --astro-code-token-link: theme("colors.neutral.200");
+}
+/* Style the summary tag */
+details summary {
+  transition: margin 150ms ease-out !important;
+}
+details[open] summary {
+  margin-bottom: 10px;
+}
+details > summary {
+  list-style-type: none; /* Removes the default list marker */
+}
+details > summary::-webkit-details-marker {
+  display: none; /* Specifically targets the default arrow on WebKit browsers like Chrome and Safari */
+}

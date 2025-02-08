@@ -1,0 +1,52 @@
+---
+const testimonials = [
+  {
+    "text": "Albin possesses an exceptional talent for design and collaboration, making him a joy to work with. I eagerly anticipate engaging with him on upcoming ventures. I strongly endorse him for those in search of exceptional and distinctive work.",
+    "name": "Alex Reed",
+    "title": "Initiator of Code Camp",
+  },
+  {
+    "text": "Working with Albin on several design projects, his speed and efficiency were unparalleled. His design approach is modern and effective, bringing tremendous value through continuous refinement and enhancement of his work.",
+    "name": "Lucas Gomez",
+    "title": "Architect of Pixel Patterns",
+  },
+  {
+    "text": "Albin stands out as a designer and developer with a keen grasp of business necessities. Drawing on his extensive experience, he swiftly created several high-quality landing pages for our platform, Versoly.",
+    "name": "Ethan Clarke",
+    "title": "Principal at Digital Frontier",
+  }
+
+];
+---
+
+<section>
+  <div class="p-8 max-w-7xl mx-auto border-x border-gray border-b lg:py-32">
+    <div class="max-w-2xl">
+      <span class="text-neutral-400 font-light"
+        >Productised Web Development Studio</span
+      >
+      <h1 class="text-white mt-6 text-2xl font-light text-balance">
+        Maximize your online presence with a unique and engaging one-page
+        website that delivers outstanding results.
+      </h1>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="max-w-7xl mx-auto border-x border-gray border-b">
+    <div
+      class="text-white grid grid-cols-1 md:grid-cols-3 lg:divide-x divide-gray">
+      {
+        testimonials.map((testimonial) => (
+          <div class="flex flex-col justify-between h-full p-8">
+            <p class="text-neutral-400">{testimonial.text}</p>
+            <div class="mt-3">
+              <span class="block font-light mt-3">{testimonial.name}</span>
+              <span class="block text-neutral-400">{testimonial.title}</span>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
