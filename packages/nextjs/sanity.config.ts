@@ -30,7 +30,7 @@ export default defineConfig({
 		dashboardTool({
 			name: 'deployment',
 			title: 'Deployment',
-			widgets: [vercelWidget()],
+			// widgets: [vercelWidget()], //was causing errors related to xstate library
 		}),
 		dashboardTool({
 			name: 'info',
