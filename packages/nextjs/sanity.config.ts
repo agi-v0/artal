@@ -14,6 +14,7 @@ import { vercelWidget } from 'sanity-plugin-dashboard-widget-vercel'
 import { visionTool } from '@sanity/vision'
 import { codeInput } from '@sanity/code-input'
 import { schemaTypes } from './src/sanity/schemaTypes'
+import {documentInternationalization} from '@sanity/document-internationalization'
 
 const singletonTypes = ['site']
 
@@ -39,6 +40,14 @@ export default defineConfig({
 		}),
 		visionTool({ defaultApiVersion: apiVersion }),
 		codeInput(),
+		documentInternationalization({
+      // Required configuration
+      supportedLanguages: [
+        {id: 'ar', title: 'Arabic'},
+        {id: 'en', title: 'English'}
+      ],
+      schemaTypes: ['person'],
+    })
 	],
 
 	tasks: { enabled: false },

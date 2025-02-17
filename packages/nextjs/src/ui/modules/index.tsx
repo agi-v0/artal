@@ -14,6 +14,7 @@ import HeroSaaS from './HeroSaaS'
 import LogoList from './LogoList'
 import PersonList from './PersonList'
 import PricingList from './PricingList'
+import Projects from './Projects'
 import RichtextModule from './RichtextModule'
 import ScheduleModule from './ScheduleModule'
 import SearchModule from './SearchModule'
@@ -74,6 +75,8 @@ export default function Modules({
 						return <PersonList {...module} key={module._key} />
 					case 'pricing-list':
 						return <PricingList {...module} key={module._key} />
+					case 'projects':
+						return <Projects {...module} key={module._key} />
 					case 'richtext-module':
 						return <RichtextModule {...module} key={module._key} />
 					case 'schedule-module':

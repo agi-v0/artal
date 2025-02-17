@@ -1,22 +1,7 @@
-import { getSite } from '@/sanity/lib/queries'
-import Wrapper from './Wrapper'
-import Link from 'next/link'
-import Img from '@/ui/Img'
-import Navigation from './Navigation'
-import CTAList from '@/ui/CTAList'
-import Toggle from './Toggle'
-import { cn } from '@/lib/utils'
-import css from './Header.module.css'
-
-export default async function Header() {
-	const { title, logo, ctas } = await getSite()
-
-	const logoImage = logo?.image?.dark || logo?.image?.default
-
+const Header = () => {
 	return (
-		<Wrapper className="frosted-glass border-[#292929] max-md:header-open:shadow-lg sticky top-0 z-10 border-b">
-		
-			<div className="mx-auto w-full justify-center">
+		<>
+			<div className="mx-auto w-full justify-center bg-black">
 				<div
 					className="border-t-none border-gray mx-auto flex w-full max-w-7xl flex-col border p-8 lg:flex-row lg:items-center lg:justify-between"
 					x-data="{ open: false }"
@@ -28,7 +13,7 @@ export default async function Header() {
 							aria-label="your label"
 							className="font-display inline-flex items-center uppercase"
 						>
-							<span>{title}</span>
+							<span>✿ Dusk.</span>
 						</a>
 						<button
 							// @click="open = !open"
@@ -44,17 +29,17 @@ export default async function Header() {
 									className="{'hidden': open, 'inline-flex': !open }"
 									// className="inline-flex"
 									d="M4 6h16M4 12h16M4 18h16"
-									strokeLinecap="round"
-									strokeLinejoin="round"
-									strokeWidth="2"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
 								></path>
 								<path
 									className="{'hidden': !open, 'inline-flex': open }"
 									// className="hidden"
 									d="M6 18L18 6M6 6l12 12"
-									strokeLinecap="round"
-									strokeLinejoin="round"
-									strokeWidth="2"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
 								></path>
 							</svg>
 						</button>
@@ -90,6 +75,6 @@ export default async function Header() {
 					</nav>
 				</div>
 			</div>
-		</Wrapper>
+		</>
 	)
 }
