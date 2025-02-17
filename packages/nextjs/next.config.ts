@@ -11,6 +11,13 @@ const client = createClient({
 	useCdn: true,
 })
 
+const createNextIntlPlugin = require('next-intl/plugin');
+
+const withNextIntl = createNextIntlPlugin();
+
+/** @type {import('next').NextConfig} */
+const nextConfig = {};
+
 export default {
 	images: {
 		dangerouslyAllowSVG: true,
@@ -51,3 +58,8 @@ export default {
 	// 	},
 	// },
 } satisfies NextConfig
+
+
+module.exports = withNextIntl(nextConfig);
+
+ 

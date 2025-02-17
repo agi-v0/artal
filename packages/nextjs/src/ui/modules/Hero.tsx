@@ -28,83 +28,76 @@ export default function Hero({
 	Sanity.Module) {
 	const hasImage = !!bgImage?.asset
 
+	const testimonials = [
+		{
+			text: 'Albin possesses an exceptional talent for design and collaboration, making him a joy to work with. I eagerly anticipate engaging with him on upcoming ventures. I strongly endorse him for those in search of exceptional and distinctive work.',
+			name: 'Alex Reed',
+			title: 'Initiator of Code Camp',
+		},
+		{
+			text: 'Working with Albin on several design projects, his speed and efficiency were unparalleled. His design approach is modern and effective, bringing tremendous value through continuous refinement and enhancement of his work.',
+			name: 'Lucas Gomez',
+			title: 'Architect of Pixel Patterns',
+		},
+		{
+			text: 'Albin stands out as a designer and developer with a keen grasp of business necessities. Drawing on his extensive experience, he swiftly created several high-quality landing pages for our platform, Versoly.',
+			name: 'Ethan Clarke',
+			title: 'Principal at Digital Frontier',
+		},
+	]
+
 	return (
-		<section
-			className={cn(
-				hasImage &&
-					'bg-ink text-canvas grid overflow-hidden *:col-span-full *:row-span-full',
-			)}
-			{...moduleProps(props)}
-		>
-			{hasImage && (
-				<picture>
-					<Source image={bgImageMobile} width={1200} />
-					<Img
-						className="max-h-fold size-full object-cover"
-						image={bgImage}
-						width={2400}
-						draggable={false}
+		<>
+			<section>
+				<div className="mx-auto max-w-7xl border-x border-b border-[#292929] p-8 lg:py-32">
+					<Pretitle className={'font-light text-neutral-400'}>
+						{pretitle}
+					</Pretitle>
+
+					<PortableText
+						value={content}
+						components={{
+							types: {
+								'custom-html': ({ value }) => (
+									<CustomHTML
+										{...value}
+										className={
+											'mt-6 text-2xl font-light text-balance text-white'
+										}
+									/>
+								),
+								'reputation-block': ({ value }) => (
+									<Reputation
+										className={
+											'mt-6 text-2xl font-light text-balance text-white'
+										}
+										reputation={value.reputation}
+									/>
+								),
+							},
+						}}
 					/>
-				</picture>
-			)}
-
-			{content && (
-				<div className="section flex w-full flex-col">
-					<div
-						className={cn(
-							'richtext headings:text-balance relative isolate max-w-xl',
-							hasImage && 'text-shadow',
-							{
-								'mb-8': stegaClean(alignItems) === 'start',
-								'my-auto': stegaClean(alignItems) === 'center',
-								'mt-auto': stegaClean(alignItems) === 'end',
-							},
-							{
-								'mr-auto': stegaClean(textAlign) === 'left',
-								'mx-auto': stegaClean(textAlign) === 'center',
-								'ml-auto': stegaClean(textAlign) === 'right',
-							},
-						)}
-						style={{ textAlign: stegaClean(textAlign) }}
-					>
-						<Pretitle className={cn(hasImage && 'text-canvas/70')}>
-							{pretitle}
-						</Pretitle>
-
-						<PortableText
-							value={content}
-							components={{
-								types: {
-									'custom-html': ({ value }) => <CustomHTML {...value} />,
-									'reputation-block': ({ value }) => (
-										<Reputation
-											className={cn(
-												'!mt-4',
-												hasImage && '[&_strong]:text-amber-400',
-												{
-													'justify-start': stegaClean(textAlign) === 'left',
-													'justify-center': stegaClean(textAlign) === 'center',
-													'justify-end': stegaClean(textAlign) === 'right',
-												},
-											)}
-											reputation={value.reputation}
-										/>
-									),
-								},
-							}}
-						/>
-
-						<CTAList
-							ctas={ctas}
-							className={cn('!mt-4', {
-								'justify-start': stegaClean(textAlign) === 'left',
-								'justify-center': stegaClean(textAlign) === 'center',
-								'justify-end': stegaClean(textAlign) === 'right',
-							})}
-						/>
+				</div>
+			</section>
+			<section>
+				<div className="mx-auto max-w-7xl border-x border-b border-[#292929]">
+					<div className="grid grid-cols-1 divide-[#292929] text-white md:grid-cols-3 lg:divide-x">
+						{testimonials.map((testimonial) => (
+							<div className="flex h-full flex-col justify-between p-8">
+								<p className="text-neutral-400">{testimonial.text}</p>
+								<div className="mt-3">
+									<span className="mt-3 block font-light">
+										{testimonial.name}
+									</span>
+									<span className="block text-neutral-400">
+										{testimonial.title}
+									</span>
+								</div>
+							</div>
+						))}
 					</div>
 				</div>
-			)}
-		</section>
+			</section>
+		</>
 	)
 }

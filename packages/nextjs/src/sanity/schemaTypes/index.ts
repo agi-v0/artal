@@ -46,6 +46,8 @@ import stepList from './modules/step-list'
 import tabbedContent from './modules/tabbed-content'
 import testimonialFeatured from './modules/testimonial.featured'
 import testimonialList from './modules/testimonial-list'
+import projectList from './modules/project-list'
+import project from './documents/project'
 
 export const schemaTypes: SchemaTypeDefinition[] = [
 	// documents
@@ -59,6 +61,7 @@ export const schemaTypes: SchemaTypeDefinition[] = [
 	logo,
 	person,
 	pricing,
+	project,
 	reputation,
 	testimonial,
 
@@ -85,6 +88,7 @@ export const schemaTypes: SchemaTypeDefinition[] = [
 	logoList,
 	personList,
 	pricingList,
+	projectList,
 	richtextModule,
 	scheduleModule,
 	searchModule,

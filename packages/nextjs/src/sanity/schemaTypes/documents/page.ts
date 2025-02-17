@@ -43,6 +43,7 @@ export default defineType({
 				{ type: 'logo-list' },
 				{ type: 'person-list' },
 				{ type: 'pricing-list' },
+				{ type: 'project.list' },
 				{ type: 'richtext-module' },
 				{ type: 'schedule-module' },
 				{ type: 'search-module' },
