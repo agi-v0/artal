@@ -1,10 +1,10 @@
 const Projects = () => {
-	const allPosts = [{ longImage: '', company: '' }]
+	const allPosts = [{ longImage: '/temp/large1.png', company: '' }]
 
 	return (
 		<>
 			<section>
-				<div className="border-gray mx-auto max-w-7xl border-x border-b p-8">
+				<div className="border-[#292929] mx-auto max-w-7xl border-x border-b p-8">
 					<div className="w-full items-center justify-between text-left md:inline-flex">
 						<div>
 							<h3 className="mt-6 text-2xl font-light text-white">
@@ -25,8 +25,8 @@ const Projects = () => {
 				</div>
 			</section>
 			<section>
-				<div className="border-gray mx-auto max-w-7xl border-x border-b">
-					<ul className="grid-col-1 divide-gray grid h-full md:grid-cols-3 lg:divide-x">
+				<div className="border-[#292929] mx-auto max-w-7xl border-x border-b">
+					<ul className="grid-col-1 divide-[#292929] grid h-full md:grid-cols-3 lg:divide-x">
 						{allPosts.slice(0, 3).map((post) => (
 							<li className="flex h-full flex-col p-8">
 								<a>

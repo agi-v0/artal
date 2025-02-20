@@ -1,11 +1,6 @@
-import moduleProps from '@/lib/moduleProps'
-import Img, { Source } from '@/ui/Img'
-import { PortableText, stegaClean } from 'next-sanity'
-import CTAList from '@/ui/CTAList'
+
+import { PortableText } from 'next-sanity'
 import Pretitle from '@/ui/Pretitle'
-import CustomHTML from './CustomHTML'
-import Reputation from '@/ui/Reputation'
-import { cn } from '@/lib/utils'
 
 export default function Hero({
 	pretitle,
@@ -26,7 +21,6 @@ export default function Hero({
 	alignItems: React.CSSProperties['alignItems']
 }> &
 	Sanity.Module) {
-	const hasImage = !!bgImage?.asset
 
 	const testimonials = [
 		{
@@ -54,29 +48,9 @@ export default function Hero({
 						{pretitle}
 					</Pretitle>
 
-					<PortableText
-						value={content}
-						components={{
-							types: {
-								'custom-html': ({ value }) => (
-									<CustomHTML
-										{...value}
-										className={
-											'mt-6 text-2xl font-light text-balance text-white'
-										}
-									/>
-								),
-								'reputation-block': ({ value }) => (
-									<Reputation
-										className={
-											'mt-6 text-2xl font-light text-balance text-white'
-										}
-										reputation={value.reputation}
-									/>
-								),
-							},
-						}}
-					/>
+					<div className="mt-6 text-2xl font-light text-balance text-white">
+						<PortableText value={content} />
+					</div>
 				</div>
 			</section>
 			<section>
