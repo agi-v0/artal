@@ -48,6 +48,8 @@ import testimonialFeatured from './modules/testimonial.featured'
 import testimonialList from './modules/testimonial-list'
 import projectList from './modules/project-list'
 import project from './documents/project'
+import service from './documents/service'
+import serviceList from './modules/service-list'
 
 export const schemaTypes: SchemaTypeDefinition[] = [
 	// documents
@@ -63,6 +65,7 @@ export const schemaTypes: SchemaTypeDefinition[] = [
 	pricing,
 	project,
 	reputation,
+	service,
 	testimonial,
 
 	// objects
@@ -71,6 +74,7 @@ export const schemaTypes: SchemaTypeDefinition[] = [
 	linkList,
 	metadata,
 	moduleOptions,
+	
 	// modules
 	accordionList,
 	blogFrontpage,
@@ -92,6 +96,7 @@ export const schemaTypes: SchemaTypeDefinition[] = [
 	richtextModule,
 	scheduleModule,
 	searchModule,
+	serviceList,
 	statList,
 	stepList,
 	tabbedContent,

@@ -23,6 +23,7 @@ import StepList from './StepList'
 import TabbedContent from './TabbedContent'
 import TestimonialList from './TestimonialList'
 import TestimonialFeatured from './TestimonialFeatured'
+import Services from './Services'
 
 export default function Modules({
 	modules,
@@ -75,7 +76,7 @@ export default function Modules({
 						return <PersonList {...module} key={module._key} />
 					case 'pricing-list':
 						return <PricingList {...module} key={module._key} />
-					case 'projects':
+					case 'project.list':
 						return <Projects {...module} key={module._key} />
 					case 'richtext-module':
 						return <RichtextModule {...module} key={module._key} />
@@ -83,6 +84,8 @@ export default function Modules({
 						return <ScheduleModule {...module} key={module._key} />
 					case 'search-module':
 						return <SearchModule {...module} key={module._key} />
+					case 'service.list':
+						return <Services {...module} key={module._key} />
 					case 'stat-list':
 						return <StatList {...module} key={module._key} />
 					case 'step-list':
