@@ -12,14 +12,22 @@ import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
 import { notFound } from 'next/navigation'
 import { routing } from '@/i18n/routing'
+import { IBM_Plex_Sans_Arabic } from 'next/font/google'
+
+const font = IBM_Plex_Sans_Arabic({
+	subsets: ['latin', 'arabic'],
+	display: 'swap',
+	weight: ['400', '500', '600'],
+})
 
 export default async function RootLayout({
 	children,
-	params: { locale },
+	params,
 }: {
 	children: React.ReactNode
-	params: { locale: string }
+	params: any
 }) {
+	const { locale } = await params
 	if (!routing.locales.includes(locale as any)) {
 		notFound()
 	}
@@ -27,10 +35,10 @@ export default async function RootLayout({
 	const messages = await getMessages()
 
 	return (
-		<html lang={locale}>
+		<html lang={locale} className={font.className}>
 			{/* <GoogleTagManager gtmId="" /> */}
 
-			<body className="bg-[#1f1f1f] text-ink">
+			<body className="text-ink bg-[#1f1f1f]">
 				<NuqsAdapter>
 					<SkipToContent />
 					<Announcement />

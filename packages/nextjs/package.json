@@ -25,6 +25,7 @@
 		"@sanity/preview-url-secret": "^2.1.4",
 		"@sanity/types": "^3.76.3",
 		"@sanity/vision": "^3.74.1",
+		"@tailwindcss/oxide-win32-x64-msvc": "^4.0.9",
 		"@tailwindcss/postcss": "^4.0.4",
 		"@vercel/analytics": "^1.4.1",
 		"@vercel/speed-insights": "^1.1.0",
@@ -32,6 +33,7 @@
 		"clsx": "^2.1.1",
 		"embla-carousel-react": "^8.5.2",
 		"feed": "^4.2.2",
+		"lightningcss-win32-x64-msvc": "^1.29.1",
 		"lucide-react": "^0.475.0",
 		"next": "^15.1.6",
 		"next-intl": "^3.26.3",
@@ -64,7 +66,7 @@
 		"postcss": "^8.5.1",
 		"prettier": "^3.4.2",
 		"prettier-plugin-tailwindcss": "^0.6.11",
-		"tailwindcss": "^4.0.4",
+		"tailwindcss": "^4.0.9",
 		"typescript": "^5.7.3"
 	}
 }

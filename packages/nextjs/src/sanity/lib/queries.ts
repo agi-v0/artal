@@ -116,6 +116,6 @@ export const MODULES_QUERY = groq`
 	_type == 'testimonial-list' => { testimonials[]-> },
 	_type == 'service.list' => { services[]-> },
 	_type == 'project.list' => { projects[]-> },
-	_type == 'awards' => { awardsList[]-> },
+	// _type == 'awards' => { awardsList-> },
 
 `

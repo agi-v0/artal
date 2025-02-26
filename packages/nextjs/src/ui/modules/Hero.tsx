@@ -20,7 +20,7 @@ export default function Hero({
 						{pretitle}
 					</Pretitle>
 
-					<div className="mt-6 text-2xl font-light text-balance text-white">
+					<div className="mt-6 text-6xl font-light text-balance text-white">
 						<PortableText value={content} />
 					</div>
 				</div>

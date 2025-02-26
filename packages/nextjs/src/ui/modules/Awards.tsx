@@ -57,8 +57,6 @@ const Awards = ({
 	awardsList: any
 }> &
 	Sanity.Module) => {
-	console.log('awards here..', awardsList)
-
 	return (
 		<>
 			<section>
@@ -107,7 +105,7 @@ const Awards = ({
 											</tr>
 										</thead>
 										<tbody className="divide-y divide-[#292929]">
-											{/* {awards.map((award: any, index: string) => (
+											{awardsList.map((award: any, index: string) => (
 												<tr
 													key={index}
 													className="divide-x divide-[#292929] font-light whitespace-nowrap text-neutral-400"
@@ -117,7 +115,7 @@ const Awards = ({
 													<td className="px-8 py-4">{award.contest}</td>
 													<td className="px-8 py-4">{award.project}</td>
 												</tr>
-											))} */}
+											))}
 										</tbody>
 									</table>
 								</div>
