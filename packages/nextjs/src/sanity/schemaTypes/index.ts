@@ -46,6 +46,16 @@ import stepList from './modules/step-list'
 import tabbedContent from './modules/tabbed-content'
 import testimonialFeatured from './modules/testimonial.featured'
 import testimonialList from './modules/testimonial-list'
+import projectList from './modules/project-list'
+import project from './documents/project'
+import service from './documents/service'
+import serviceList from './modules/service-list'
+import about from './modules/about'
+import process from './modules/process'
+import awards from './modules/awards'
+import crafted from './modules/crafted'
+import why from './modules/why'
+import faq from './modules/faq'
 
 export const schemaTypes: SchemaTypeDefinition[] = [
 	// documents
@@ -59,7 +69,9 @@ export const schemaTypes: SchemaTypeDefinition[] = [
 	logo,
 	person,
 	pricing,
+	project,
 	reputation,
+	service,
 	testimonial,
 
 	// objects
@@ -68,16 +80,21 @@ export const schemaTypes: SchemaTypeDefinition[] = [
 	linkList,
 	metadata,
 	moduleOptions,
+	
 	// modules
+	about,
 	accordionList,
+	awards,
 	blogFrontpage,
 	blogList,
 	blogPostContent,
 	breadcrumbs,
 	callout,
 	cardList,
+	crafted,
 	creativeModule,
 	customHtml,
+	faq,
 	flagList,
 	hero,
 	heroSaas,
@@ -85,12 +102,16 @@ export const schemaTypes: SchemaTypeDefinition[] = [
 	logoList,
 	personList,
 	pricingList,
+	projectList,
+	process,
 	richtextModule,
 	scheduleModule,
 	searchModule,
+	serviceList,
 	statList,
 	stepList,
 	tabbedContent,
 	testimonialFeatured,
 	testimonialList,
+	why
 ]

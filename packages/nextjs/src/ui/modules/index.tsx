@@ -14,6 +14,7 @@ import HeroSaaS from './HeroSaaS'
 import LogoList from './LogoList'
 import PersonList from './PersonList'
 import PricingList from './PricingList'
+import Projects from './Projects'
 import RichtextModule from './RichtextModule'
 import ScheduleModule from './ScheduleModule'
 import SearchModule from './SearchModule'
@@ -22,6 +23,13 @@ import StepList from './StepList'
 import TabbedContent from './TabbedContent'
 import TestimonialList from './TestimonialList'
 import TestimonialFeatured from './TestimonialFeatured'
+import Services from './Services'
+import About from './About'
+import Process from './Process'
+import Awards from './Awards'
+import Crafted from './Crafted'
+import Why from './Why'
+import FAQ from './Faq'
 
 export default function Modules({
 	modules,
@@ -36,8 +44,12 @@ export default function Modules({
 		<>
 			{modules?.map((module) => {
 				switch (module._type) {
+					case 'about':
+						return <About {...module} key={module._key} />
 					case 'accordion-list':
 						return <AccordionList {...module} key={module._key} />
+					case 'awards':
+						return <Awards {...module} key={module._key} />
 					case 'blog-frontpage':
 						return <BlogFrontpage {...module} key={module._key} />
 					case 'blog-list':
@@ -56,10 +68,14 @@ export default function Modules({
 						return <Callout {...module} key={module._key} />
 					case 'card-list':
 						return <CardList {...module} key={module._key} />
+					case 'crafted':
+						return <Crafted {...module} key={module._key} />
 					case 'creative-module':
 						return <CreativeModule {...module} key={module._key} />
 					case 'custom-html':
 						return <CustomHTML {...module} key={module._key} />
+					case 'faq':
+						return <FAQ {...module} key={module._key} />
 					case 'flag-list':
 						return <FlagList {...module} key={module._key} />
 					case 'hero':
@@ -74,12 +90,18 @@ export default function Modules({
 						return <PersonList {...module} key={module._key} />
 					case 'pricing-list':
 						return <PricingList {...module} key={module._key} />
+					case 'project.list':
+						return <Projects {...module} key={module._key} />
+					case 'process':
+						return <Process {...module} key={module._key} />
 					case 'richtext-module':
 						return <RichtextModule {...module} key={module._key} />
 					case 'schedule-module':
 						return <ScheduleModule {...module} key={module._key} />
 					case 'search-module':
 						return <SearchModule {...module} key={module._key} />
+					case 'service.list':
+						return <Services {...module} key={module._key} />
 					case 'stat-list':
 						return <StatList {...module} key={module._key} />
 					case 'step-list':
@@ -90,6 +112,8 @@ export default function Modules({
 						return <TestimonialList {...module} key={module._key} />
 					case 'testimonial.featured':
 						return <TestimonialFeatured {...module} key={module._key} />
+					case 'why':
+						return <Why {...module} key={module._key} />
 
 					default:
 						return <div data-type={module._type} key={module._key} />

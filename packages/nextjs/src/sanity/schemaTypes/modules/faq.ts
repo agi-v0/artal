@@ -1,30 +1,15 @@
 import { defineField, defineType } from 'sanity'
 import { TfiLayoutCtaCenter } from 'react-icons/tfi'
 import { reputationBlock } from '../documents/reputation'
-import {
-	textAlign,
-	alignItems,
-	alignmentFieldset,
-} from '../fragments/fields/alignment'
 import { getBlockText } from '@/sanity/lib/utils'
 
 export default defineType({
-	name: 'hero',
-	title: 'Hero',
+	name: 'faq',
+	title: 'FAQ',
 	icon: TfiLayoutCtaCenter,
 	type: 'object',
-	groups: [
-		{ name: 'content', default: true },
-		{ name: 'image' },
-		{ name: 'options' },
-	],
-	fieldsets: [alignmentFieldset, { name: 'image', options: { columns: 2 } }],
+	groups: [{ name: 'content', default: true }],
 	fields: [
-		defineField({
-			name: 'options',
-			type: 'module-options',
-			group: 'options',
-		}),
 		defineField({
 			name: 'pretitle',
 			type: 'string',
@@ -37,7 +22,7 @@ export default defineType({
 			group: 'content',
 		}),
 		defineField({
-			name: 'testimonials',
+			name: 'faqs',
 			type: 'array',
 			group: 'content',
 			of: [
@@ -45,20 +30,15 @@ export default defineType({
 					type: 'object',
 					fields: [
 						{
-							name: 'content',
+							name: 'question',
+							type: 'string',
+							title: 'Question',
+						},
+						{
+							name: 'answer',
 							type: 'array',
-							title: 'Content',
-							of: [{ type: 'block' }],
-						},
-						{
-							name: 'name',
-							type: 'string',
-							title: 'name',
-						},
-						{
-							name: 'description',
-							type: 'string',
-							title: 'description',
+							title: 'Answer',
+							of: [{ type: 'block' }], 
 						},
 					],
 				},
@@ -68,12 +48,10 @@ export default defineType({
 	preview: {
 		select: {
 			content: 'content',
-			media: 'bgImage.asset',
 		},
-		prepare: ({ content, media }) => ({
+		prepare: ({ content }) => ({
 			title: getBlockText(content),
-			subtitle: 'Hero',
-			media,
+			subtitle: 'FAQ',
 		}),
 	},
 })

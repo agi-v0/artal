@@ -1,16 +1,12 @@
 import { defineField, defineType } from 'sanity'
 import { TfiLayoutCtaCenter } from 'react-icons/tfi'
 import { reputationBlock } from '../documents/reputation'
-import {
-	textAlign,
-	alignItems,
-	alignmentFieldset,
-} from '../fragments/fields/alignment'
+import { alignmentFieldset } from '../fragments/fields/alignment'
 import { getBlockText } from '@/sanity/lib/utils'
 
 export default defineType({
-	name: 'hero',
-	title: 'Hero',
+	name: 'project.list',
+	title: 'Project List',
 	icon: TfiLayoutCtaCenter,
 	type: 'object',
 	groups: [
@@ -26,43 +22,31 @@ export default defineType({
 			group: 'options',
 		}),
 		defineField({
-			name: 'pretitle',
-			type: 'string',
-			group: 'content',
-		}),
-		defineField({
 			name: 'content',
 			type: 'array',
 			of: [{ type: 'block' }, { type: 'custom-html' }, reputationBlock],
 			group: 'content',
 		}),
 		defineField({
-			name: 'testimonials',
+			name: 'ctas',
+			title: 'Call-to-actions',
 			type: 'array',
+			of: [{ type: 'cta' }],
 			group: 'content',
+		}),
+		defineField({
+			name: 'projects',
+			title: 'Projects',
+			type: 'array',
 			of: [
 				{
-					type: 'object',
-					fields: [
-						{
-							name: 'content',
-							type: 'array',
-							title: 'Content',
-							of: [{ type: 'block' }],
-						},
-						{
-							name: 'name',
-							type: 'string',
-							title: 'name',
-						},
-						{
-							name: 'description',
-							type: 'string',
-							title: 'description',
-						},
-					],
+					name: 'project',
+					title: 'Project',
+					type: 'reference',
+					to: [{ type: 'project' }],
 				},
 			],
+			group: 'content',
 		}),
 	],
 	preview: {
@@ -72,7 +56,7 @@ export default defineType({
 		},
 		prepare: ({ content, media }) => ({
 			title: getBlockText(content),
-			subtitle: 'Hero',
+			subtitle: 'Projects',
 			media,
 		}),
 	},
