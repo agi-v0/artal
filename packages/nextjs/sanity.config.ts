@@ -10,7 +10,7 @@ import {
 	projectUsersWidget,
 } from '@sanity/dashboard'
 import { infoWidget } from './src/sanity/infoWidget'
-import { vercelWidget } from 'sanity-plugin-dashboard-widget-vercel'
+// import { vercelWidget } from 'sanity-plugin-dashboard-widget-vercel'
 import { visionTool } from '@sanity/vision'
 import { codeInput } from '@sanity/code-input'
 import { schemaTypes } from './src/sanity/schemaTypes'

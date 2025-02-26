@@ -1,24 +1,16 @@
 import { getSite } from '@/sanity/lib/queries'
 import Wrapper from './Wrapper'
-import Link from 'next/link'
-import Img from '@/ui/Img'
-import Navigation from './Navigation'
-import CTAList from '@/ui/CTAList'
-import Toggle from './Toggle'
-import { cn } from '@/lib/utils'
-import css from './Header.module.css'
+
 
 export default async function Header() {
-	const { title, logo, ctas } = await getSite()
-
-	const logoImage = logo?.image?.dark || logo?.image?.default
+	const { title } = await getSite()
 
 	return (
 		<Wrapper className="frosted-glass border-[#292929] max-md:header-open:shadow-lg sticky top-0 z-10 border-b">
 		
 			<div className="mx-auto w-full justify-center">
 				<div
-					className="border-t-none border-gray mx-auto flex w-full max-w-7xl flex-col border p-8 lg:flex-row lg:items-center lg:justify-between"
+					className="border-t-none border-[#292929] mx-auto flex w-full max-w-7xl flex-col border p-8 lg:flex-row lg:items-center lg:justify-between"
 					x-data="{ open: false }"
 				>
 					<div className="flex flex-row items-center justify-between text-white">

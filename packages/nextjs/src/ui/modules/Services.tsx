@@ -1,20 +1,16 @@
-// import { getCollection } from 'astro:content'
-
 import { PortableText } from 'next-sanity'
-
-// import ServicesEntries from '@/components/services/ServicesEntries.astro'
 
 const Services = ({
 	pretitle,
 	content,
+	services,
 	...props
 }: Partial<{
 	pretitle: string
 	content: any
+	services: any
 }> &
 	Sanity.Module) => {
-	// const allPosts = await getCollection('services')
-
 	return (
 		<>
 			<section>
@@ -30,12 +26,15 @@ const Services = ({
 			<section>
 				<div className="mx-auto max-w-7xl border-x border-b border-[#292929]">
 					<div className="grid grid-cols-1 divide-y divide-[#292929] text-white">
-						{/* {allPosts.map((post) => (
-							<ServicesEntries
-								url={'/services/' + post.slug}
-								service={post.data.service}
-							/>
-						))} */}
+						{services?.map((service: any, index: string) => (
+							<div
+								key={index}
+								className="flex w-full justify-between gap-3 p-8"
+							>
+								<p className="font-light">{service.title}</p>
+								<span>&rarr;</span>
+							</div>
+						))}
 					</div>
 				</div>
 			</section>

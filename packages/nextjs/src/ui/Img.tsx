@@ -1,93 +1,121 @@
-import { preload } from 'react-dom'
-import { getImageDimensions } from '@sanity/asset-utils'
+import {
+	useNextSanityImage,
+	type UseNextSanityImageOptions,
+} from 'next-sanity-image'
+import { ImageFormat } from '@sanity/image-url/lib/types/types'
+import { client } from '@/sanity/lib/client'
 import { urlFor } from '@/sanity/lib/image'
-import Image, { type ImageProps } from 'next/image'
-import type { ComponentProps } from 'react'
-import { stegaClean } from 'next-sanity'
 
-export default function Img({
-	image,
-	width: w,
-	height: h,
-	...props
-}: {
-	image?: Sanity.Image
+const SIZES = [
+	60, 120, 240, 360, 480, 640, 720, 960, 1200, 1440, 1920, 2560, 3000,
+]
+
+type ImageProps = {
+	svg?: boolean
+	format?: ImageFormat
+	image: Sanity.Image | undefined
+	imageWidth?: number
+	className?: string
+	imageSizes?: number[]
 	alt?: string
-} & Omit<ImageProps, 'src' | 'alt'>) {
-	if (!image?.asset) return null
+	options?: UseNextSanityImageOptions
+} & React.ImgHTMLAttributes<HTMLImageElement>
 
-	const { src, width, height } = generateSrc(image, w, h)
+type SourceProps = Omit<ImageProps, 'className' | 'alt'> & {
+	media?: string
+}
+const FADE_DOWN_ANIMATION_VARIANTS = {
+	hidden: { opacity: 0, y: -10 },
+	show: { opacity: 1, y: 0, transition: { type: 'spring' } },
+}
 
-	if (stegaClean(image.loading) === 'eager') {
-		preload(src, { as: 'image' })
+function generateSrcSet(
+	image: Sanity.Image,
+	format: ImageFormat,
+	svg: boolean,
+	width?: number,
+	sizes: number[] = SIZES,
+): string | undefined {
+	if (!image) return undefined
+
+	const filteredSizes = sizes.filter((size) => !width || size <= width)
+	const urlGenerator = (size: number) => {
+		let imageUrl = urlFor(image).width(size).auto('format')
+		if (!svg) {
+			imageUrl = imageUrl.format(format)
+		}
+		return `${imageUrl.url()} ${size}w`
 	}
 
+	return filteredSizes.map(urlGenerator).join(', ')
+}
+
+export default function Img({
+	svg = false,
+	format = 'webp',
+	image,
+	imageWidth,
+	className,
+	imageSizes = SIZES,
+	alt = '',
+	options,
+	...props
+}: ImageProps) {
+	const imageProps = useNextSanityImage(client, image || {})
+
+	if (!image?.asset) return null
+
+	const { src, width, height } = imageProps
+	const finalWidth = imageWidth || width
+	const finalHeight = imageWidth
+		? Math.round((imageWidth / width) * height)
+		: height
+
+	const srcSet = generateSrcSet(image, format, svg, finalWidth, imageSizes)
+
 	return (
-		<Image
+		<img
 			src={src}
-			width={width}
-			height={height}
-			alt={props.alt || image.alt || ''}
-			loading={stegaClean(image.loading)}
+			srcSet={srcSet}
+			width={finalWidth}
+			height={finalHeight}
+			className={className}
+			alt={image.alt || alt}
+			loading={image.loading || 'lazy'}
+			decoding="async"
 			{...props}
 		/>
 	)
 }
 
 export function Source({
+	svg = false,
+	format = 'webp',
 	image,
-	media = '(width < 48rem)',
-	width: w,
-	height: h,
-	...props
-}: {
-	image?: Sanity.Image
-} & Omit<ComponentProps<'source'>, ''>) {
-	if (!image?.asset) return null
+	imageWidth,
+	imageSizes = SIZES,
+	options,
+	media = '(max-width: 768px)',
+}: SourceProps) {
+	const imageProps = useNextSanityImage(client, image || {})
 
-	const { src, width, height } = generateSrc(image, w, h)
+	if (!image) return null
 
-	if (stegaClean(image.loading) === 'eager') {
-		preload(src, { as: 'image' })
-	}
+	const { src, width, height } = imageProps
+	const finalWidth = imageWidth || width
+	const finalHeight = imageWidth
+		? Math.round((imageWidth / width) * height)
+		: height
+
+	const srcSet =
+		generateSrcSet(image, format, svg, finalWidth, imageSizes) || src
 
 	return (
 		<source
-			srcSet={src}
-			width={width}
-			height={height}
+			srcSet={srcSet}
+			width={finalWidth}
+			height={finalHeight}
 			media={media}
-			{...props}
 		/>
 	)
-}
-
-function generateSrc(
-	image: Sanity.Image,
-	w?: number | `${number}` | string,
-	h?: number | `${number}` | string,
-) {
-	const { width: w_orig, height: h_orig } = getImageDimensions(image)
-
-	const w_calc = !!w // if width is provided
-		? Number(w)
-		: // if height is provided, calculate width
-			!!h && Math.floor((Number(h) * w_orig) / h_orig)
-
-	const h_calc = !!h // if height is provided
-		? Number(h)
-		: // if width is provided, calculate height
-			!!w && Math.floor((Number(w) * h_orig) / w_orig)
-
-	return {
-		src: urlFor(image)
-			.withOptions({
-				width: !!w ? Number(w) : undefined,
-				height: !!h ? Number(h) : undefined,
-				auto: 'format',
-			})
-			.url(),
-		width: w_calc || w_orig,
-		height: h_calc || h_orig,
-	}
 }

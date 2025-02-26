@@ -14,7 +14,14 @@ export default defineType({
 	],
 	fields: [
 		defineField({
+			name: 'title',
+			title: 'Title',
+			type: 'string',
+			group: 'content',
+		}),
+		defineField({
 			name: 'body',
+			title: 'Content',
 			type: 'array',
 			of: [
 				{ type: 'block' },

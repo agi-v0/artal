@@ -1,30 +1,15 @@
 import { defineField, defineType } from 'sanity'
 import { TfiLayoutCtaCenter } from 'react-icons/tfi'
 import { reputationBlock } from '../documents/reputation'
-import {
-	textAlign,
-	alignItems,
-	alignmentFieldset,
-} from '../fragments/fields/alignment'
 import { getBlockText } from '@/sanity/lib/utils'
 
 export default defineType({
-	name: 'hero',
-	title: 'Hero',
+	name: 'awards',
+	title: 'Awards',
 	icon: TfiLayoutCtaCenter,
 	type: 'object',
-	groups: [
-		{ name: 'content', default: true },
-		{ name: 'image' },
-		{ name: 'options' },
-	],
-	fieldsets: [alignmentFieldset, { name: 'image', options: { columns: 2 } }],
+	groups: [{ name: 'content', default: true }],
 	fields: [
-		defineField({
-			name: 'options',
-			type: 'module-options',
-			group: 'options',
-		}),
 		defineField({
 			name: 'pretitle',
 			type: 'string',
@@ -37,43 +22,57 @@ export default defineType({
 			group: 'content',
 		}),
 		defineField({
-			name: 'testimonials',
+			name: 'awardsList',
+			title: 'Awards List',
 			type: 'array',
-			group: 'content',
 			of: [
 				{
 					type: 'object',
 					fields: [
 						{
-							name: 'content',
-							type: 'array',
-							title: 'Content',
-							of: [{ type: 'block' }],
+							name: 'year',
+							title: 'Year',
+							type: 'string',
 						},
 						{
-							name: 'name',
+							name: 'award',
+							title: 'Award',
 							type: 'string',
-							title: 'name',
 						},
 						{
-							name: 'description',
+							name: 'contest',
+							title: 'Contest',
 							type: 'string',
-							title: 'description',
+						},
+						{
+							name: 'project',
+							title: 'Project',
+							type: 'string',
 						},
 					],
+					preview: {
+						select: {
+							year: 'year',
+							award: 'award',
+							contest: 'contest',
+						},
+						prepare: ({ year, award, contest }) => ({
+							title: `${year}: ${award}`,
+							subtitle: contest,
+						}),
+					},
 				},
 			],
+			group: 'content',
 		}),
 	],
 	preview: {
 		select: {
 			content: 'content',
-			media: 'bgImage.asset',
 		},
-		prepare: ({ content, media }) => ({
+		prepare: ({ content }) => ({
 			title: getBlockText(content),
-			subtitle: 'Hero',
-			media,
+			subtitle: 'Awards',
 		}),
 	},
 })

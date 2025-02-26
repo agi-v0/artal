@@ -11,10 +11,8 @@ export default defineType({
 	type: 'object',
 	groups: [
 		{ name: 'content', default: true },
-		{ name: 'image' },
 		{ name: 'options' },
 	],
-	fieldsets: [alignmentFieldset, { name: 'image', options: { columns: 2 } }],
 	fields: [
 		defineField({
 			name: 'pretitle',
