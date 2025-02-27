@@ -18,13 +18,12 @@ export async function generateMetadata({ params }: Props) {
 	return processMetadata(page)
 }
 
-export async function generateStaticParams({ params }: Props) {
-	const { locale } = await params
+export async function generateStaticParams() {
 	const slugs = await client.fetch<string[]>(
 		groq`*[
 			_type == 'page' &&
 			defined(metadata.slug.current)  &&
-			!(metadata.slug.current in ['index', 'blog/*']) && language == $locale
+			!(metadata.slug.current in ['index', 'blog/*']) 
 		].metadata.slug.current`,
 	)
 
