@@ -15,19 +15,19 @@ export default function Hero({
 	return (
 		<>
 			<section>
-				<div className="mx-auto max-w-7xl border-x border-b border-[#292929] p-8 lg:py-32">
+				<div className="mx-auto max-w-7xl border-x border-b border-neutral-400 p-8 lg:py-32">
 					<Pretitle className={'font-light text-neutral-400'}>
 						{pretitle}
 					</Pretitle>
 
-					<div className="mt-6 text-6xl font-light text-balance text-white">
+					<div className="text-foreground mt-6 text-6xl font-light text-balance">
 						<PortableText value={content} />
 					</div>
 				</div>
 			</section>
 			<section>
-				<div className="mx-auto max-w-7xl border-x border-b border-[#292929]">
-					<div className="grid grid-cols-1 divide-[#292929] text-white md:grid-cols-3 lg:divide-x">
+				<div className="mx-auto max-w-7xl border-x border-b border-neutral-400">
+					<div className="text-foreground grid grid-cols-1 divide-[#292929] md:grid-cols-3 lg:divide-x">
 						{testimonials.map((testimonial: any, index: string) => (
 							<div
 								className="flex h-full flex-col justify-between p-8"

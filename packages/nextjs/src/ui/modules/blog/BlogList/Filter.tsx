@@ -22,7 +22,7 @@ export default function Filter({
 				css.filter,
 				'!py-1',
 				category === value
-					? 'action *:text-white/50'
+					? 'action *:text-foreground/50'
 					: 'ghost border border-transparent',
 			)}
 			onClick={() => {

@@ -32,7 +32,7 @@ export default function PricingList({
 					(tier) =>
 						!!tier && (
 							<div
-								className="space-y-6 rounded border border-neutral-200 p-4"
+								className="space-y-6 rounded border border-neutral-400 p-4"
 								key={tier._id}
 							>
 								<div className="space-y-3">

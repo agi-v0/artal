@@ -1,7 +1,7 @@
 'use client'
 
 import { defineConfig } from 'sanity'
-import { projectId, dataset, apiVersion } from '@/sanity/lib/env'
+import { projectId, dataset, apiVersion, basePath } from '@/sanity/lib/env'
 import { icon, structure } from './src/sanity/structure'
 import { presentation } from './src/sanity/presentation'
 import {
@@ -23,7 +23,7 @@ export default defineConfig({
 	icon,
 	projectId,
 	dataset,
-	basePath: '/admin',
+	basePath,
 
 	plugins: [
 		structure,
@@ -36,7 +36,11 @@ export default defineConfig({
 		dashboardTool({
 			name: 'info',
 			title: 'Info',
-			widgets: [projectInfoWidget(), projectUsersWidget(), infoWidget()],
+			widgets: [
+				projectInfoWidget(),
+				projectUsersWidget(),
+				// infoWidget()
+			],
 		}),
 		visionTool({ defaultApiVersion: apiVersion }),
 		codeInput(),

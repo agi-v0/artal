@@ -60,10 +60,10 @@ const Awards = ({
 	return (
 		<>
 			<section>
-				<div className="mx-auto max-w-7xl border-x border-b border-[#292929] p-8 lg:border-b-0 lg:py-32">
+				<div className="mx-auto max-w-7xl border-x border-b border-neutral-400 p-8 lg:border-b-0 lg:py-32">
 					<div className="max-w-2xl">
 						<span className="font-light text-neutral-400">{pretitle}</span>
-						<div className="mt-6 text-2xl font-light text-white">
+						<div className="text-foreground mt-6 text-2xl font-light">
 							<PortableText value={content} />
 						</div>
 					</div>
@@ -74,30 +74,30 @@ const Awards = ({
 					<div className="flex w-full flex-col">
 						<div className="overflow-x-auto">
 							<div className="inline-block min-w-full align-middle">
-								<div className="overflow-hidden border border-[#292929]">
+								<div className="overflow-hidden border border-neutral-400">
 									<table className="min-w-full divide-y divide-[#292929]">
 										<thead>
 											<tr className="divide-x divide-[#292929]">
 												<th
-													className="px-8 py-3.5 text-left text-base leading-none font-light text-white"
+													className="text-foreground px-8 py-3.5 text-left text-base leading-none font-light"
 													scope="col"
 												>
 													Year
 												</th>
 												<th
-													className="px-8 py-3.5 text-left text-base leading-none font-light text-white"
+													className="text-foreground px-8 py-3.5 text-left text-base leading-none font-light"
 													scope="col"
 												>
 													Award
 												</th>
 												<th
-													className="px-8 py-3.5 text-left text-base leading-none font-light text-white"
+													className="text-foreground px-8 py-3.5 text-left text-base leading-none font-light"
 													scope="col"
 												>
 													Contest
 												</th>
 												<th
-													className="px-8 py-3.5 text-left text-base leading-none font-light text-white sm:pr-6"
+													className="text-foreground px-8 py-3.5 text-left text-base leading-none font-light sm:pr-6"
 													scope="col"
 												>
 													Project

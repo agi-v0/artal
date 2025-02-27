@@ -15,10 +15,10 @@ const Projects = ({
 	return (
 		<>
 			<section>
-				<div className="mx-auto max-w-7xl border-x border-b border-[#292929] p-8">
+				<div className="mx-auto max-w-7xl border-x border-b border-neutral-400 p-8">
 					<div className="w-full items-center justify-between text-left md:inline-flex">
 						<div>
-							<div className="mt-6 text-2xl font-light text-white">
+							<div className="text-foreground mt-6 text-2xl font-light">
 								<PortableText value={content} />
 							</div>
 						</div>
@@ -27,7 +27,7 @@ const Projects = ({
 								href="/work/home"
 								title="your title"
 								aria-label="your label"
-								className="inline-flex items-center rounded-full border border-transparent bg-[#292929] px-6 py-2 text-sm text-white ring-1 ring-transparent duration-200 hover:bg-white/10 focus:ring-2 focus:ring-white focus:ring-offset-2 focus:outline-none"
+								className="text-background bg-foreground hover:bg-foreground/90 inline-flex items-center rounded-full border border-transparent px-6 py-2 text-sm ring-1 ring-transparent duration-200 focus:ring-2 focus:ring-white focus:ring-offset-2 focus:outline-none"
 							>
 								{ctas[0]?.link?.label}
 							</a>
@@ -36,7 +36,7 @@ const Projects = ({
 				</div>
 			</section>
 			<section>
-				<div className="mx-auto max-w-7xl border-x border-b border-[#292929]">
+				<div className="mx-auto max-w-7xl border-x border-b border-neutral-400">
 					<ul className="grid-col-1 grid h-full divide-[#292929] md:grid-cols-3 lg:divide-x">
 						{projects.map((project: any, index: string) => (
 							<li key={index} className="flex h-full flex-col p-8">

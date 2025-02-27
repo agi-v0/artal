@@ -38,7 +38,7 @@ export default async function RootLayout({
 		<html lang={locale} className={font.className}>
 			{/* <GoogleTagManager gtmId="" /> */}
 
-			<body className="text-ink bg-[#1f1f1f]">
+			<body className="text-foreground bg-background">
 				<NuqsAdapter>
 					<SkipToContent />
 					<Announcement />

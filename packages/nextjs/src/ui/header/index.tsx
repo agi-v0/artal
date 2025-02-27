@@ -1,26 +1,29 @@
 import { getSite } from '@/sanity/lib/queries'
 import Wrapper from './Wrapper'
-
+import Img from '../Img'
 
 export default async function Header() {
-	const { title } = await getSite()
+	const { title, logo } = await getSite()
 
 	return (
-		<Wrapper className="frosted-glass border-[#292929] max-md:header-open:shadow-lg sticky top-0 z-10 border-b">
-		
+		<Wrapper className="frosted-glass max-md:header-open:shadow-lg sticky top-0 z-10 border-b border-neutral-400">
 			<div className="mx-auto w-full justify-center">
 				<div
-					className="border-t-none border-[#292929] mx-auto flex w-full max-w-7xl flex-col border p-8 lg:flex-row lg:items-center lg:justify-between"
+					className="mx-auto flex w-full max-w-7xl flex-col border-x border-t-0 border-neutral-400 p-8 lg:flex-row lg:items-center lg:justify-between"
 					x-data="{ open: false }"
 				>
-					<div className="flex flex-row items-center justify-between text-white">
+					<div className="text-foreground flex flex-row items-center justify-between">
 						<a
 							href="/"
 							title="your title"
 							aria-label="your label"
 							className="font-display inline-flex items-center uppercase"
 						>
-							<span>{title}</span>
+							<span>
+								{logo && (
+									<Img image={logo.image?.default} className="h-8 w-auto" />
+								)}
+							</span>
 						</a>
 						<button
 							// @click="open = !open"
@@ -52,7 +55,7 @@ export default async function Header() {
 						</button>
 					</div>
 					<nav
-						className="hidden flex-grow flex-col items-center gap-4 p-4 px-5 text-sm text-white opacity-100 md:pb-0 lg:mt-0 lg:flex lg:flex-row lg:justify-start lg:gap-8 lg:p-0 lg:px-0"
+						className="text-foreground hidden flex-grow flex-col items-center gap-4 p-4 px-5 text-sm opacity-100 md:pb-0 lg:mt-0 lg:flex lg:flex-row lg:justify-start lg:gap-8 lg:p-0 lg:px-0"
 						// className="{'flex': open, 'hidden': !open}"
 					>
 						<a
@@ -75,7 +78,7 @@ export default async function Header() {
 							href="https://buy.polar.sh/polar_cl_-FBzY3Ho1rrZJwIiRvMO6xnmRO6LHM8PPwFXitfdNVk"
 							title="your title"
 							aria-label="your label"
-							className="bg-gray inline-flex items-center rounded-full border border-transparent px-6 py-2 text-sm text-white ring-1 ring-transparent duration-200 hover:bg-white/10 focus:ring-2 focus:ring-white focus:ring-offset-2 focus:outline-none"
+							className="bg-gray text-foreground inline-flex items-center rounded-full border border-transparent px-6 py-2 text-sm ring-1 ring-transparent duration-200 hover:bg-white/10 focus:ring-2 focus:ring-white focus:ring-offset-2 focus:outline-none"
 						>
 							Buy Dusk
 						</a>

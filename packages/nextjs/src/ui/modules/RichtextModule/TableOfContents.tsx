@@ -64,7 +64,7 @@ export default function TableOfContents({
 			<ol className="anim-fade-to-b mt-2 leading-tight">
 				{headings?.map(({ text, style }, key) => (
 					<li
-						className="border-l border-neutral-200 transition-all"
+						className="border-l border-neutral-400 transition-all"
 						data-toc-item={slug(text)}
 						key={key}
 					>

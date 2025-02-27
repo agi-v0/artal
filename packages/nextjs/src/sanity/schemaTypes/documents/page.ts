@@ -17,6 +17,11 @@ export default defineType({
 	],
 	fields: [
 		defineField({
+			name: 'language',
+			type: 'string',
+			hidden: true,
+		}),
+		defineField({
 			name: 'title',
 			type: 'string',
 			group: 'content',

@@ -49,7 +49,7 @@ export default function SearchForm({
 						'anim-fade-to-b absolute inset-x-0 top-full z-[1]',
 					)}
 				>
-					<div className="frosted-glass bg-canvas mt-1 max-h-[20em] overflow-y-auto rounded border border-neutral-200 shadow-md">
+					<div className="frosted-glass bg-canvas mt-1 max-h-[20em] overflow-y-auto rounded border border-neutral-400 shadow-md">
 						<p className="text-ink/50 line-clamp-1 p-2 text-center text-sm">
 							{count(results, 'result')} found for <output>"{query}"</output>
 						</p>

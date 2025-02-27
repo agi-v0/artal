@@ -11,6 +11,8 @@
 	--color-accent: #1d1d1f;
 
 	--max-height-fold: calc(100svh - var(--header-height));
+
+	--container-7xl: 90rem;
 }
 
 @variant header-open (body:has(#header-toggle:checked) &);
@@ -67,7 +69,7 @@
 	}
 
 	hr {
-		@apply border-neutral-200;
+		@apply border-neutral-400;
 	}
 }
 
@@ -154,7 +156,7 @@
 }
 
 @utility action {
-	@apply action-base bg-accent rounded border border-transparent text-balance text-white;
+	@apply action-base bg-accent text-foreground rounded border border-transparent text-balance;
 }
 
 @utility action-outline {
@@ -170,7 +172,7 @@
 }
 
 @utility input {
-	@apply border border-neutral-200 p-[.25em] text-left;
+	@apply border border-neutral-400 p-[.25em] text-left;
 }
 
 /* utilities */
@@ -282,7 +284,7 @@
 	}
 
 	& blockquote {
-		@apply border-l-2 border-neutral-200 pl-4;
+		@apply border-l-2 border-neutral-400 pl-4;
 	}
 
 	& table {
@@ -388,7 +390,7 @@
 	--chart-3: oklch(0.398 0.07 227.392);
 	--chart-4: oklch(0.828 0.189 84.429);
 	--chart-5: oklch(0.769 0.188 70.08);
-	--radius: 0.625rem;;
+	--radius: 0.625rem;
 	--sidebar: oklch(0.985 0 0);
 	--sidebar-foreground: oklch(0.145 0 0);
 	--sidebar-primary: oklch(0.205 0 0);
@@ -471,33 +473,33 @@
 	--color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
 	--color-sidebar-border: var(--sidebar-border);
 	--color-sidebar-ring: var(--sidebar-ring);
-  --animate-accordion-down: accordion-down 0.2s ease-out;
-  --animate-accordion-up: accordion-up 0.2s ease-out;
+	--animate-accordion-down: accordion-down 0.2s ease-out;
+	--animate-accordion-up: accordion-up 0.2s ease-out;
 
-  @keyframes accordion-down {
-    from {
-      height: 0;
+	@keyframes accordion-down {
+		from {
+			height: 0;
 		}
-    to {
-      height: var(--radix-accordion-content-height);
+		to {
+			height: var(--radix-accordion-content-height);
 		}
 	}
 
-  @keyframes accordion-up {
-    from {
-      height: var(--radix-accordion-content-height);
+	@keyframes accordion-up {
+		from {
+			height: var(--radix-accordion-content-height);
 		}
-    to {
-      height: 0;
+		to {
+			height: 0;
 		}
 	}
 }
 
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
+	* {
+		@apply border-border outline-ring/50;
 	}
-  body {
-    @apply bg-background text-foreground;
+	body {
+		@apply bg-background text-foreground;
 	}
 }
