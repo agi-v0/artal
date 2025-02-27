@@ -18,24 +18,25 @@ export async function generateMetadata({ params }: Props) {
 	return processMetadata(page)
 }
 
-export async function generateStaticParams() {
+export async function generateStaticParams({ params }: Props) {
+	const { locale } = await params
 	const slugs = await client.fetch<string[]>(
 		groq`*[
 			_type == 'page' &&
-			defined(metadata.slug.current) &&
-			!(metadata.slug.current in ['index', 'blog/*'])
+			defined(metadata.slug.current)  &&
+			!(metadata.slug.current in ['index', 'blog/*']) && language == $locale
 		].metadata.slug.current`,
 	)
 
 	return slugs.map((slug) => ({ slug: slug.split('/') }))
 }
 
-async function getPage(params: { slug?: string[] }) {
+async function getPage({ locale, slug }: { locale: string; slug?: string[] }) {
 	return await fetchSanityLive<Sanity.Page>({
 		query: groq`*[
 			_type == 'page' &&
 			metadata.slug.current == $slug &&
-			!(metadata.slug.current in ['index', 'blog/*'])
+			!(metadata.slug.current in ['index', 'blog/*'] && language == $locale)
 		][0]{
 			...,
 			modules[]{ ${MODULES_QUERY} },
@@ -44,10 +45,13 @@ async function getPage(params: { slug?: string[] }) {
 				'ogimage': image.asset->url + '?w=1200'
 			}
 		}`,
-		params: { slug: params.slug?.join('/') },
+		params: { slug: slug?.join('/'), locale: locale },
 	})
 }
 
 type Props = {
-	params: Promise<{ slug?: string[] }>
+	params: Promise<{
+		locale: string
+		slug?: string[]
+	}>
 }
