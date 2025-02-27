@@ -1,7 +1,0 @@
-{
-  "name": "artal-monorepo",
-  "private": true,
-  "workspaces": [
-    "packages/*"
-  ]
-}
