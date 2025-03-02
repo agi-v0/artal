@@ -13,6 +13,17 @@
 	--max-height-fold: calc(100svh - var(--header-height));
 
 	--container-7xl: 90rem;
+
+	--text-display: clamp(3.37rem, 3.182rem + 0.94vw, 4.03rem);
+	--text-h1: clamp(2.81rem, 2.652rem + 0.79vw, 3.36rem);
+	--text-h2: clamp(2.34rem, 2.208rem + 0.66vw, 2.8rem);
+	--text-h3: clamp(1.95rem, 1.842rem + 0.54vw, 2.33rem);
+	--text-h4: clamp(1.62rem, 1.528rem + 0.46vw, 1.94rem);
+	--text-h5: clamp(1.35rem, 1.272rem + 0.39vw, 1.62rem);
+	--text-h6: clamp(1.13rem, 1.068rem + 0.31vw, 1.35rem);
+	--text-body-l: clamp(1.13rem, 1.068rem + 0.31vw, 1.35rem);
+	--text-body: clamp(0.94rem, 0.888rem + 0.26vw, 1.125rem);
+	--text-body-s: clamp(0.78rem, 0.734rem + 0.23vw, 0.94rem);
 }
 
 @variant header-open (body:has(#header-toggle:checked) &);
@@ -108,32 +119,31 @@
 /* typography */
 
 @utility h-base {
-	font-weight: bold;
+	font-weight: semibold;
 }
 
 @utility h1 {
-	@apply h-base text-4xl;
+	@apply h-base text-h1 leading-tight font-medium;
 }
 @utility h2 {
-	@apply h-base text-3xl;
+	@apply h-base text-h2 leading-tight font-medium;
 }
 @utility h3 {
-	@apply h-base text-2xl;
+	@apply h-base text-h3 leading-tight font-medium;
 }
 @utility h4 {
-	@apply h-base text-xl;
+	@apply h-base text-h4 leading-tight font-medium;
 }
 @utility h5 {
-	@apply h-base text-lg;
+	@apply h-base text-h5 leading-tight font-medium;
 }
 @utility h6 {
-	@apply h-base;
+	@apply h-base text-h6 leading-tight font-medium;
 }
 
 @utility technical {
 	text-transform: uppercase;
-	letter-spacing: 1px;
-	font-weight: bold;
+	font-weight: 400;
 }
 
 @utility text-shadow {

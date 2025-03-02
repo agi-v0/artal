@@ -3,6 +3,7 @@ import {
 	PortableTextComponents,
 	PortableTextTypeComponentProps,
 } from 'next-sanity'
+import Pretitle from '../Pretitle'
 
 const Why = ({
 	pretitle,
@@ -15,38 +16,21 @@ const Why = ({
 	tips: any
 }> &
 	Sanity.Module) => {
-	const components: PortableTextComponents = {
-		types: {
-			block: ({ value }: PortableTextTypeComponentProps<any>) => {
-				if (value.style === 'h3') {
-					return (
-						<p className="text-foreground mt-6 text-2xl font-light text-balance">
-							{value.children.map((child: any) => child.text).join('')}
-						</p>
-					)
-				}
-				return (
-					<p className="mt-6 text-neutral-400">
-						{value.children.map((child: any) => child.text).join('')}
-					</p>
-				)
-			},
-		},
-	}
-
 	return (
 		<>
 			<section>
-				<div className="mx-auto max-w-7xl border-x border-b border-neutral-400 p-8 lg:py-32">
+				<div className="mx-auto max-w-7xl border-x border-b border-neutral-400 p-8 lg:py-16">
 					<div className="max-w-2xl">
-						<span className="font-light text-neutral-400">{pretitle}</span>
-						<PortableText value={content} components={components} />
+						<Pretitle>{pretitle}</Pretitle>
+						<div className="text-foreground richtext mt-6">
+							<PortableText value={content} />
+						</div>
 					</div>
 				</div>
 			</section>
 			<section>
 				<div className="mx-auto max-w-7xl border-x border-b border-neutral-400">
-					<div className="text-foreground grid grid-cols-1 divide-y divide-[#292929]">
+					<div className="text-foreground grid grid-cols-1 divide-y divide-neutral-400">
 						{tips.map((tip: any, index: string) => (
 							<div
 								key={index}

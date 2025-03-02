@@ -1,4 +1,6 @@
 import { PortableText } from 'next-sanity'
+import { components } from '../portable-text'
+
 import Img from '../Img'
 
 const Projects = ({
@@ -15,10 +17,11 @@ const Projects = ({
 	return (
 		<>
 			<section>
-				<div className="mx-auto max-w-7xl border-x border-b border-neutral-400 p-8">
+				<div className="mx-auto max-w-7xl border-x border-b border-neutral-400 p-8 lg:py-16">
 					<div className="w-full items-center justify-between text-left md:inline-flex">
-						<div>
-							<div className="text-foreground mt-6 text-2xl font-light">
+						<div className="max-w-2xl">
+							{/* <Pretitle>{pretitle}</Pretitle> */}
+							<div className="text-foreground richtext mt-6">
 								<PortableText value={content} />
 							</div>
 						</div>
@@ -37,14 +40,16 @@ const Projects = ({
 			</section>
 			<section>
 				<div className="mx-auto max-w-7xl border-x border-b border-neutral-400">
-					<ul className="grid-col-1 grid h-full divide-[#292929] md:grid-cols-3 lg:divide-x">
+					<ul className="grid-col-1 grid h-full divide-neutral-400 md:grid-cols-3 lg:divide-x">
 						{projects.map((project: any, index: string) => (
-							<li key={index} className="flex h-full flex-col p-8">
-								<a>
+							<li key={index} className="flex h-full flex-col">
+								<a href="/">
 									<Img
-										className={'h-[40rem] w-full object-cover object-top'}
+										className={
+											'aspect-video h-auto w-full object-cover object-center'
+										}
 										image={project.projectImage}
-										width={300}
+										width={1920}
 									/>
 								</a>
 							</li>

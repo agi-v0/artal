@@ -55,32 +55,32 @@ export default async function Header() {
 						</button>
 					</div>
 					<nav
-						className="text-foreground hidden flex-grow flex-col items-center gap-4 p-4 px-5 text-sm opacity-100 md:pb-0 lg:mt-0 lg:flex lg:flex-row lg:justify-start lg:gap-8 lg:p-0 lg:px-0"
+						className="text-foreground hidden flex-grow flex-col items-center gap-4 p-4 px-5 text-sm opacity-100 md:pb-0 lg:mt-0 lg:flex lg:flex-row lg:justify-start lg:gap-6 lg:p-0 lg:px-0"
 						// className="{'flex': open, 'hidden': !open}"
 					>
 						<a
-							href="/system/overview"
+							href="/"
 							title="your title"
 							aria-label="your label"
 							className="hover:text-zinc-500 lg:ml-auto"
 						>
-							Overview
+							Projects
 						</a>
 						<a
-							href="/system/style-guide"
+							href="/"
 							title="your title"
 							aria-label="your label"
 							className="hover:text-zinc-500"
 						>
-							Style Guide
+							Services
 						</a>
 						<a
-							href="https://buy.polar.sh/polar_cl_-FBzY3Ho1rrZJwIiRvMO6xnmRO6LHM8PPwFXitfdNVk"
+							href="/"
 							title="your title"
 							aria-label="your label"
-							className="bg-gray text-foreground inline-flex items-center rounded-full border border-transparent px-6 py-2 text-sm ring-1 ring-transparent duration-200 hover:bg-white/10 focus:ring-2 focus:ring-white focus:ring-offset-2 focus:outline-none"
+							className="inline-flex items-center rounded-full border border-transparent bg-red-800 px-6 py-2 text-sm font-medium text-white ring-1 ring-transparent duration-200 hover:bg-red-800/90 focus:ring-2 focus:ring-white focus:ring-offset-2 focus:outline-none"
 						>
-							Buy Dusk
+							CONTACT US
 						</a>
 					</nav>
 				</div>

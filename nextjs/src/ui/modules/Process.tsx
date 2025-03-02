@@ -1,8 +1,23 @@
+'use client'
+
+import { useEffect, useRef, useState } from 'react'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import {
 	PortableText,
 	PortableTextComponents,
 	PortableTextTypeComponentProps,
 } from 'next-sanity'
+import Pretitle from '../Pretitle'
+import {
+	Timeline,
+	TimelineContent,
+	TimelineDate,
+	TimelineHeader,
+	TimelineIndicator,
+	TimelineItem,
+	TimelineSeparator,
+	TimelineTitle,
+} from '@/components/ui/timeline'
 
 const Process = ({
 	pretitle,
@@ -20,7 +35,7 @@ const Process = ({
 			block: ({ value }: PortableTextTypeComponentProps<any>) => {
 				if (value.style === 'h3') {
 					return (
-						<p className="text-foreground mt-6 text-2xl font-light text-balance">
+						<p className="text-foreground richtext mt-6 text-balance">
 							{value.children.map((child: any) => child.text).join('')}
 						</p>
 					)
@@ -33,32 +48,72 @@ const Process = ({
 			},
 		},
 	}
+	const containerRef = useRef<HTMLDivElement>(null)
+	const [activeStep, setActiveStep] = useState(1)
 
+	// Set up scroll tracking
+	const { scrollYProgress } = useScroll({
+		target: containerRef,
+		offset: ['00%', '20%'],
+	})
+
+	// Map scroll progress to timeline steps
+	const step = useTransform(scrollYProgress, [0, 0.33, 0.66, 1], [1, 2, 3, 4])
+
+	// Update active step based on scroll position
+	useEffect(() => {
+		const unsubscribe = step.onChange((value) => {
+			setActiveStep(Math.round(value))
+		})
+
+		return () => unsubscribe()
+	}, [step])
 	return (
-		<>
-			<section>
-				<div className="mx-auto max-w-7xl border-x border-b border-neutral-400 p-8 lg:py-32">
-					<div className="max-w-2xl">
-						<span className="font-light text-neutral-400">{pretitle}</span>
-						<PortableText value={content} components={components} />
+		<section ref={containerRef}>
+			<div className="mx-auto max-w-7xl border-x border-b border-neutral-400 p-8 lg:py-16">
+				<div className="max-w-2xl">
+					<Pretitle>{pretitle}</Pretitle>
+					<div className="text-foreground richtext mt-6">
+						<PortableText value={content} />
 					</div>
 				</div>
-			</section>
-			<section>
-				<div className="mx-auto max-w-7xl divide-y divide-[#292929] border-x border-b border-neutral-400">
-					<div className="text-foreground grid grid-cols-1 divide-[#292929] md:grid-cols-3 lg:divide-x">
-						{steps.map((step: any, index: string) => (
-							<div key={index} className="flex flex-col p-8">
-								<div className="font-light">{step.title}</div>
-								<div className="mt-3 text-pretty text-neutral-400">
+			</div>
+			<div className="mx-auto max-w-7xl divide-y divide-neutral-400 border-x border-b border-neutral-400 p-8 lg:py-16">
+				<Timeline value={activeStep} orientation="horizontal">
+					{steps.map((step: any, id: number) => (
+						<TimelineItem key={id} step={id + 1}>
+							<TimelineHeader>
+								<TimelineSeparator />
+								<TimelineTitle>{step.title}</TimelineTitle>
+								<TimelineIndicator />
+								<motion.div
+									className={`absolute size-4 rounded-full border-2 group-data-[orientation=horizontal]/timeline:-top-6 group-data-[orientation=horizontal]/timeline:-translate-y-1/2 ${id + 1 <= activeStep ? 'bg-primary border-primary' : 'border-primary/20'}`}
+									initial={false}
+									animate={{
+										scale: id + 1 === activeStep ? 1.2 : 1,
+										transition: { duration: 0.3 },
+									}}
+								>
+									<TimelineIndicator className="!border-0" />
+								</motion.div>
+							</TimelineHeader>
+							<motion.div
+								initial={{ opacity: 0, y: 10 }}
+								animate={{
+									opacity: id + 1 === activeStep ? 1 : 0.5,
+									y: id + 1 === activeStep ? 0 : 10,
+								}}
+								transition={{ duration: 0.3 }}
+							>
+								<TimelineContent>
 									<PortableText value={step.content} components={components} />
-								</div>
-							</div>
-						))}
-					</div>
-				</div>
-			</section>
-		</>
+								</TimelineContent>
+							</motion.div>
+						</TimelineItem>
+					))}
+				</Timeline>
+			</div>
+		</section>
 	)
 }
 

@@ -1,5 +1,6 @@
 import { PortableText } from 'next-sanity'
 import Pretitle from '@/ui/Pretitle'
+import { components } from '../portable-text'
 
 export default function Hero({
 	pretitle,
@@ -15,25 +16,25 @@ export default function Hero({
 	return (
 		<>
 			<section>
-				<div className="mx-auto max-w-7xl border-x border-b border-neutral-400 p-8 lg:py-32">
+				<div className="mx-auto max-w-7xl space-y-6 border-x border-b border-neutral-400 p-8 lg:py-16">
 					<Pretitle className={'font-light text-neutral-400'}>
 						{pretitle}
 					</Pretitle>
 
-					<div className="text-foreground richtext font-light text-balance [&_h1]:mt-6 [&_h1]:text-6xl [&_p]:text-2xl">
+					<div className="text-foreground richtext text-balance [&_h1]:mb-6 [&_h1]:max-w-3xl [&_p]:text-2xl [&_p]:text-neutral-500">
 						<PortableText value={content} />
 					</div>
 				</div>
 			</section>
 			<section>
 				<div className="mx-auto max-w-7xl border-x border-b border-neutral-400">
-					<div className="text-foreground grid grid-cols-1 divide-[#292929] md:grid-cols-3 lg:divide-x">
+					<div className="text-foreground grid grid-cols-1 divide-neutral-400 md:grid-cols-3 lg:divide-x">
 						{testimonials.map((testimonial: any, index: string) => (
 							<div
 								className="flex h-full flex-col justify-between p-8"
 								key={index}
 							>
-								<div className="text-neutral-400">
+								<div className="">
 									<PortableText value={testimonial.content} />
 								</div>
 
