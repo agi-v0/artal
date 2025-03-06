@@ -45,7 +45,7 @@ const Process = ({
 				</div>
 			</section>
 			<section>
-				<div className="mx-auto max-w-7xl divide-y divide-[#292929] border-x border-b border-neutral-400">
+				<div className="mx-auto max-w-7xl divide-y divide-neutral-400 border-x border-b border-neutral-400">
 					<div className="text-foreground grid grid-cols-1 divide-[#292929] md:grid-cols-3 lg:divide-x">
 						{steps.map((step: any, index: string) => (
 							<div key={index} className="flex flex-col p-8">

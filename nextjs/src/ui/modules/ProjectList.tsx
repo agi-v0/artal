@@ -12,6 +12,7 @@ const Projects = ({
 	projects: any
 }> &
 	Sanity.Module) => {
+
 	return (
 		<>
 			<section>

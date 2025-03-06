@@ -56,10 +56,22 @@ declare global {
 			hideTableOfContents: boolean
 			publishDate: string
 		}
-
+		
 		interface BlogCategory extends SanityDocument {
 			title: string
 			slug: { current: string }
+		}
+
+		interface Project extends PageBase {
+			readonly _type: 'project'
+			body: any
+			readTime: number
+			headings?: { style: string; text: string }[]
+			categories: BlogCategory[]
+			authors: Person[]
+			featured: boolean
+			hideTableOfContents: boolean
+			publishDate: string
 		}
 
 		// miscellaneous
@@ -126,7 +138,7 @@ declare global {
 			readonly _type: 'link'
 			label: string
 			type: 'internal' | 'external'
-			internal?: Page | BlogPost
+			internal?: Page | BlogPost | Project
 			external?: string
 			params?: string
 		}

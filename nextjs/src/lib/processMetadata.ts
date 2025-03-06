@@ -3,7 +3,7 @@ import { BASE_URL, vercelPreview } from './env'
 import type { Metadata } from 'next'
 
 export default async function processMetadata(
-	page: Sanity.Page | Sanity.BlogPost,
+	page: Sanity.Page | Sanity.BlogPost | Sanity.Project,
 ): Promise<Metadata> {
 	const url = resolveUrl(page)
 	const { title, description, ogimage: uploadedOg, noIndex } = page.metadata

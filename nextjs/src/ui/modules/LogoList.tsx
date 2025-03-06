@@ -28,39 +28,41 @@ export default async function LogoList({
 		}))
 
 	return (
-		<section className="section space-y-8">
-			{(pretitle || intro) && (
-				<header className="richtext mx-auto max-w-screen-sm text-center text-balance">
-					<Pretitle>{pretitle}</Pretitle>
-					<PortableText value={intro} />
-				</header>
-			)}
-
-			<figure
-				className={cn(
-					'mx-auto flex items-center gap-y-8 pb-4',
-					autoScroll
-						? `${css.track} overflow-fade max-w-max overflow-hidden`
-						: 'flex-wrap justify-center gap-x-4',
+		<section>
+			<div className="mx-auto max-w-7xl border-x border-b border-neutral-400 p-8 lg:py-32">
+				{(pretitle || intro) && (
+					<header className="richtext mx-auto max-w-screen-sm text-center text-balance">
+						<Pretitle>{pretitle}</Pretitle>
+						<PortableText value={intro} />
+					</header>
 				)}
-				style={
-					{
-						'--count': allLogos?.length,
-						'--dur': `${duration}s`,
-					} as React.CSSProperties
-				}
-			>
-				{allLogos.map((logo, key) => (
-					<Img
-						className="h-[2.5em] w-[200px] shrink-0 object-contain px-4 max-sm:w-[150px]"
-						style={{ '--index': key } as React.CSSProperties}
-						image={logo.image?.[logoType] || logo.image?.default}
-						width={400}
-						alt={logo.name}
-						key={key}
-					/>
-				))}
-			</figure>
+
+				<figure
+					className={cn(
+						'mx-auto flex items-center gap-y-8 pb-4',
+						autoScroll
+							? `${css.track} overflow-fade max-w-max overflow-hidden`
+							: 'flex-wrap justify-center gap-x-4',
+					)}
+					style={
+						{
+							'--count': allLogos?.length,
+							'--dur': `${duration}s`,
+						} as React.CSSProperties
+					}
+				>
+					{allLogos.map((logo, key) => (
+						<Img
+							className="h-[2.5em] w-[200px] shrink-0 object-contain px-4 max-sm:w-[150px]"
+							style={{ '--index': key } as React.CSSProperties}
+							image={logo.image?.[logoType] || logo.image?.default}
+							width={400}
+							alt={logo.name}
+							key={key}
+						/>
+					))}
+				</figure>
+			</div>
 		</section>
 	)
 }
