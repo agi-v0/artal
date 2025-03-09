@@ -48,9 +48,9 @@ const Services = ({
 								}}
 							>
 								<img
-									src="https://i.pinimg.com/564x/4c/95/69/4c9569ab2928e5ae400a6a34e7c537a0.jpg"
+									src="https://images.pexels.com/photos/1148820/pexels-photo-1148820.jpeg"
 									alt="/"
-									className="h-40 w-40"
+									className="h-auto w-60"
 								/>
 							</Cursor>
 							<h3 className="text-h5">{service.title}</h3>

@@ -1,6 +1,13 @@
 import { PortableText } from 'next-sanity'
-import { CarouselSection } from '@/components/Carousel'
+import {
+	Carousel,
+	CarouselContent,
+	CarouselItem,
+	CarouselNext,
+	CarouselPrevious,
+} from '@/components/ui/carousel'
 import Pretitle from '../Pretitle'
+import Img from '../Img'
 
 const Crafted = ({
 	pretitle,
@@ -27,7 +34,26 @@ const Crafted = ({
 			</section>
 			<section>
 				<div className="mx-auto max-w-7xl border-x border-b border-neutral-400">
-					<CarouselSection carouselImages={carousel} />
+					<Carousel className="w-full">
+						<CarouselContent>
+							{carousel.map((image: any, index: string) => (
+								<CarouselItem
+									key={index}
+									className="md:basis-1/2 lg:basis-full"
+								>
+									<Img
+										className={
+											'aspect-video h-auto w-full object-cover object-center'
+										}
+										image={image}
+										width={1920}
+									/>
+								</CarouselItem>
+							))}
+						</CarouselContent>
+						<CarouselPrevious />
+						<CarouselNext />
+					</Carousel>
 				</div>
 			</section>
 		</>

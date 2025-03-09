@@ -324,6 +324,10 @@
 	& video {
 		width: 100%;
 	}
+
+	& p {
+		@apply text-body text-foreground/70;
+	}
 }
 
 /* skeleton */

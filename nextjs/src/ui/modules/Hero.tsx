@@ -16,7 +16,7 @@ export default function Hero({
 	return (
 		<>
 			<section>
-				<div className="mx-auto max-w-7xl space-y-6 border-x border-b border-neutral-400 p-8 lg:py-16">
+				<div className="mx-auto max-w-7xl space-y-6 border-x border-b border-neutral-400 p-8 lg:py-32">
 					<Pretitle className={'font-light text-neutral-400'}>
 						{pretitle}
 					</Pretitle>
@@ -27,7 +27,7 @@ export default function Hero({
 				</div>
 			</section>
 			<section>
-				<div className="mx-auto max-w-7xl border-x border-b border-neutral-400">
+				<div className="dark bg-background mx-auto max-w-7xl border-x border-b border-neutral-400">
 					<div className="text-foreground grid grid-cols-1 divide-neutral-400 md:grid-cols-3 lg:divide-x">
 						{testimonials.map((testimonial: any, index: string) => (
 							<div

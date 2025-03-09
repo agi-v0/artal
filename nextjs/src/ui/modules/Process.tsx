@@ -35,13 +35,13 @@ const Process = ({
 			block: ({ value }: PortableTextTypeComponentProps<any>) => {
 				if (value.style === 'h3') {
 					return (
-						<p className="text-foreground richtext mt-6 text-balance">
+						<p className="text-foreground text-h5 text-balance">
 							{value.children.map((child: any) => child.text).join('')}
 						</p>
 					)
 				}
 				return (
-					<p className="mt-6 text-neutral-400">
+					<p className="text-body text-foreground/50">
 						{value.children.map((child: any) => child.text).join('')}
 					</p>
 				)
@@ -84,7 +84,7 @@ const Process = ({
 						<TimelineItem key={id} step={id + 1}>
 							<TimelineHeader>
 								<TimelineSeparator />
-								<TimelineTitle>{step.title}</TimelineTitle>
+								<TimelineTitle className="text-h6">{step.title}</TimelineTitle>
 								<TimelineIndicator />
 								<motion.div
 									className={`absolute size-4 rounded-full border-2 group-data-[orientation=horizontal]/timeline:-top-6 group-data-[orientation=horizontal]/timeline:-translate-y-1/2 ${id + 1 <= activeStep ? 'bg-primary border-primary' : 'border-primary/20'}`}
@@ -101,7 +101,7 @@ const Process = ({
 								initial={{ opacity: 0, y: 10 }}
 								animate={{
 									opacity: id + 1 === activeStep ? 1 : 0.5,
-									y: id + 1 === activeStep ? 0 : 10,
+									y: id + 1 === activeStep ? 4 : 0,
 								}}
 								transition={{ duration: 0.3 }}
 							>

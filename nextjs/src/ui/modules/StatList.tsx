@@ -1,5 +1,6 @@
 import Pretitle from '@/ui/Pretitle'
 import { PortableText, stegaClean } from 'next-sanity'
+import { AnimatedNumber } from '@/components/ui/animated-number'
 
 export default function StatList({
 	pretitle,
@@ -18,35 +19,47 @@ export default function StatList({
 	textAlign: React.CSSProperties['textAlign']
 }>) {
 	return (
-		<section
-			className="section space-y-8"
-			style={{ textAlign: stegaClean(textAlign) }}
-		>
-			{(pretitle || intro) && (
-				<header className="richtext text-center">
-					<Pretitle>{pretitle}</Pretitle>
-					<PortableText value={intro} />
-				</header>
-			)}
+		<section className="">
+			<div className="mx-auto max-w-7xl border-x border-b border-neutral-400 p-8 lg:py-16">
+				{(pretitle || intro) && (
+					<header className="richtext text-center">
+						<Pretitle>{pretitle}</Pretitle>
+						<PortableText value={intro} />
+					</header>
+				)}
 
-			<dl className="mx-auto grid items-start justify-center gap-x-12 gap-y-6 max-md:max-w-max sm:grid-cols-2 md:flex">
-				{stats?.map(({ prefix, value, suffix, text }, key) => (
-					<div
-						className="w-full max-w-[250px] space-y-2 max-md:mx-auto"
-						key={key}
-					>
-						<dt className="text-xl font-bold">
-							{prefix && <small className="text-ink/50">{prefix}</small>}
+				<dl className="mx-auto grid items-start justify-center gap-x-12 gap-y-6 max-md:max-w-max sm:grid-cols-2 md:flex">
+					{stats?.map(({ prefix, value, suffix, text }, key) => (
+						<div
+							className="w-full max-w-[250px] space-y-2 max-md:mx-auto"
+							key={key}
+						>
+							<dt className="text-xl font-bold">
+								{prefix && (
+									<small className="text-foreground/50">{prefix}</small>
+								)}
 
-							<span className="text-gradient text-6xl">{value}</span>
+								<span className="text-foreground text-6xl">
+									<AnimatedNumber
+										value={Number(value)}
+										springOptions={{ bounce: 0, duration: 2000 }}
+									/>
+								</span>
 
-							{suffix && <small className="text-ink/50">{suffix}</small>}
-						</dt>
+								{suffix && (
+									<small className="text-foreground/50">{suffix}</small>
+								)}
+							</dt>
 
-						{text && <dd className="font-bold text-balance">{text}</dd>}
-					</div>
-				))}
-			</dl>
+							{text && (
+								<dd className="font-normal text-balance text-neutral-400">
+									{text}
+								</dd>
+							)}
+						</div>
+					))}
+				</dl>
+			</div>
 		</section>
 	)
 }

@@ -42,11 +42,11 @@ const Projects = ({
 				<div className="mx-auto max-w-7xl border-x border-b border-neutral-400">
 					<ul className="grid-col-1 grid h-full divide-neutral-400 md:grid-cols-3 lg:divide-x">
 						{projects.map((project: any, index: string) => (
-							<li key={index} className="flex h-full flex-col">
+							<li key={index} className="flex h-full flex-col overflow-clip">
 								<a href="/">
 									<Img
 										className={
-											'aspect-video h-auto w-full object-cover object-center'
+											'aspect-video h-auto w-full scale-105 object-cover object-center hover:scale-100'
 										}
 										image={project.projectImage}
 										width={1920}

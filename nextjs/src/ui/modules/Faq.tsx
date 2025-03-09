@@ -40,10 +40,10 @@ const FAQ = ({
 						>
 							{faqs.map((faq: any, index: string) => (
 								<AccordionItem key={index} value={index + 1} className="p-4">
-									<AccordionTrigger className="text-foreground richtext flex cursor-pointer justify-between">
+									<AccordionTrigger className="text-foreground text-h6 flex cursor-pointer justify-between">
 										{faq.question}
 									</AccordionTrigger>
-									<AccordionContent className="pt-4 text-base text-neutral-400">
+									<AccordionContent className="text-body-l text-neutral-400">
 										<PortableText value={faq.answer} />
 									</AccordionContent>
 								</AccordionItem>

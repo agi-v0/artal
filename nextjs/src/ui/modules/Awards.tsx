@@ -109,7 +109,7 @@ const Awards = ({
 											{awardsList.map((award: any, index: string) => (
 												<tr
 													key={index}
-													className="divide-neutral-400font-light divide-x whitespace-nowrap text-neutral-400"
+													className="divide-x divide-neutral-400 font-light whitespace-nowrap text-neutral-400"
 												>
 													<td className="px-8">{award.year}</td>
 													<td className="px-8">{award.award}</td>
