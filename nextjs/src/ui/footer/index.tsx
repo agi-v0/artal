@@ -25,7 +25,7 @@ export default async function Footer() {
 				</div>
 				<div className="mt-32 grid grid-cols-1 lg:grid-cols-2">
 					<div>
-						<p className="text-background text-2xl font-light">
+						<p className="text-background richtext">
 							<span className="block">If you have a project idea in mind,</span>
 							<span className="block"> let's join forces and collaborate.</span>
 						</p>
@@ -40,7 +40,7 @@ export default async function Footer() {
 							</a>
 						</div>
 					</div>
-					<div>
+					{/* <div>
 						<div className="mt-4 grid gap-2 md:grid-cols-2">
 							<ul role="list">
 								<li>
@@ -117,7 +117,7 @@ export default async function Footer() {
 								</li>
 							</ul>
 						</div>
-					</div>
+					</div> */}
 				</div>
 			</div>
 		</section>

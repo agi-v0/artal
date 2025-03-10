@@ -1,5 +1,13 @@
 import { PortableText } from 'next-sanity'
-import { CarouselSection } from '@/components/Carousel'
+import {
+	Carousel,
+	CarouselContent,
+	CarouselItem,
+	CarouselNext,
+	CarouselPrevious,
+} from '@/components/ui/carousel'
+import Pretitle from '../Pretitle'
+import Img from '../Img'
 
 const Crafted = ({
 	pretitle,
@@ -15,18 +23,37 @@ const Crafted = ({
 	return (
 		<>
 			<section>
-				<div className="mx-auto max-w-7xl border-x border-b border-neutral-400 p-8 lg:py-32">
+				<div className="mx-auto max-w-7xl border-x border-b border-neutral-400 p-8 lg:py-16">
 					<div className="max-w-2xl">
-						<span className="font-light text-neutral-400">{pretitle}</span>
-						<div className="text-foreground mt-6 text-2xl font-light text-pretty">
+						<Pretitle>{pretitle}</Pretitle>
+						<div className="text-foreground richtext mt-6">
 							<PortableText value={content} />
 						</div>
 					</div>
 				</div>
 			</section>
 			<section>
-				<div className="mx-auto max-w-7xl border-x border-b border-neutral-400 p-8 lg:py-32">
-					<CarouselSection carouselImages={carousel} />
+				<div className="mx-auto max-w-7xl border-x border-b border-neutral-400">
+					<Carousel className="w-full">
+						<CarouselContent>
+							{carousel.map((image: any, index: string) => (
+								<CarouselItem
+									key={index}
+									className="md:basis-1/2 lg:basis-full"
+								>
+									<Img
+										className={
+											'aspect-video h-auto w-full object-cover object-center'
+										}
+										image={image}
+										width={1920}
+									/>
+								</CarouselItem>
+							))}
+						</CarouselContent>
+						<CarouselPrevious />
+						<CarouselNext />
+					</Carousel>
 				</div>
 			</section>
 		</>

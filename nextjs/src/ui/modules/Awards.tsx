@@ -1,4 +1,5 @@
 import { PortableText } from 'next-sanity'
+import Pretitle from '../Pretitle'
 
 // Define the awards array
 // const awards = [
@@ -60,10 +61,10 @@ const Awards = ({
 	return (
 		<>
 			<section>
-				<div className="mx-auto max-w-7xl border-x border-b border-neutral-400 p-8 lg:border-b-0 lg:py-32">
+				<div className="mx-auto max-w-7xl border-x border-b border-neutral-400 p-8 lg:border-b-0 lg:py-16">
 					<div className="max-w-2xl">
-						<span className="font-light text-neutral-400">{pretitle}</span>
-						<div className="text-foreground mt-6 text-2xl font-light">
+						<Pretitle>{pretitle}</Pretitle>
+						<div className="text-foreground richtext mt-6">
 							<PortableText value={content} />
 						</div>
 					</div>
@@ -75,9 +76,9 @@ const Awards = ({
 						<div className="overflow-x-auto">
 							<div className="inline-block min-w-full align-middle">
 								<div className="overflow-hidden border border-neutral-400">
-									<table className="min-w-full divide-y divide-[#292929]">
+									<table className="min-w-full divide-y divide-neutral-400">
 										<thead>
-											<tr className="divide-x divide-[#292929]">
+											<tr className="divide-x divide-neutral-400">
 												<th
 													className="text-foreground px-8 py-3.5 text-left text-base leading-none font-light"
 													scope="col"
@@ -104,11 +105,11 @@ const Awards = ({
 												</th>
 											</tr>
 										</thead>
-										<tbody className="divide-y divide-[#292929]">
+										<tbody className="divide-y divide-neutral-400">
 											{awardsList.map((award: any, index: string) => (
 												<tr
 													key={index}
-													className="divide-x divide-[#292929] font-light whitespace-nowrap text-neutral-400"
+													className="divide-x divide-neutral-400 font-light whitespace-nowrap text-neutral-400"
 												>
 													<td className="px-8">{award.year}</td>
 													<td className="px-8">{award.award}</td>

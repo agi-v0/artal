@@ -25,6 +25,12 @@ export default defineType({
 			group: 'content',
 		}),
 		defineField({
+			name: 'serviceImage',
+			title: 'Image',
+			type: 'image',
+			group: 'content',
+		}),
+		defineField({
 			name: 'body',
 			title: 'Content',
 			type: 'array',

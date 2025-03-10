@@ -14,27 +14,34 @@ export default defineType({
 	],
 	fields: [
 		defineField({
-			name:'client',
-			type:'string',
-			title:'Client name',
-			group:'content'
+			name: 'title',
+			title: 'Project title',
+			type: 'string',
+			group: 'content',
 		}),
 		defineField({
-			name:'services',
-			type:'string',
-			title:'Services',
-			group:'content'
+			name: 'client',
+			type: 'string',
+			title: 'Client name',
+			group: 'content',
 		}),
 		defineField({
-			name:'year',
-			type:'date',
-			title:'Year',
-			group:'content'
+			name: 'services',
+			type: 'string',
+			title: 'Services',
+			group: 'content',
+		}),
+		defineField({
+			name: 'year',
+			type: 'date',
+			title: 'Year',
+			group: 'content',
 		}),
 		defineField({
 			name: 'projectImage',
+			title: 'Image',
 			type: 'image',
-			group:'content'
+			group: 'content',
 		}),
 		defineField({
 			name: 'body',
@@ -80,7 +87,7 @@ export default defineType({
 	preview: {
 		select: {
 			featured: 'featured',
-			title: 'metadata.title',
+			title: 'title',
 			publishDate: 'publishDate',
 			media: 'metadata.image',
 		},
@@ -98,7 +105,7 @@ export default defineType({
 		},
 		{
 			title: 'Title',
-			name: 'metadata.title',
+			name: 'title',
 			by: [{ field: 'title', direction: 'asc' }],
 		},
 	],

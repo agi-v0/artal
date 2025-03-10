@@ -131,4 +131,21 @@ export default defineType({
 				(noindex && VscEyeClosed),
 		}),
 	},
+	orderings: [
+		{
+			title: 'Language',
+			name: 'language',
+			by: [{ field: 'language', direction: 'desc' }],
+		},
+		{
+			title: 'Title',
+			name: 'metadata.title',
+			by: [{ field: 'title', direction: 'desc' }],
+		},
+		{
+			title: 'Slug',
+			name: 'metadata.slug.current',
+			by: [{ field: 'metadata.slug.current', direction: 'desc' }],
+		},
+	],
 })
