@@ -1,7 +1,8 @@
-import { PortableText } from 'next-sanity'
+import { groq, PortableText } from 'next-sanity'
 import Img from '../Img'
+import { fetchSanityLive } from '@/sanity/lib/fetch'
 
-const AllProjects = ({
+export default async function AllProjects({
 	pretitle,
 	content,
 	projects,
@@ -11,7 +12,12 @@ const AllProjects = ({
 	content: any
 	projects: any
 }> &
-	Sanity.Module) => {
+	Sanity.Module) {
+	const allProjects =
+		projects ||
+		(await fetchSanityLive<Sanity.Project[]>({
+			query: groq`*[_type == 'project']|order(name)`,
+		}))
 
 	return (
 		<>
@@ -26,14 +32,11 @@ const AllProjects = ({
 				</div>
 			</section>
 			<section>
-				<div className="border-gray mx-auto max-w-7xl border-x border-b p-8">
-					<ul
-						role="list"
-						className="grid grid-cols-1 gap-x-8 gap-y-16 md:grid-cols-2"
-					>
-						{projects.map((project: any, index: string) => (
+				<div className="border-gray mx-auto max-w-7xl border-x border-b">
+					<ul role="list" className="grid grid-cols-1 gap-y-8 md:grid-cols-2">
+						{allProjects.map((project: any, index: string) => (
 							<li key={index}>
-								<a href={'/work/' + project.slug} className="h-full">
+								<a href={'/projects/' + project.slug} className="h-full">
 									<Img
 										className={'h-[40rem] w-full object-cover object-top'}
 										image={project.projectImage}
@@ -48,5 +51,3 @@ const AllProjects = ({
 		</>
 	)
 }
-
-export default AllProjects

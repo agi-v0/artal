@@ -60,7 +60,7 @@ async function getPost(params: { slug?: string }) {
 
 async function getPageTemplate() {
 	return await fetchSanityLive<Sanity.Page>({
-		query: groq`*[_type == 'page' && metadata.slug.current == 'blog/*'][0]{
+		query: groq`*[_type == 'page' && metadata.slug.current match 'blog/*'][0]{
 			...,
 			modules[]{ ${MODULES_QUERY} },
 			metadata { slug }

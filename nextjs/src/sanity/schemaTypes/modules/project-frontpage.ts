@@ -5,14 +5,11 @@ import { alignmentFieldset } from '../fragments/fields/alignment'
 import { getBlockText } from '@/sanity/lib/utils'
 
 export default defineType({
-	name: 'all.projects',
-	title: 'All Projects',
+	name: 'projects-frontpage',
+	title: 'Project frontpage',
 	icon: TfiLayoutCtaCenter,
 	type: 'object',
-	groups: [
-		{ name: 'content', default: true },
-		{ name: 'image' },
-	],
+	groups: [{ name: 'content', default: true }, { name: 'image' }],
 	fieldsets: [alignmentFieldset, { name: 'image', options: { columns: 2 } }],
 	fields: [
 		defineField({
@@ -38,6 +35,7 @@ export default defineType({
 					to: [{ type: 'project' }],
 				},
 			],
+			description: 'Leave empty to display all projects',
 			group: 'content',
 		}),
 	],

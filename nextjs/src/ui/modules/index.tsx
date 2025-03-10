@@ -43,7 +43,6 @@ export default function Modules({
 	post?: Sanity.BlogPost
 	project?: Sanity.Project
 }) {
-
 	return (
 		<>
 			{modules?.map((module) => {
@@ -52,7 +51,7 @@ export default function Modules({
 						return <About {...module} key={module._key} />
 					case 'accordion-list':
 						return <AccordionList {...module} key={module._key} />
-					case 'all.projects':
+					case 'projects-frontpage':
 						return <AllProjects {...module} key={module._key} />
 					case 'awards':
 						return <Awards {...module} key={module._key} />
