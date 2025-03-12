@@ -15,10 +15,10 @@ const Services = ({
 	Sanity.Module) => {
 	return (
 		<section>
-			<div className="mx-auto max-w-7xl border-x border-b border-neutral-400 p-8 lg:py-16">
+			<div className="mx-auto max-w-7xl border-x border-b border-neutral-400 bg-neutral-900 p-8 lg:py-16">
 				<div className="max-w-2xl">
 					<Pretitle>{pretitle}</Pretitle>
-					<div className="text-foreground richtext mt-6">
+					<div className="richtext mt-6 text-white">
 						<PortableText value={content} />
 					</div>
 				</div>
@@ -28,7 +28,7 @@ const Services = ({
 					{services?.map((service: any, index: string) => (
 						<div
 							key={index}
-							className="flex w-full items-center justify-between gap-3 p-8 hover:text-neutral-400"
+							className="hover:bg-background-highlight flex w-full items-center justify-between gap-3 p-8 hover:text-neutral-400"
 						>
 							<Cursor
 								attachToParent
