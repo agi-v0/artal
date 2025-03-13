@@ -30,18 +30,16 @@ import Awards from './Awards'
 import Crafted from './Crafted'
 import Why from './Why'
 import FAQ from './Faq'
-import AllProjects from './AllProjects'
+import ProjectsFrontpage from './ProjectsFrontpage'
 
 export default function Modules({
 	modules,
 	page,
 	post,
-	project,
 }: {
 	modules?: Sanity.Module[]
 	page?: Sanity.Page
 	post?: Sanity.BlogPost
-	project?: Sanity.Project
 }) {
 	return (
 		<>
@@ -52,7 +50,7 @@ export default function Modules({
 					case 'accordion-list':
 						return <AccordionList {...module} key={module._key} />
 					case 'projects-frontpage':
-						return <AllProjects {...module} key={module._key} />
+						return <ProjectsFrontpage {...module} key={module._key} />
 					case 'awards':
 						return <Awards {...module} key={module._key} />
 					case 'blog-frontpage':
@@ -97,8 +95,6 @@ export default function Modules({
 						return <PricingList {...module} key={module._key} />
 					case 'project.list':
 						return <Projects {...module} key={module._key} />
-					case 'project':
-						return <Project {...module} key={module._key} project={project} />
 					case 'process':
 						return <Process {...module} key={module._key} />
 					case 'richtext-module':

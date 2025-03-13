@@ -28,7 +28,7 @@ const Projects = ({
 						</div>
 						<div className="mt-6 lg:mt-0 lg:ml-auto">
 							<a
-								href="/work/home"
+								href="/en/projects"
 								title="your title"
 								aria-label="your label"
 								className="text-background bg-foreground hover:bg-foreground/90 inline-flex items-center rounded-full border border-transparent px-6 py-2 text-sm ring-1 ring-transparent duration-200 focus:ring-2 focus:ring-white focus:ring-offset-2 focus:outline-none"

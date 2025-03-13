@@ -2,7 +2,7 @@ import { groq, PortableText } from 'next-sanity'
 import Img from '../Img'
 import { fetchSanityLive } from '@/sanity/lib/fetch'
 
-export default async function AllProjects({
+export default async function ProjectsFrontpage({
 	pretitle,
 	content,
 	projects,

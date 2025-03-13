@@ -2,36 +2,36 @@ import { client } from '@/sanity/lib/client'
 import { fetchSanityLive } from '@/sanity/lib/fetch'
 import { groq } from 'next-sanity'
 import { notFound } from 'next/navigation'
-import Project from '@/ui/project'
 import processMetadata from '@/lib/processMetadata'
+import Service from '@/ui/service'
 
 export default async function Page({ params }: Props) {
-	const project = await getProject(await params)
+	const service = await getService(await params)
 
-	if (!project) notFound()
+	if (!service) notFound()
 
-	return <Project project={project}/>
+	return <Service service={service}/>
 }
 
 export async function generateMetadata({ params }: Props) {
-	const project = await getProject(await params)
+	const service = await getService(await params)
 
-	if (!project) notFound()
+	if (!service) notFound()
 
-	return processMetadata(project)
+	return processMetadata(service)
 }
 
 export async function generateStaticParams() {
 	const slugs = await client.fetch<string[]>(
-		groq`*[_type == 'project' && defined(metadata.slug.current)].metadata.slug.current`,
+		groq`*[_type == 'service' && defined(metadata.slug.current)].metadata.slug.current`,
 	)
 
 	return slugs.map((slug) => ({ slug }))
 }
 
-async function getProject(params: { slug?: string }) {
-	return await fetchSanityLive<Sanity.Project>({
-		query: groq`*[_type == 'project' && metadata.slug.current == $slug][0]{
+async function getService(params: { slug?: string }) {
+	return await fetchSanityLive<Sanity.Service>({
+		query: groq`*[_type == 'service' && metadata.slug.current == $slug][0]{
 			...,
 			body[]{
 				...,
@@ -43,10 +43,7 @@ async function getProject(params: { slug?: string }) {
 				'text': pt::text(@)
 			},
 			title,
-			client,
-			services,
-			year,
-			otherProjects[]->,
+			content,
 			metadata {
 				...,
 				'ogimage': image.asset->url + '?w=1200'

@@ -56,7 +56,7 @@ declare global {
 			hideTableOfContents: boolean
 			publishDate: string
 		}
-		
+
 		interface BlogCategory extends SanityDocument {
 			title: string
 			slug: { current: string }
@@ -67,11 +67,36 @@ declare global {
 			body: any
 			readTime: number
 			headings?: { style: string; text: string }[]
-			categories: BlogCategory[]
-			authors: Person[]
+			client: string
+			services: string
+			year: string
 			featured: boolean
 			hideTableOfContents: boolean
 			publishDate: string
+			projectImage: {
+				_type: string,
+				asset: {
+					_ref: string,
+					_type: string
+				}
+			},
+		}
+		interface Service extends PageBase {
+			readonly _type: 'project'
+			body: any
+			readTime: number
+			headings?: { style: string; text: string }[]
+			title: string
+			content: string
+			featured: boolean
+			hideTableOfContents: boolean
+			projectImage: {
+				_type: string,
+				asset: {
+					_ref: string,
+					_type: string
+				}
+			},
 		}
 
 		// miscellaneous
