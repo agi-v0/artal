@@ -73,13 +73,19 @@ declare global {
 			featured: boolean
 			hideTableOfContents: boolean
 			publishDate: string
-			projectImage: {
-				_type: string
-				asset: {
-					_ref: string
-					_type: string
-				}
-			}
+			projectImage: Sanity.Image
+		}
+
+		interface Service extends PageBase {
+			readonly _type: 'service'
+			body: any
+			readTime: number
+			headings?: { style: string; text: string }[]
+			title: string
+			content: string
+			featured: boolean
+			hideTableOfContents: boolean
+			serviceImage: Sanity.Image
 		}
 
 		// miscellaneous

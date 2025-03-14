@@ -7,10 +7,10 @@ import Service from '@/ui/service'
 
 export default async function Page({ params }: Props) {
 	const service = await getService(await params)
-
+	console.log(service)
 	if (!service) notFound()
 
-	return <Service service={service}/>
+	return <Service service={service} />
 }
 
 export async function generateMetadata({ params }: Props) {
@@ -42,8 +42,7 @@ async function getService(params: { slug?: string }) {
 				style,
 				'text': pt::text(@)
 			},
-			title,
-			content,
+			title,			
 			metadata {
 				...,
 				'ogimage': image.asset->url + '?w=1200'

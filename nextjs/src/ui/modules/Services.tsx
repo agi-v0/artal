@@ -10,7 +10,7 @@ const Services = ({
 }: Partial<{
 	pretitle: string
 	content: any
-	services: any
+	services: Sanity.Service
 }> &
 	Sanity.Module) => {
 	return (
@@ -25,8 +25,9 @@ const Services = ({
 			</div>
 			<div className="mx-auto max-w-7xl border-x border-b border-neutral-400">
 				<div className="text-foreground grid grid-cols-1 divide-y divide-neutral-400">
-					{services?.map((service: any, index: string) => (
-						<div
+					{services?.map((service: Sanity.Service, index: string) => (
+						<a
+							href={service.metadata.slug.current}
 							key={index}
 							className="hover:bg-background-highlight flex w-full items-center justify-between gap-3 p-8 hover:text-neutral-400"
 						>
@@ -65,7 +66,7 @@ const Services = ({
 									d="m18 6l-1.43 1.393L24.15 15H4v2h20.15l-7.58 7.573L18 26l10-10z"
 								/>
 							</svg>
-						</div>
+						</a>
 					))}
 				</div>
 			</div>
