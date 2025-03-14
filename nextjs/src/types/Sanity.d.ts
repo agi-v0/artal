@@ -81,23 +81,6 @@ declare global {
 				}
 			}
 		}
-		interface Service extends PageBase {
-			readonly _type: 'project'
-			body: any
-			readTime: number
-			headings?: { style: string; text: string }[]
-			title: string
-			content: string
-			featured: boolean
-			hideTableOfContents: boolean
-			projectImage: {
-				_type: string
-				asset: {
-					_ref: string
-					_type: string
-				}
-			}
-		}
 
 		// miscellaneous
 
