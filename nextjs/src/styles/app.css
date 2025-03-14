@@ -1,5 +1,7 @@
 @import 'tailwindcss';
 
+@config "../../tailwind.config.ts";
+
 @plugin 'tailwindcss-animate';
 
 @custom-variant dark (&:is(.dark *));
@@ -380,7 +382,8 @@
 }
 
 :root {
-	--background: oklch(1 0 0);
+	--background: oklch(0.97 0 0);
+	--background-highlight: oklch(1 0 0);
 	--foreground: oklch(0.145 0 0);
 	--card: oklch(1 0 0);
 	--card-foreground: oklch(0.145 0 0);
@@ -417,6 +420,7 @@
 
 .dark {
 	--background: oklch(0.145 0 0);
+	--background-highlight: oklch(0.205 0 0);
 	--foreground: oklch(0.985 0 0);
 	--card: oklch(0.145 0 0);
 	--card-foreground: oklch(0.985 0 0);
@@ -451,7 +455,10 @@
 }
 
 @theme inline {
+	--pattern-fg: color-mix(in oklab, var(--color-gray-950) 5%, transparent);
+
 	--color-background: var(--background);
+	--color-background-highlight: var(--background-highlight);
 	--color-foreground: var(--foreground);
 	--color-card: var(--card);
 	--color-card-foreground: var(--card-foreground);

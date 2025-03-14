@@ -51,8 +51,8 @@ const Crafted = ({
 								</CarouselItem>
 							))}
 						</CarouselContent>
-						<CarouselPrevious />
-						<CarouselNext />
+						<CarouselPrevious size="lg" />
+						<CarouselNext size="lg" />
 					</Carousel>
 				</div>
 			</section>

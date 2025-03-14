@@ -39,18 +39,20 @@ export default async function LogoList({
 				)}
 				<div className="relative">
 					<AnimatedGroup
-						className="grid grid-cols-2 items-center justify-center *:p-8 md:grid-cols-3 lg:grid-cols-4"
+						className="grid grid-cols-2 items-center justify-center md:grid-cols-3 lg:grid-cols-4"
 						preset="scale"
 					>
 						{allLogos.map((logo, key) => (
-							<Img
-								className="mx-auto h-[2.5em] w-[200px] shrink-0 object-contain grayscale hover:grayscale-0 max-sm:w-[150px]"
-								style={{ '--index': key } as React.CSSProperties}
-								image={logo.image?.[logoType] || logo.image?.default}
-								width={400}
-								alt={logo.name}
-								key={key}
-							/>
+							<div className="group flex h-[104px] w-full shrink-0 items-center justify-center bg-[size:10px_10px] object-contain hover:bg-[image:repeating-linear-gradient(315deg,_var(--pattern-fg)_0,_var(--pattern-fg)_1px,_transparent_0,_transparent_50%)] max-sm:w-[150px]">
+								<Img
+									className="mx-auto h-[2.5em] w-[200px] shrink-0 object-contain grayscale group-hover:grayscale-0 max-sm:w-[150px]"
+									style={{ '--index': key } as React.CSSProperties}
+									image={logo.image?.[logoType] || logo.image?.default}
+									width={400}
+									alt={logo.name}
+									key={key}
+								/>
+							</div>
 						))}
 					</AnimatedGroup>
 					<div

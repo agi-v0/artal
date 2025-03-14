@@ -6,8 +6,8 @@ export default async function Header() {
 	const { title, logo } = await getSite()
 
 	return (
-		<Wrapper className="frosted-glass max-md:header-open:shadow-lg sticky top-0 z-10 border-b border-neutral-400">
-			<div className="mx-auto w-full justify-center">
+		<Wrapper className="frosted-glass max-md:header-open:shadow-lg fixed top-0 z-10 w-full border-b border-neutral-400">
+			<div className="mx-auto w-full">
 				<div
 					className="mx-auto flex w-full max-w-7xl flex-col border-x border-t-0 border-neutral-400 p-8 lg:flex-row lg:items-center lg:justify-between"
 					x-data="{ open: false }"

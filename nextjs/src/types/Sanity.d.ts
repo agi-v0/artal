@@ -74,12 +74,12 @@ declare global {
 			hideTableOfContents: boolean
 			publishDate: string
 			projectImage: {
-				_type: string,
+				_type: string
 				asset: {
-					_ref: string,
+					_ref: string
 					_type: string
 				}
-			},
+			}
 		}
 		interface Service extends PageBase {
 			readonly _type: 'project'
@@ -91,12 +91,12 @@ declare global {
 			featured: boolean
 			hideTableOfContents: boolean
 			projectImage: {
-				_type: string,
+				_type: string
 				asset: {
-					_ref: string,
+					_ref: string
 					_type: string
 				}
-			},
+			}
 		}
 
 		// miscellaneous

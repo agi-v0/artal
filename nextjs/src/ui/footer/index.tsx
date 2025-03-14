@@ -8,8 +8,8 @@ export default async function Footer() {
 	const logoImage = logo?.image?.light || logo?.image?.default
 
 	return (
-		<section className="">
-			<div className="bg-foreground mx-auto max-w-7xl border-x border-t border-b border-neutral-400 p-8 lg:border-b-0">
+		<section className="bg-foreground">
+			<div className="bg-grid-neutral-800 mx-auto max-w-7xl border-x border-neutral-800 p-8 lg:border-b-0">
 				<div>
 					<Link className="h3 md:h2 text-canvas max-w-max" href="/">
 						{logoImage ? (

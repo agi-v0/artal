@@ -33,18 +33,24 @@ const Process = ({
 	const components: PortableTextComponents = {
 		types: {
 			block: ({ value }: PortableTextTypeComponentProps<any>) => {
-				if (value.style === 'h3') {
+				if (value.style === 'h2') {
+					return (
+						<p className="text-foreground text-h4 text-balance">
+							{value.children.map((child: any) => child.text).join('')}
+						</p>
+					)
+				} else if (value.style === 'h3') {
 					return (
 						<p className="text-foreground text-h5 text-balance">
 							{value.children.map((child: any) => child.text).join('')}
 						</p>
 					)
-				}
-				return (
-					<p className="text-body text-foreground/50">
-						{value.children.map((child: any) => child.text).join('')}
-					</p>
-				)
+				} else
+					return (
+						<p className="text-body text-foreground/50">
+							{value.children.map((child: any) => child.text).join('')}
+						</p>
+					)
 			},
 		},
 	}
@@ -69,16 +75,14 @@ const Process = ({
 		return () => unsubscribe()
 	}, [step])
 	return (
-		<section ref={containerRef}>
-			<div className="mx-auto max-w-7xl border-x border-b border-neutral-400 p-8 lg:py-16">
-				<div className="max-w-2xl">
-					<Pretitle>{pretitle}</Pretitle>
-					<div className="text-foreground richtext mt-6">
-						<PortableText value={content} />
-					</div>
+		<section ref={containerRef} className="">
+			<div className="mx-auto max-w-7xl border-x border-b border-neutral-400 bg-[image:repeating-linear-gradient(315deg,_var(--pattern-fg)_0,_var(--pattern-fg)_1px,_transparent_0,_transparent_50%)] bg-[size:10px_10px] p-8 lg:py-16">
+				<Pretitle>{pretitle}</Pretitle>
+				<div className="text-foreground richtext mt-6">
+					<PortableText value={content} />
 				</div>
 			</div>
-			<div className="mx-auto max-w-7xl divide-y divide-neutral-400 border-x border-b border-neutral-400 p-8 lg:py-16">
+			<div className="mx-auto max-w-7xl divide-y divide-neutral-400 border-x border-b border-neutral-400 p-8">
 				<Timeline value={activeStep} orientation="horizontal">
 					{steps.map((step: any, id: number) => (
 						<TimelineItem key={id} step={id + 1}>
