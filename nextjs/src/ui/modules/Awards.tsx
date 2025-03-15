@@ -61,7 +61,7 @@ const Awards = ({
 	return (
 		<>
 			<section>
-				<div className="mx-auto max-w-7xl border-x border-b border-neutral-400 p-8 lg:border-b-0 lg:py-16">
+				<div className="mx-auto max-w-7xl border-x border-b border-neutral-400">
 					<div className="max-w-2xl">
 						<Pretitle>{pretitle}</Pretitle>
 						<div className="text-foreground richtext mt-6">

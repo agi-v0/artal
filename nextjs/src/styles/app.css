@@ -4,14 +4,11 @@
 
 @plugin 'tailwindcss-animate';
 
-@custom-variant dark (&:is(.dark *));
 @import './fonts.css';
 
-@theme {
-	--color-ink: #1d1d1f;
-	--color-canvas: #fff;
-	--color-accent: #1d1d1f;
+@custom-variant dark (&:is(.dark *));
 
+@theme {
 	--max-height-fold: calc(100svh - var(--header-height));
 
 	--container-7xl: 90rem;
@@ -26,6 +23,12 @@
 	--text-body-l: clamp(1.13rem, 1.068rem + 0.31vw, 1.35rem);
 	--text-body: clamp(0.94rem, 0.888rem + 0.26vw, 1.125rem);
 	--text-body-s: clamp(0.78rem, 0.734rem + 0.23vw, 0.94rem);
+
+	--spacing-site: clamp(1rem, 0.714rem + 1.43vw, 2rem);
+	--spacing-xl: clamp(2rem, 1.428rem + 2.86vw, 4rem);
+	--spacing-lg: clamp(1.5rem, 1.358rem + 0.71vw, 2rem);
+	--spacing-md: clamp(1rem, 0.858rem + 0.71vw, 1.5rem);
+	--spacing-sm: clamp(0.5rem, 0.358rem + 0.71vw, 1rem);
 }
 
 @variant header-open (body:has(#header-toggle:checked) &);
@@ -36,6 +39,8 @@
 @layer base {
 	* {
 		min-width: 0;
+		max-width: 100%;
+		@apply border-border outline-ring/50;
 	}
 
 	[hidden] {
@@ -65,6 +70,11 @@
 		accent-color: var(--color-accent);
 		caret-color: var(--color-accent);
 		scroll-behavior: smooth;
+		overflow-x: hidden;
+	}
+
+	body {
+		@apply bg-background text-foreground overflow-x-hidden;
 	}
 
 	summary,
@@ -172,7 +182,7 @@
 }
 
 @utility action-outline {
-	@apply action-base border-accent/10 bg-canvas/50 to-canvas text-accent rounded border text-balance;
+	@apply action-base border-accent/10 text-accent rounded border bg-white/50 to-white text-balance;
 }
 
 @utility ghost {
@@ -237,17 +247,13 @@
 /* layout */
 
 @utility section {
-	@apply mx-auto max-w-screen-xl p-8 max-md:px-4 md:py-12;
+	@apply p-site mx-auto w-full max-w-7xl border-x border-b border-neutral-400;
 }
 
 /* richtext */
 
 @utility richtext {
 	@apply space-y-2 leading-relaxed;
-
-	& :is(h1, h2, h3, h4, h5, h6) strong {
-		@apply text-gradient;
-	}
 
 	& h1 {
 		@apply h1;
@@ -287,7 +293,7 @@
 	}
 
 	& :not(pre) > code {
-		@apply bg-ink/5 rounded px-1;
+		@apply bg-foreground/5 rounded px-1;
 	}
 
 	& pre {
@@ -513,14 +519,5 @@
 		to {
 			height: 0;
 		}
-	}
-}
-
-@layer base {
-	* {
-		@apply border-border outline-ring/50;
-	}
-	body {
-		@apply bg-background text-foreground;
 	}
 }

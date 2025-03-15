@@ -34,13 +34,11 @@ const About = ({
 	}
 
 	return (
-		<section>
-			<div className="bg-background-highlight mx-auto max-w-7xl border-x border-b border-neutral-400 p-8 lg:py-16">
-				<div className="max-w-2xl">
-					<Pretitle>{pretitle}</Pretitle>
-					<div className="text-foreground richtext mt-6">
-						<PortableText value={content} />
-					</div>
+		<section className="bg-background-highlight section p-xl">
+			<div className="max-w-2xl">
+				<Pretitle>{pretitle}</Pretitle>
+				<div className="text-foreground richtext mt-6">
+					<PortableText value={content} />
 				</div>
 			</div>
 		</section>

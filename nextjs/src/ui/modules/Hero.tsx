@@ -20,7 +20,7 @@ export default function Hero({
 			<section>
 				<div
 					// style={{ color: 'var(--color-neutral-200)' }}
-					className="bg-grid-neutral-200 bg-background-highlight relative mx-auto h-screen max-w-7xl border-x border-b border-neutral-400 p-8 lg:p-16"
+					className="bg-grid-neutral-200 bg-background-highlight section h-screen"
 				>
 					{/* <div className="text-foreground absolute inset-0 h-full w-full opacity-5"></div> */}
 
@@ -41,7 +41,7 @@ export default function Hero({
 						<Pretitle className={'font-light text-neutral-400'}>
 							{pretitle}
 						</Pretitle>
-						<div className="text-foreground richtext text-balance [&_h1]:mb-6 [&_h1]:max-w-3xl [&_p]:text-2xl [&_p]:text-neutral-500">
+						<div className="text-foreground text-balance [&_h1]:mb-6 [&_h1]:max-w-3xl [&_p]:text-neutral-500">
 							<PortableText value={content} components={components} />
 						</div>
 					</motion.div>
@@ -49,10 +49,10 @@ export default function Hero({
 			</section>
 			<section>
 				<div className="bg-background mx-auto max-w-7xl border-x border-b border-neutral-400">
-					<div className="text-foreground grid grid-cols-1 divide-neutral-400 md:grid-cols-3 lg:divide-x">
+					<div className="text-foreground grid grid-cols-1 divide-neutral-400 max-md:divide-y md:grid-cols-3 md:divide-x">
 						{testimonials.map((testimonial: any, index: string) => (
 							<div
-								className="flex h-full flex-col justify-between bg-[size:10px_10px] p-8 hover:bg-[image:repeating-linear-gradient(315deg,_var(--pattern-fg)_0,_var(--pattern-fg)_1px,_transparent_0,_transparent_50%)]"
+								className="p-site flex h-full flex-col justify-between bg-[size:10px_10px] hover:bg-[image:repeating-linear-gradient(315deg,_var(--pattern-fg)_0,_var(--pattern-fg)_1px,_transparent_0,_transparent_50%)]"
 								key={index}
 							>
 								<div>

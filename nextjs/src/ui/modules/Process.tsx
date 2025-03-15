@@ -18,6 +18,7 @@ import {
 	TimelineSeparator,
 	TimelineTitle,
 } from '@/components/ui/timeline'
+import useWindowSize from '@/lib/useWindowSize'
 
 const Process = ({
 	pretitle,
@@ -74,6 +75,10 @@ const Process = ({
 
 		return () => unsubscribe()
 	}, [step])
+
+	let windowsSize = useWindowSize()
+
+	console.log(windowsSize)
 	return (
 		<section ref={containerRef} className="">
 			<div className="mx-auto max-w-7xl border-x border-b border-neutral-400 bg-[image:repeating-linear-gradient(315deg,_var(--pattern-fg)_0,_var(--pattern-fg)_1px,_transparent_0,_transparent_50%)] bg-[size:10px_10px] p-8 lg:py-16">
@@ -83,7 +88,10 @@ const Process = ({
 				</div>
 			</div>
 			<div className="mx-auto max-w-7xl divide-y divide-neutral-400 border-x border-b border-neutral-400 p-8">
-				<Timeline value={activeStep} orientation="horizontal">
+				<Timeline
+					value={activeStep}
+					orientation={windowsSize.width > 768 ? 'horizontal' : 'vertical'}
+				>
 					{steps.map((step: any, id: number) => (
 						<TimelineItem key={id} step={id + 1}>
 							<TimelineHeader>

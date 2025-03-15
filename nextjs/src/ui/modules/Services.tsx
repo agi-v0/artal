@@ -15,7 +15,7 @@ const Services = ({
 	Sanity.Module) => {
 	return (
 		<section>
-			<div className="mx-auto max-w-7xl border-x border-b border-neutral-400 bg-neutral-900 p-8 lg:py-16">
+			<div className="section pt-xl bg-neutral-900">
 				<div className="max-w-2xl">
 					<Pretitle>{pretitle}</Pretitle>
 					<div className="richtext mt-6 text-white">
@@ -23,7 +23,7 @@ const Services = ({
 					</div>
 				</div>
 			</div>
-			<div className="mx-auto max-w-7xl border-x border-b border-neutral-400">
+			<div className="section p-0">
 				<div className="text-foreground grid grid-cols-1 divide-y divide-neutral-400">
 					{services?.map((service: any, index: string) => (
 						<div

@@ -13,7 +13,7 @@ export default function PostPreviewLarge({ post }: { post: Sanity.BlogPost }) {
 			className="group grid items-center gap-x-8 gap-y-4 md:grid-cols-2"
 			href={resolveUrl(post, { base: false })}
 		>
-			<figure className="max-md:full-bleed bg-ink/5 relative aspect-video overflow-hidden md:self-start">
+			<figure className="max-md:full-bleed bg-foreground/5 relative aspect-video overflow-hidden md:self-start">
 				<Img
 					className="aspect-video w-full object-cover transition-all group-hover:scale-105 group-hover:brightness-110"
 					image={post.metadata.image}
