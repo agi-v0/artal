@@ -1,9 +1,10 @@
 import { getSite } from '@/sanity/lib/queries'
 import Link from 'next/link'
 import Img from '@/ui/Img'
+import CTAList from '../CTAList'
 
 export default async function Footer() {
-	const { title, tagline, logo, copyright } = await getSite()
+	const { title, tagline, logo, copyright, ctas } = await getSite()
 
 	const logoImage = logo?.image?.light || logo?.image?.default
 
@@ -30,14 +31,19 @@ export default async function Footer() {
 							<span className="block"> let's join forces and collaborate.</span>
 						</p>
 						<div className="mt-6">
-							<a
+							{/* <a
 								href="/contact"
 								title="your title"
 								aria-label="your label"
 								className="text-foreground bg-background hover:bg-background/90 inline-flex items-center rounded-full border border-transparent px-6 py-2 text-sm ring-1 ring-transparent duration-200 focus:ring-2 focus:ring-white focus:ring-offset-2 focus:outline-none"
 							>
 								CONTACT US
-							</a>
+							</a> */}
+
+							<CTAList
+								className=""
+								ctas={ctas}
+							/>
 						</div>
 					</div>
 					{/* <div>

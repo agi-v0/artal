@@ -1,57 +1,10 @@
 import { PortableText } from 'next-sanity'
 import Pretitle from '../Pretitle'
 
-// Define the awards array
-// const awards = [
-// 	{
-// 		year: '2023',
-// 		award: 'Stellar Achievement',
-// 		contest: 'Digital Fusion',
-// 		project: 'Cosmosphere',
-// 	},
-// 	{
-// 		year: '2023',
-// 		award: 'Innovation Master',
-// 		contest: 'Pixel Emporium',
-// 		project: 'TechnoVerse',
-// 	},
-// 	{
-// 		year: '2023',
-// 		award: 'Creative Breakthrough',
-// 		contest: 'Design Oasis',
-// 		project: 'DreamScape',
-// 	},
-// 	{
-// 		year: '2022',
-// 		award: 'Visionary Excellence',
-// 		contest: 'Tech Innovators',
-// 		project: 'FutureLink',
-// 	},
-// 	{
-// 		year: '2022',
-// 		award: 'Exceptional Ingenuity',
-// 		contest: 'WebGlobe Awards',
-// 		project: 'Infinitum',
-// 	},
-// 	{
-// 		year: '2021',
-// 		award: 'Artistic Brilliance',
-// 		contest: 'Design Discovery',
-// 		project: 'ChromaFlow',
-// 	},
-// 	{
-// 		year: '2020',
-// 		award: 'Technological Advancement',
-// 		contest: 'Digital Marvels',
-// 		project: 'ConnectX',
-// 	},
-// ]
-
 const Awards = ({
 	pretitle,
 	content,
 	awardsList,
-	...props
 }: Partial<{
 	pretitle: string
 	content: any
