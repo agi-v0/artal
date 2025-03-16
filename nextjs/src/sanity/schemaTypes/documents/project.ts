@@ -67,6 +67,20 @@ export default defineType({
 			group: 'content',
 		}),
 		defineField({
+			name: 'otherProjects',
+			title: 'Other Projects',
+			type: 'array',
+			of: [
+				{
+					name: 'project',
+					title: 'Project',
+					type: 'reference',
+					to: [{ type: 'project' }],
+				},
+			],
+			group: 'content',
+		}),
+		defineField({
 			name: 'featured',
 			type: 'boolean',
 			group: 'options',

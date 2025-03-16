@@ -30,6 +30,7 @@ import Awards from './Awards'
 import Crafted from './Crafted'
 import Why from './Why'
 import FAQ from './Faq'
+import ProjectsFrontpage from './ProjectsFrontpage'
 
 export default function Modules({
 	modules,
@@ -48,6 +49,8 @@ export default function Modules({
 						return <About {...module} key={module._key} />
 					case 'accordion-list':
 						return <AccordionList {...module} key={module._key} />
+					case 'projects-frontpage':
+						return <ProjectsFrontpage {...module} key={module._key} />
 					case 'awards':
 						return <Awards {...module} key={module._key} />
 					case 'blog-frontpage':

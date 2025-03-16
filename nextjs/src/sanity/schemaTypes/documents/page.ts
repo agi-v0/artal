@@ -34,6 +34,7 @@ export default defineType({
 			of: [
 				{ type: 'about' },
 				{ type: 'accordion-list' },
+				{ type: 'projects-frontpage' },
 				{ type: 'awards' },
 				{ type: 'blog-frontpage' },
 				{ type: 'blog-list' },

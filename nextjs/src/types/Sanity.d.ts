@@ -64,15 +64,28 @@ declare global {
 
 		interface Project extends PageBase {
 			readonly _type: 'project'
-			title: string
 			body: any
 			readTime: number
 			headings?: { style: string; text: string }[]
-			categories: BlogCategory[]
-			authors: Person[]
+			client: string
+			services: string
+			year: string
 			featured: boolean
 			hideTableOfContents: boolean
 			publishDate: string
+			projectImage: Sanity.Image
+		}
+
+		interface Service extends PageBase {
+			readonly _type: 'service'
+			body: any
+			readTime: number
+			headings?: { style: string; text: string }[]
+			title: string
+			content: string
+			featured: boolean
+			hideTableOfContents: boolean
+			serviceImage: Sanity.Image
 		}
 
 		// miscellaneous
@@ -139,7 +152,7 @@ declare global {
 			readonly _type: 'link'
 			label: string
 			type: 'internal' | 'external'
-			internal?: Page | BlogPost
+			internal?: Page | BlogPost | Project
 			external?: string
 			params?: string
 		}

@@ -56,6 +56,7 @@ import awards from './modules/awards'
 import crafted from './modules/crafted'
 import why from './modules/why'
 import faq from './modules/faq'
+import allProjects from './modules/project-frontpage'
 
 export const schemaTypes: SchemaTypeDefinition[] = [
 	// documents
@@ -80,10 +81,11 @@ export const schemaTypes: SchemaTypeDefinition[] = [
 	linkList,
 	metadata,
 	moduleOptions,
-	
+
 	// modules
 	about,
 	accordionList,
+	allProjects,
 	awards,
 	blogFrontpage,
 	blogList,
@@ -113,5 +115,5 @@ export const schemaTypes: SchemaTypeDefinition[] = [
 	tabbedContent,
 	testimonialFeatured,
 	testimonialList,
-	why
+	why,
 ]
