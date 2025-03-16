@@ -247,7 +247,7 @@
 /* layout */
 
 @utility section {
-	@apply p-site mx-auto w-full max-w-7xl border-x border-b border-neutral-400;
+	@apply p-site pt-xl mx-auto w-full max-w-7xl border-x border-b border-neutral-400;
 }
 
 /* richtext */

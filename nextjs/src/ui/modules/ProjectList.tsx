@@ -15,7 +15,7 @@ const Projects = ({
 }> &
 	Sanity.Module) => {
 	return (
-		<section className="">
+		<section>
 			<div className="section">
 				<div className="w-full items-center justify-between text-left md:inline-flex">
 					<div className="max-w-2xl">

@@ -15,10 +15,10 @@ const Services = ({
 	Sanity.Module) => {
 	return (
 		<section>
-			<div className="section pt-xl bg-neutral-900">
+			<div className="section pt-xl">
 				<div className="max-w-2xl">
 					<Pretitle>{pretitle}</Pretitle>
-					<div className="richtext mt-6 text-white">
+					<div className="richtext mt-6">
 						<PortableText value={content} />
 					</div>
 				</div>
