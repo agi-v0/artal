@@ -2,8 +2,8 @@ import { getSite } from '@/sanity/lib/queries'
 import CTA from '@/ui/CTA'
 import { stegaClean } from 'next-sanity'
 
-export default async function Menu() {
-	const { footerMenu } = await getSite()
+export default async function Menu({ locale }: { locale: string }) {
+	const { footerMenu } = await getSite(locale)
 
 	return (
 		<nav className="flex flex-wrap items-start gap-x-12 gap-y-6 max-sm:flex-col">

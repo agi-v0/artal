@@ -15,9 +15,13 @@ import {
 import { IoIosLink } from 'react-icons/io'
 
 export default async function Social({
+	locale,
 	className,
-}: React.ComponentProps<'div'>) {
-	const { social } = await getSite()
+}: {
+	locale: string
+	className: React.ComponentProps<'div'>
+}) {
+	const { social } = await getSite(locale)
 
 	if (!social?.items?.length) return null
 
@@ -28,7 +32,7 @@ export default async function Social({
 					case 'link':
 						return (
 							<CTA
-								className="px-2 py-1 hover:!opacity-100 group-has-[a:hover]:opacity-50"
+								className="px-2 py-1 group-has-[a:hover]:opacity-50 hover:!opacity-100"
 								link={item}
 								key={key}
 							>
