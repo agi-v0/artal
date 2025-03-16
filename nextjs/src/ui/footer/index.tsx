@@ -2,8 +2,8 @@ import { getSite } from '@/sanity/lib/queries'
 import Link from 'next/link'
 import Img from '@/ui/Img'
 
-export default async function Footer() {
-	const { title, tagline, logo, copyright } = await getSite()
+export default async function Footer({ locale }: { locale: string }) {
+	const { title, tagline, logo, copyright } = await getSite(locale)
 
 	const logoImage = logo?.image?.light || logo?.image?.default
 

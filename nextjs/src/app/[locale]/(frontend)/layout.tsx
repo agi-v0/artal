@@ -42,13 +42,13 @@ export default async function RootLayout({
 				<NuqsAdapter>
 					<SkipToContent />
 					<Announcement />
-					<Header />
+					<Header locale={locale} />
 					<main id="main-content" role="main" tabIndex={-1}>
 						<NextIntlClientProvider messages={messages}>
 							{children}
 						</NextIntlClientProvider>
 					</main>
-					<Footer />
+					<Footer locale={locale} />
 
 					<VisualEditingControls />
 				</NuqsAdapter>

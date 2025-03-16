@@ -36,7 +36,11 @@ const FAQ = ({
 						className="text-foreground w-full"
 					>
 						{faqs.map((faq: any, index: string) => (
-							<AccordionItem key={index} value={index + 1} className="p-site">
+							<AccordionItem
+								key={index}
+								value={index + 1}
+								className="px-site py-8"
+							>
 								<AccordionTrigger className="text-foreground text-h6 flex cursor-pointer justify-between">
 									{faq.question}
 								</AccordionTrigger>

@@ -178,7 +178,7 @@
 }
 
 @utility action {
-	@apply action-base bg-accent text-foreground rounded border border-transparent text-balance;
+	@apply action-base rounded-full border border-transparent bg-red-800 text-balance text-white uppercase ring-1 ring-transparent duration-200 hover:bg-red-800/90 focus:ring-2 focus:ring-white focus:ring-offset-2 focus:outline-none;
 }
 
 @utility action-outline {
