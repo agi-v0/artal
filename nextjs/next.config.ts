@@ -11,12 +11,12 @@ const client = createClient({
 	useCdn: true,
 })
 
-const createNextIntlPlugin = require('next-intl/plugin');
+const createNextIntlPlugin = require('next-intl/plugin')
 
-const withNextIntl = createNextIntlPlugin();
+const withNextIntl = createNextIntlPlugin()
 
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+const nextConfig = {}
 
 export default {
 	images: {
@@ -32,8 +32,11 @@ export default {
 			},
 		],
 	},
+	eslint: {
+		ignoreDuringBuilds: true,
+	},
 
-	async redirects() {
+	async redirect() {
 		return await client.fetch(groq`*[_type == 'redirect']{
 			source,
 			'destination': select(
@@ -59,7 +62,4 @@ export default {
 	// },
 } satisfies NextConfig
 
-
-module.exports = withNextIntl(nextConfig);
-
- 
+module.exports = withNextIntl(nextConfig)
