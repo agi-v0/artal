@@ -57,6 +57,7 @@ import crafted from './modules/crafted'
 import why from './modules/why'
 import faq from './modules/faq'
 import allProjects from './modules/project-frontpage'
+import contactMessage from './documents/contactMessage'
 
 export const schemaTypes: SchemaTypeDefinition[] = [
 	// documents
@@ -64,6 +65,7 @@ export const schemaTypes: SchemaTypeDefinition[] = [
 	page,
 	blogPost,
 	blogCategory,
+	contactMessage,
 	navigation,
 	announcement,
 	redirect,

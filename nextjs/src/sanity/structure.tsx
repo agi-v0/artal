@@ -22,6 +22,7 @@ export const structure = structureTool({
 				S.divider(),
 
 				S.documentTypeListItem('navigation'),
+				S.documentTypeListItem('contactMessage').title('Contact Us Message'),
 				S.documentTypeListItem('redirect').title('Redirects'),
 
 				group(S, 'Miscellaneous', [

@@ -7,7 +7,7 @@ import Service from '@/ui/service'
 
 export default async function Page({ params }: Props) {
 	const service = await getService(await params)
-	console.log(service)
+	
 	if (!service) notFound()
 
 	return <Service service={service} />

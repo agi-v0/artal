@@ -30,7 +30,7 @@ export default function ContactUS() {
 
 		try {
 			setIsSending(true)
-			const response = await fetch('/api/contact', {
+			const response = await fetch('/api/send', {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',
@@ -135,7 +135,7 @@ export default function ContactUS() {
 							</div>
 							<div>
 								<button
-									className="rounded-md bg-black px-8 py-3 text-base font-semibold text-white outline-none"
+									className="rounded-md bg-black px-8 py-3 text-base font-semibold text-white outline-none cursor-pointer"
 									disabled={isSending}
 								>
 									Submit

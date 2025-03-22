@@ -7,8 +7,6 @@ import Menu from './Navigation'
 export default async function Header() {
 	const { title, logo, ctas } = await getSite()
 
-	console.log(ctas)
-
 	return (
 		<Wrapper className="frosted-glass max-md:header-open:shadow-lg fixed top-0 z-10 w-full border-b border-neutral-400">
 			<div className="mx-auto w-full">
