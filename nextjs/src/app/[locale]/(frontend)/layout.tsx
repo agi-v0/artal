@@ -14,6 +14,7 @@ import { notFound } from 'next/navigation'
 import { routing } from '@/i18n/routing'
 import { IBM_Plex_Sans_Arabic } from 'next/font/google'
 import { Toaster } from '@/components/ui/sonner'
+import Motion from '@/lib/MotionProvider'
 
 const font = IBM_Plex_Sans_Arabic({
 	subsets: ['latin', 'arabic'],
@@ -44,12 +45,14 @@ export default async function RootLayout({
 					<SkipToContent />
 					<Announcement />
 					<Header />
-					<main id="main-content" role="main" tabIndex={-1}>
-						<NextIntlClientProvider messages={messages}>
-							{children}
-							<Toaster />
-						</NextIntlClientProvider>
-					</main>
+					<Motion>
+						<main id="main-content" role="main" tabIndex={-1}>
+							<NextIntlClientProvider messages={messages}>
+								{children}
+								<Toaster />
+							</NextIntlClientProvider>
+						</main>
+					</Motion>
 					<Footer />
 					<VisualEditingControls />
 				</NuqsAdapter>

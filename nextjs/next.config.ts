@@ -11,12 +11,20 @@ const client = createClient({
 	useCdn: true,
 })
 
-const createNextIntlPlugin = require('next-intl/plugin');
-
-const withNextIntl = createNextIntlPlugin();
-
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+
+const nextConfig = {
+	reactStrictMode: true,
+}
+
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+	enabled: process.env.ANALYZE === 'true',
+	openAnalyzer: true,
+})
+
+const createNextIntlPlugin = require('next-intl/plugin')
+
+const withNextIntl = createNextIntlPlugin()
 
 export default {
 	images: {
@@ -59,7 +67,6 @@ export default {
 	// },
 } satisfies NextConfig
 
-
-module.exports = withNextIntl(nextConfig);
-
- 
+module.exports = withNextIntl(
+  withBundleAnalyzer(nextConfig)
+);

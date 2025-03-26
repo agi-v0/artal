@@ -1,9 +1,8 @@
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 import resolveUrl from '@/lib/resolveUrl'
 import { cn } from '@/lib/utils'
 import { stegaClean } from 'next-sanity'
 import type { ComponentProps } from 'react'
-import { useLocale } from 'next-intl'
 
 export default function CTA({
 	_type,
@@ -20,8 +19,6 @@ export default function CTA({
 			children || link?.label || link?.internal?.title || link?.external,
 		...rest,
 	}
-
-	const locale = useLocale()
 
 	if (link?.type === 'internal' && link.internal)
 		return (

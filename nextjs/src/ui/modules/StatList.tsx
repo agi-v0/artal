@@ -34,14 +34,13 @@ export default function StatList({
 							className="w-full max-w-[250px] space-y-2 max-md:mx-auto"
 							key={key}
 						>
-							<dt className="font-bold">
+							<dt className="font-bold flex items-end">
 								{prefix && (
 									<small className="text-foreground/30 text-sm">{prefix}</small>
 								)}
 								<span className="text-foreground text-6xl">
 									<AnimatedNumber
-										value={Number(value)}
-										springOptions={{ bounce: 0, duration: 2000 }}
+										targetNumber={Number(value)}
 									/>
 								</span>
 								{suffix && (

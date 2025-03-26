@@ -11,9 +11,11 @@
 		"start": "next start",
 		"lint": "next lint",
 		"manifest": "sanity manifest extract --path public/admin/static",
-		"typecheck": "tsc --noEmit"
+		"typecheck": "tsc --noEmit",
+		"analyze": "ANALYZE=true next build"
 	},
 	"dependencies": {
+		"@next/bundle-analyzer": "^15.2.3",
 		"@portabletext/to-html": "^2.0.14",
 		"@radix-ui/react-accordion": "^1.2.3",
 		"@radix-ui/react-slot": "^1.1.2",

@@ -2,7 +2,7 @@
 import { PortableText } from 'next-sanity'
 import Pretitle from '@/ui/Pretitle'
 import { components } from '../portable-text'
-import { motion } from 'motion/react'
+import * as m from 'motion/react-m'
 
 export default function Hero({
 	pretitle,
@@ -24,10 +24,10 @@ export default function Hero({
 				>
 					{/* <div className="text-foreground absolute inset-0 h-full w-full opacity-5"></div> */}
 
-					<motion.div
+					<m.div
 						className="flex h-full flex-col items-start justify-end gap-6"
-						initial="hidden"
-						animate="show"
+						initial={{ y: -20, opacity: 0 }}
+						animate={{ y: 0, opacity: 1 }}
 						viewport={{ once: true }}
 						variants={{
 							hidden: {},
@@ -44,7 +44,7 @@ export default function Hero({
 						<div className="text-foreground richtext text-balance [&_h1]:mb-6 [&_h1]:max-w-3xl [&_p]:text-2xl [&_p]:text-neutral-500">
 							<PortableText value={content} components={components} />
 						</div>
-					</motion.div>
+					</m.div>
 				</div>
 			</section>
 			<section>
