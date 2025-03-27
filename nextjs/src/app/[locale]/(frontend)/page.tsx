@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: Props) {
 
 async function getPage(locale: string) {
 	const data = await fetchSanityLive<Sanity.Page>({
-		query: groq`*[_type == 'page' && metadata.slug.current == 'index' && language == $locale ][0]{
+		query: groq`*[_type == 'page' && metadata.slug.current == 'index'][0]{
 			...,
 			modules[]{ ${MODULES_QUERY} },
 			metadata {
@@ -31,8 +31,9 @@ async function getPage(locale: string) {
 		},
 	})
 
-	if (!data)
+	if (!data) {
 		throw Error('No `page` document with slug "index" found in the Studio')
+	}
 
 	return data
 }

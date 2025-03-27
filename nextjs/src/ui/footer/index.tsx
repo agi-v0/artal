@@ -1,15 +1,16 @@
 import { getSite } from '@/sanity/lib/queries'
 import Link from 'next/link'
 import Img from '@/ui/Img'
+import CTAList from '../CTAList'
 
 export default async function Footer({ locale }: { locale: string }) {
-	const { title, tagline, logo, copyright } = await getSite(locale)
+	const { title, tagline, logo, copyright, ctas } = await getSite(locale)
 
 	const logoImage = logo?.image?.light || logo?.image?.default
 
 	return (
 		<section className="bg-foreground">
-			<div className="bg-grid-neutral-800 p-site mx-auto max-w-7xl border-x border-neutral-800 lg:border-b-0">
+			<div className="bg-grid-neutral-800 p-site mx-auto max-w-7xl border-x border-neutral-800 lg:border-y-0">
 				<div>
 					<Link className="h3 md:h2 max-w-max text-white" href="/">
 						{logoImage ? (
@@ -30,14 +31,16 @@ export default async function Footer({ locale }: { locale: string }) {
 							<span className="block"> let's join forces and collaborate.</span>
 						</p>
 						<div className="mt-6">
-							<a
+							{/* <a
 								href="/contact"
 								title="your title"
 								aria-label="your label"
 								className="text-foreground bg-background hover:bg-background/90 inline-flex items-center rounded-full border border-transparent px-6 py-2 text-sm ring-1 ring-transparent duration-200 focus:ring-2 focus:ring-white focus:ring-offset-2 focus:outline-none"
 							>
 								CONTACT US
-							</a>
+							</a> */}
+
+							<CTAList className="" ctas={ctas} />
 						</div>
 					</div>
 					{/* <div>

@@ -1,7 +1,8 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { useScroll, useTransform } from 'framer-motion'
+import * as m from 'motion/react-m'
 import {
 	PortableText,
 	PortableTextComponents,
@@ -97,18 +98,18 @@ const Process = ({
 								<TimelineSeparator />
 								<TimelineTitle className="text-h6">{step.title}</TimelineTitle>
 								<TimelineIndicator />
-								<motion.div
-									className={`absolute size-4 rounded-full border-2 group-data-[orientation=horizontal]/timeline:-top-6 group-data-[orientation=horizontal]/timeline:-translate-y-1/2 group-data-[orientation=vertical]/timeline:top-0 group-data-[orientation=vertical]/timeline:-left-6 group-data-[orientation=vertical]/timeline:-translate-x-1/2 ${id + 1 <= activeStep ? 'bg-primary border-primary' : 'border-primary/20'}`}
+								<m.div
+									className={`absolute size-4 rounded-full border-2 group-data-[orientation=horizontal]/timeline:-top-6 group-data-[orientation=horizontal]/timeline:-translate-y-1/2 ${id + 1 <= activeStep ? 'bg-primary border-primary' : 'border-primary/20'}`}
 									initial={false}
 									animate={{
 										scale: id + 1 === activeStep ? 1.2 : 1,
 										transition: { duration: 0.3 },
 									}}
 								>
-									{/* <TimelineIndicator className="!border-0" /> */}
-								</motion.div>
+									<TimelineIndicator className="!border-0" />
+								</m.div>
 							</TimelineHeader>
-							<motion.div
+							<m.div
 								initial={{ opacity: 0, y: 10 }}
 								animate={{
 									opacity: id + 1 === activeStep ? 1 : 0.5,
@@ -119,7 +120,7 @@ const Process = ({
 								<TimelineContent>
 									<PortableText value={step.content} components={components} />
 								</TimelineContent>
-							</motion.div>
+							</m.div>
 						</TimelineItem>
 					))}
 				</Timeline>

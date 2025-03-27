@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 import resolveUrl from '@/lib/resolveUrl'
 import { cn } from '@/lib/utils'
 import { stegaClean } from 'next-sanity'

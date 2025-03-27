@@ -1,16 +1,16 @@
 {
-  "version": 2,
-  "createdAt": "2025-03-16T18:08:19.785Z",
-  "workspaces": [
-    {
-      "name": "default",
-      "title": "SanityPress",
-      "basePath": "/admin",
-      "projectId": "82i93b28",
-      "dataset": "production",
-      "icon": "<img alt=\"SanityPress\" src=\"/favicon.ico\" style=\"width:100%;aspect-ratio:1\">",
-      "schema": "9bbbdf50.create-schema.json",
-      "tools": "72d7f1dc.create-tools.json"
-    }
-  ]
+	"version": 2,
+	"createdAt": "2025-03-24T04:12:12.602Z",
+	"workspaces": [
+		{
+			"name": "default",
+			"title": "SanityPress",
+			"basePath": "/admin",
+			"projectId": "82i93b28",
+			"dataset": "production",
+			"icon": "<img alt=\"SanityPress\" src=\"/favicon.ico\" style=\"width:100%;aspect-ratio:1\">",
+			"schema": "769128d5.create-schema.json",
+			"tools": "72d7f1dc.create-tools.json"
+		}
+	]
 }
