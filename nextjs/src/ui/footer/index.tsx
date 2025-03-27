@@ -10,7 +10,7 @@ export default async function Footer() {
 
 	return (
 		<section className="bg-foreground">
-			<div className="bg-grid-neutral-800 mx-auto max-w-7xl border-x border-neutral-800 p-8 lg:border-b-0">
+			<div className="bg-grid-neutral-800 mx-auto max-w-7xl border-x border-neutral-800 p-8 lg:border-y-0">
 				<div>
 					<Link className="h3 md:h2 text-canvas max-w-max" href="/">
 						{logoImage ? (
@@ -40,10 +40,7 @@ export default async function Footer() {
 								CONTACT US
 							</a> */}
 
-							<CTAList
-								className=""
-								ctas={ctas}
-							/>
+							<CTAList className="" ctas={ctas} />
 						</div>
 					</div>
 					{/* <div>
