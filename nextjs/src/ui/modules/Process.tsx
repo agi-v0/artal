@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-import { useScroll, useTransform } from 'framer-motion'
+import { useScroll, useTransform } from 'motion/react'
 import * as m from 'motion/react-m'
 import {
 	PortableText,
@@ -81,13 +81,13 @@ const Process = ({
 
 	return (
 		<section ref={containerRef} className="">
-			<div className="mx-auto max-w-7xl border-x border-b border-neutral-400 bg-[image:repeating-linear-gradient(315deg,_var(--pattern-fg)_0,_var(--pattern-fg)_1px,_transparent_0,_transparent_50%)] bg-[size:10px_10px] p-8 lg:py-16">
+			<div className="section border-x border-b bg-[image:repeating-linear-gradient(315deg,_var(--pattern-fg)_0,_var(--pattern-fg)_1px,_transparent_0,_transparent_50%)] bg-[size:10px_10px]">
 				<Pretitle>{pretitle}</Pretitle>
 				<div className="text-foreground richtext mt-6">
 					<PortableText value={content} />
 				</div>
 			</div>
-			<div className="mx-auto max-w-7xl divide-y divide-neutral-400 border-x border-b border-neutral-400 p-8">
+			<div className="mx-auto max-w-7xl divide-y border-x border-b p-8">
 				<Timeline
 					value={activeStep}
 					orientation={windowsSize.width > 768 ? 'horizontal' : 'vertical'}
@@ -99,7 +99,7 @@ const Process = ({
 								<TimelineTitle className="text-h6">{step.title}</TimelineTitle>
 								<TimelineIndicator />
 								<m.div
-									className={`absolute size-4 rounded-full border-2 group-data-[orientation=horizontal]/timeline:-top-6 group-data-[orientation=horizontal]/timeline:-translate-y-1/2 ${id + 1 <= activeStep ? 'bg-primary border-primary' : 'border-primary/20'}`}
+									className={`absolute size-4 rounded-full border-2 group-data-[orientation=horizontal]/timeline:-top-6 group-data-[orientation=horizontal]/timeline:-translate-y-1/2 ${id + 1 <= activeStep ? 'border-red-800 bg-red-800' : 'border-primary/20'}`}
 									initial={false}
 									animate={{
 										scale: id + 1 === activeStep ? 1.2 : 1,

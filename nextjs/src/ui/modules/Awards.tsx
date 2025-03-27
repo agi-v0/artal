@@ -14,7 +14,7 @@ const Awards = ({
 	return (
 		<>
 			<section>
-				<div className="mx-auto max-w-7xl border-x border-b border-neutral-400">
+				<div className="mx-auto max-w-7xl border-x border-b">
 					<div className="max-w-2xl">
 						<Pretitle>{pretitle}</Pretitle>
 						<div className="text-foreground richtext mt-6">
@@ -28,10 +28,10 @@ const Awards = ({
 					<div className="flex w-full flex-col">
 						<div className="overflow-x-auto">
 							<div className="inline-block min-w-full align-middle">
-								<div className="overflow-hidden border border-neutral-400">
-									<table className="min-w-full divide-y divide-neutral-400">
+								<div className="overflow-hidden border">
+									<table className="min-w-full divide-y">
 										<thead>
-											<tr className="divide-x divide-neutral-400">
+											<tr className="divide-x">
 												<th
 													className="text-foreground px-8 py-3.5 text-left text-base leading-none font-light"
 													scope="col"
@@ -58,11 +58,11 @@ const Awards = ({
 												</th>
 											</tr>
 										</thead>
-										<tbody className="divide-y divide-neutral-400">
+										<tbody className="divide-y">
 											{awardsList.map((award: any, index: string) => (
 												<tr
 													key={index}
-													className="divide-x divide-neutral-400 font-light whitespace-nowrap text-neutral-400"
+													className="text-foreground/50 divide-x font-light whitespace-nowrap"
 												>
 													<td className="px-8">{award.year}</td>
 													<td className="px-8">{award.award}</td>

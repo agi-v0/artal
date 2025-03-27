@@ -3,8 +3,6 @@ import {
 	Carousel,
 	CarouselContent,
 	CarouselItem,
-	CarouselNext,
-	CarouselPrevious,
 } from '@/components/ui/carousel'
 import Pretitle from '../Pretitle'
 import Img from '../Img'
@@ -33,7 +31,7 @@ const Crafted = ({
 				</div>
 			</section>
 			<section>
-				<div className="mx-auto max-w-7xl border-x border-b border-neutral-400">
+				<div className="mx-auto max-w-7xl border-x border-b">
 					<Carousel className="w-full">
 						<CarouselContent>
 							{carousel.map((image: any, index: string) => (
@@ -51,8 +49,8 @@ const Crafted = ({
 								</CarouselItem>
 							))}
 						</CarouselContent>
-						<CarouselPrevious size="lg" />
-						<CarouselNext size="lg" />
+						{/* <CarouselPrevious size="lg" />
+						<CarouselNext size="lg" /> */}
 					</Carousel>
 				</div>
 			</section>

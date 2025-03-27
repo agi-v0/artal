@@ -12,12 +12,18 @@ import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
 import { notFound } from 'next/navigation'
 import { routing } from '@/i18n/routing'
-import { IBM_Plex_Sans_Arabic } from 'next/font/google'
+import { IBM_Plex_Sans_Arabic, Inter } from 'next/font/google'
 import { Toaster } from '@/components/ui/sonner'
 import Motion from '@/lib/MotionProvider'
 
 const font = IBM_Plex_Sans_Arabic({
 	subsets: ['latin', 'arabic'],
+	display: 'swap',
+	weight: ['400', '500', '600'],
+})
+
+const font2 = Inter({
+	subsets: ['latin'],
 	display: 'swap',
 	weight: ['400', '500', '600'],
 })
@@ -42,19 +48,19 @@ export default async function RootLayout({
 
 			<body className="text-foreground bg-background relative w-full">
 				<NuqsAdapter>
-					<SkipToContent />
-					<Announcement />
-					<Header locale={locale} />
-					<Motion>
-						<main id="main-content" role="main" tabIndex={-1}>
-							<NextIntlClientProvider messages={messages}>
+					<NextIntlClientProvider messages={messages}>
+						<Motion>
+							<SkipToContent />
+							<Announcement />
+							<Header locale={locale} />
+							<main id="main-content" role="main" tabIndex={-1}>
 								{children}
 								<Toaster />
-							</NextIntlClientProvider>
-						</main>
-					</Motion>
-					<Footer locale={locale} />
-					<VisualEditingControls />
+							</main>
+							<Footer locale={locale} />
+							<VisualEditingControls />
+						</Motion>
+					</NextIntlClientProvider>
 				</NuqsAdapter>
 				<Analytics />
 				<SpeedInsights />

@@ -66,7 +66,7 @@ export default function ContactUS() {
 	return (
 		<>
 			<section>
-				<div className="mx-auto max-w-7xl border-x border-b border-neutral-400 p-8 lg:py-32">
+				<div className="mx-auto max-w-7xl border-x border-b p-8 lg:py-32">
 					<div className="mx-auto max-w-2xl">
 						<form onSubmit={handleSubmit}>
 							<div className="mb-5">
@@ -135,7 +135,7 @@ export default function ContactUS() {
 							</div>
 							<div>
 								<button
-									className="rounded-md bg-black px-8 py-3 text-base font-semibold text-white outline-none cursor-pointer"
+									className="cursor-pointer rounded-md bg-black px-8 py-3 text-base font-semibold text-white outline-none"
 									disabled={isSending}
 								>
 									Submit

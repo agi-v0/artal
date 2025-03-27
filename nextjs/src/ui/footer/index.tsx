@@ -9,8 +9,8 @@ export default async function Footer({ locale }: { locale: string }) {
 	const logoImage = logo?.image?.light || logo?.image?.default
 
 	return (
-		<section className="bg-foreground">
-			<div className="bg-grid-neutral-800 p-site mx-auto max-w-7xl border-x border-neutral-800 lg:border-y-0">
+		<section className="">
+			<div className="bg-grid-neutral-800 bg-foreground section border-x border-neutral-800 lg:border-y-0">
 				<div>
 					<Link className="h3 md:h2 max-w-max text-white" href="/">
 						{logoImage ? (
@@ -26,9 +26,9 @@ export default async function Footer({ locale }: { locale: string }) {
 				</div>
 				<div className="mt-32 grid grid-cols-1 lg:grid-cols-2">
 					<div>
-						<p className="text-background richtext">
-							<span className="block">If you have a project idea in mind,</span>
-							<span className="block"> let's join forces and collaborate.</span>
+						<p className="text-background text-h4 max-w-2xl">
+							If you have a project idea in mind, let's join forces and
+							collaborate.
 						</p>
 						<div className="mt-6">
 							{/* <a
@@ -51,7 +51,7 @@ export default async function Footer({ locale }: { locale: string }) {
 										href="/system/overview"
 										title="your title"
 										aria-label="your label"
-										className="hover:text-accent text-sm font-normal text-neutral-400"
+										className="hover:text-accent text-sm font-normal text-foreground/50"
 									>
 										Overview
 									</a>
@@ -61,7 +61,7 @@ export default async function Footer({ locale }: { locale: string }) {
 										href="/system/style-guide"
 										title="your title"
 										aria-label="your label"
-										className="hover:text-accent text-sm font-normal text-neutral-400"
+										className="hover:text-accent text-sm font-normal text-foreground/50"
 									>
 										Style Guide
 									</a>
@@ -71,7 +71,7 @@ export default async function Footer({ locale }: { locale: string }) {
 										href="https://lexingtonthemes.com/"
 										title="your title"
 										aria-label="your label"
-										className="hover:text-accent text-sm font-normal text-neutral-400"
+										className="hover:text-accent text-sm font-normal text-foreground/50"
 									>
 										More themes
 									</a>
@@ -81,7 +81,7 @@ export default async function Footer({ locale }: { locale: string }) {
 										href="https://www.lexingtonthemes.com/legal/license"
 										title="your title"
 										aria-label="your label"
-										className="hover:text-accent text-sm font-normal text-neutral-400"
+										className="hover:text-accent text-sm font-normal text-foreground/50"
 									>
 										License
 									</a>
@@ -93,7 +93,7 @@ export default async function Footer({ locale }: { locale: string }) {
 										href="https://lexingtonthemes.com/documentation/quick-start/"
 										title="your title"
 										aria-label="your label"
-										className="hover:text-accent text-sm font-normal text-neutral-400"
+										className="hover:text-accent text-sm font-normal text-foreground/50"
 									>
 										Documentation
 									</a>
@@ -103,7 +103,7 @@ export default async function Footer({ locale }: { locale: string }) {
 										href="https://x.com/lexingtonthemes"
 										title="your title"
 										aria-label="your label"
-										className="hover:text-accent text-sm font-normal text-neutral-400"
+										className="hover:text-accent text-sm font-normal text-foreground/50"
 									>
 										@lexingtonthemes
 									</a>
@@ -113,7 +113,7 @@ export default async function Footer({ locale }: { locale: string }) {
 										href="https://x.com/Mike_Andreuzza"
 										title="your title"
 										aria-label="your label"
-										className="hover:text-accent text-sm font-normal text-neutral-400"
+										className="hover:text-accent text-sm font-normal text-foreground/50"
 									>
 										@Mike_Andreuzza
 									</a>

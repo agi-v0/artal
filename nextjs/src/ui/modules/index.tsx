@@ -71,8 +71,8 @@ export default function Modules({
 						return <Callout {...module} key={module._key} />
 					case 'card-list':
 						return <CardList {...module} key={module._key} />
-					case 'crafted':
-						return <Crafted {...module} key={module._key} />
+					// case 'crafted':
+					// 	return <Crafted {...module} key={module._key} />
 					case 'creative-module':
 						return <CreativeModule {...module} key={module._key} />
 					case 'custom-html':

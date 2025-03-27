@@ -24,7 +24,7 @@ export default async function ProjectsFrontpage({
 		<section>
 			<div className="mx-auto max-w-7xl border-x border-b p-8 pt-[calc(32px+var(--header-height))] lg:py-16 lg:pt-[calc(64px+var(--header-height))]">
 				<div className="max-w-2xl">
-					<span className="font-light text-neutral-400">{pretitle}</span>
+					<span className="text-foreground/50 font-light">{pretitle}</span>
 					<div className="text-foreground richtext mt-6">
 						<PortableText value={content} />
 					</div>

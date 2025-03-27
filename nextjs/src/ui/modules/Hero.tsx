@@ -38,7 +38,7 @@ export default function Hero({
 							},
 						}}
 					>
-						<Pretitle className={'font-light text-neutral-400'}>
+						<Pretitle className={'text-foreground/50 font-light'}>
 							{pretitle}
 						</Pretitle>
 						<div className="text-foreground text-balance [&_h1]:mb-6 [&_h1]:max-w-3xl [&_p]:text-neutral-500">
@@ -48,8 +48,8 @@ export default function Hero({
 				</div>
 			</section>
 			<section>
-				<div className="bg-background mx-auto max-w-7xl border-x border-b border-neutral-400">
-					<div className="text-foreground grid grid-cols-1 divide-neutral-400 max-md:divide-y md:grid-cols-3 md:divide-x">
+				<div className="bg-background mx-auto max-w-7xl border-x border-b">
+					<div className="text-foreground grid grid-cols-1 max-md:divide-y md:grid-cols-3 md:divide-x">
 						{testimonials.map((testimonial: any, index: string) => (
 							<div
 								className="p-site flex h-full flex-col justify-between bg-[size:10px_10px] hover:bg-[image:repeating-linear-gradient(315deg,_var(--pattern-fg)_0,_var(--pattern-fg)_1px,_transparent_0,_transparent_50%)]"
@@ -72,7 +72,7 @@ export default function Hero({
 								</div>
 								<div className="mt-4">
 									<span className="block font-medium">{testimonial.name}</span>
-									<span className="block text-neutral-400">
+									<span className="text-foreground/50 block">
 										{testimonial.description}
 									</span>
 								</div>

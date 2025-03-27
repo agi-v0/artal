@@ -1,31 +1,36 @@
 'use client'
-
-import React, { useState, useEffect } from 'react'
+import { cn } from '@/lib/utils'
+import { motion, SpringOptions, useSpring, useTransform } from 'motion/react'
 import * as m from 'motion/react-m'
+import { useEffect } from 'react'
 
-export const AnimatedNumber = ({ targetNumber }: { targetNumber: any }) => {
-	const [value, setValue] = useState(0)
+export type AnimatedNumberProps = {
+	value: number
+	className?: string
+	springOptions?: SpringOptions
+	as?: React.ElementType
+}
+
+export function AnimatedNumber({
+	value,
+	className,
+	springOptions,
+	as = 'span',
+}: AnimatedNumberProps) {
+	const MotionComponent = motion.create(as)
+
+	const spring = useSpring(value, springOptions)
+	const display = useTransform(spring, (current) =>
+		Math.round(current).toLocaleString(),
+	)
 
 	useEffect(() => {
-		let timeoutId = undefined
-
-		if (value < targetNumber) {
-			timeoutId = setTimeout(() => {
-				setValue((prevValue) => prevValue + 1)
-			}, 20) // Adjust the delay to control the animation speed
-		}
-
-		return () => clearTimeout(timeoutId)
-	}, [value, targetNumber])
+		spring.set(value)
+	}, [spring, value])
 
 	return (
-		<m.div
-			initial={{ opacity: 0 }}
-			animate={{ opacity: 1 }}
-			transition={{ duration: 1 }}
-			className={'tabular-nums'}
-		>
-			{value}
-		</m.div>
+		<MotionComponent className={cn('tabular-nums', className)}>
+			{display}
+		</MotionComponent>
 	)
 }

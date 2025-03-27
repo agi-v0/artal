@@ -14,11 +14,11 @@ export default async function Header({ locale }: { locale: string }) {
 	const logoImage = logo?.image?.dark || logo?.image?.default
 
 	return (
-		<Wrapper className="frosted-glass bg-background fixed top-0 z-10 w-full border-b border-neutral-400">
+		<Wrapper className="frosted-glass bg-background fixed top-0 z-10 w-full border-b">
 			<div
 				className={cn(
 					css.header,
-					'mx-auto grid max-w-7xl items-center gap-x-4 border-x border-neutral-400 p-4',
+					'mx-auto grid max-w-7xl items-center gap-x-4 border-x p-4',
 				)}
 			>
 				<div className="[grid-area:logo]">

@@ -40,7 +40,7 @@
 	* {
 		min-width: 0;
 		max-width: 100%;
-		@apply border-border outline-ring/50;
+		@apply outline-ring/50 border-border;
 	}
 
 	[hidden] {
@@ -132,6 +132,7 @@
 
 @utility h-base {
 	font-weight: semibold;
+	text-transform: uppercase;
 }
 
 @utility h1 {

@@ -39,12 +39,12 @@ const FAQ = ({
 							<AccordionItem
 								key={index}
 								value={index + 1}
-								className="px-site py-8"
+								className="px-site py-md transition-colors data-[state=open]:bg-neutral-50"
 							>
 								<AccordionTrigger className="text-foreground text-h6 flex cursor-pointer justify-between">
 									{faq.question}
 								</AccordionTrigger>
-								<AccordionContent className="[&_p]:text-body text-neutral-400">
+								<AccordionContent className="[&_p]:text-body-l text-foreground/50">
 									<PortableText value={faq.answer} />
 								</AccordionContent>
 							</AccordionItem>

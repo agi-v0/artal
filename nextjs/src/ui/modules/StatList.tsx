@@ -2,8 +2,7 @@
 import Pretitle from '@/ui/Pretitle'
 import { PortableText, stegaClean } from 'next-sanity'
 import { AnimatedNumber } from '@/components/ui/animated-number'
-import { useEffect, useRef } from 'react'
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { useInView } from 'motion/react'
 
 export default function StatList({
@@ -26,11 +25,9 @@ export default function StatList({
 	const isInView = useInView(ref, { once: true })
 	const [values, setValues] = useState([0, 0, 0, 0])
 
-	useEffect(() => {
-		if (isInView) {
-			setValues(stats?.map(({ value }) => Number(value)) || [0, 0, 0, 0])
-		}
-	}, [isInView])
+	if (isInView && values?.reduce((acc, curr) => acc + Number(curr), 0) === 0) {
+		setValues(stats?.map(({ value }) => Number(value)) || [0, 0, 0, 0])
+	}
 
 	return (
 		<section className="bg-background-highlight dark section p-xl">
@@ -48,7 +45,7 @@ export default function StatList({
 					<div className="w-full font-semibold" key={key}>
 						<div className="space-x-1">
 							{prefix && (
-								<span className="text-foreground/30 text-base">{prefix}</span>
+								<span className="text-foreground/50 text-h2">{prefix}</span>
 							)}
 							<span className="text-foreground text-h2">
 								<AnimatedNumber
@@ -57,11 +54,11 @@ export default function StatList({
 								/>
 							</span>
 							{suffix && (
-								<span className="text-foreground/30 text-base">{suffix}</span>
+								<span className="text-foreground/50 text-h2">{suffix}</span>
 							)}
 						</div>
 						{text && (
-							<span className="text-body font-normal text-balance text-neutral-400">
+							<span className="text-body text-foreground/50 font-normal text-balance">
 								{text}
 							</span>
 						)}
