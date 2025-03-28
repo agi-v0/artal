@@ -1,8 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { EmailTemplate } from '../../../components/email-template'
 import { Resend } from 'resend'
 import { createClient } from 'next-sanity'
 import { apiVersion } from '@/sanity/lib/env'
+import EmailTemplate from '@/components/email-template'
 
 const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY)
 
