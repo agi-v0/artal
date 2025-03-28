@@ -5,7 +5,7 @@ import {
 } from 'next-sanity'
 import Pretitle from '../Pretitle'
 
-const About = ({
+export default function About({
 	pretitle,
 	content,
 	...props
@@ -13,7 +13,7 @@ const About = ({
 	pretitle: string
 	content: any
 }> &
-	Sanity.Module) => {
+	Sanity.Module) {
 	const components: PortableTextComponents = {
 		types: {
 			block: ({ value }: PortableTextTypeComponentProps<any>) => {
@@ -46,5 +46,3 @@ const About = ({
 		</section>
 	)
 }
-
-export default About

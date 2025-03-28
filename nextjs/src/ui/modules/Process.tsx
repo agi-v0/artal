@@ -20,17 +20,16 @@ import {
 	TimelineTitle,
 } from '@/components/ui/timeline'
 
-const Process = ({
+export default function Process({
 	pretitle,
 	content,
 	steps,
-	...props
 }: Partial<{
 	pretitle: string
 	content: any
 	steps: any
 }> &
-	Sanity.Module) => {
+	Sanity.Module) {
 	const components: PortableTextComponents = {
 		types: {
 			block: ({ value }: PortableTextTypeComponentProps<any>) => {
@@ -121,5 +120,3 @@ const Process = ({
 		</section>
 	)
 }
-
-export default Process

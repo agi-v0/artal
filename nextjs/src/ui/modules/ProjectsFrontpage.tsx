@@ -7,7 +7,6 @@ export default async function ProjectsFrontpage({
 	pretitle,
 	content,
 	projects,
-	...props
 }: Partial<{
 	pretitle: string
 	content: any

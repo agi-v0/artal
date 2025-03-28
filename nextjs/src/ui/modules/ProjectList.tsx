@@ -1,20 +1,17 @@
 import { PortableText } from 'next-sanity'
-import { components } from '../portable-text'
 
 import Img from '../Img'
 
-const Projects = ({
+export default function Projects({
 	content,
 	ctas,
 	projects,
-	...props
 }: Partial<{
 	content: any
 	ctas?: any
 	projects: Sanity.Project[]
 }> &
-	Sanity.Module) => {
-
+	Sanity.Module) {
 	return (
 		<>
 			<section>
@@ -83,5 +80,3 @@ const Projects = ({
 		</>
 	)
 }
-
-export default Projects

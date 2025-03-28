@@ -1,21 +1,18 @@
 import {
 	PortableText,
-	PortableTextComponents,
-	PortableTextTypeComponentProps,
 } from 'next-sanity'
 import Pretitle from '../Pretitle'
 
-const Why = ({
+export default function Why({
 	pretitle,
 	content,
 	tips,
-	...props
 }: Partial<{
 	pretitle: string
 	content: any
 	tips: any
 }> &
-	Sanity.Module) => {
+	Sanity.Module) {
 	return (
 		<>
 			<section>
@@ -49,5 +46,3 @@ const Why = ({
 		</>
 	)
 }
-
-export default Why

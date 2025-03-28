@@ -9,17 +9,16 @@ import {
 import Pretitle from '../Pretitle'
 import Img from '../Img'
 
-const Crafted = ({
+export default function Crafted({
 	pretitle,
 	content,
 	carousel,
-	...props
 }: Partial<{
 	pretitle: string
 	content: any
 	carousel: any
 }> &
-	Sanity.Module) => {
+	Sanity.Module) {
 	return (
 		<>
 			<section>
@@ -59,5 +58,3 @@ const Crafted = ({
 		</>
 	)
 }
-
-export default Crafted

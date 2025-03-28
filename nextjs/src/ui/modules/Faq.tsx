@@ -7,17 +7,16 @@ import {
 } from '@/components/ui/accordion'
 import Pretitle from '../Pretitle'
 
-const FAQ = ({
+export default function FAQ({
 	pretitle,
 	content,
 	faqs,
-	...props
 }: Partial<{
 	pretitle: string
 	content: any
 	faqs: any
 }> &
-	Sanity.Module) => {
+	Sanity.Module) {
 	return (
 		<>
 			<section>
@@ -55,5 +54,3 @@ const FAQ = ({
 		</>
 	)
 }
-
-export default FAQ

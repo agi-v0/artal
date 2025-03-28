@@ -6,7 +6,6 @@ export default function StatList({
 	pretitle,
 	intro,
 	stats,
-	textAlign = 'center',
 }: Partial<{
 	pretitle: string
 	intro: any
@@ -16,7 +15,6 @@ export default function StatList({
 		suffix: string
 		text: string
 	}>[]
-	textAlign: React.CSSProperties['textAlign']
 }>) {
 	return (
 		<section className="">
@@ -34,14 +32,12 @@ export default function StatList({
 							className="w-full max-w-[250px] space-y-2 max-md:mx-auto"
 							key={key}
 						>
-							<dt className="font-bold flex items-end">
+							<dt className="flex items-end font-bold">
 								{prefix && (
 									<small className="text-foreground/30 text-sm">{prefix}</small>
 								)}
 								<span className="text-foreground text-6xl">
-									<AnimatedNumber
-										targetNumber={Number(value)}
-									/>
+									<AnimatedNumber targetNumber={Number(value)} />
 								</span>
 								{suffix && (
 									<small className="text-foreground/30 text-sm">{suffix}</small>

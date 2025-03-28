@@ -9,7 +9,7 @@ import {
 } from '@react-email/components'
 import * as React from 'react'
 
-export const EmailTemplate = ({
+export default function EmailTemplate({
 	fullName,
 	phoneNumber,
 	email,
@@ -19,7 +19,7 @@ export const EmailTemplate = ({
 	phoneNumber: string
 	email: string
 	message: string
-}) => {
+}) {
 	return (
 		<Html>
 			<Head />
@@ -50,8 +50,6 @@ export const EmailTemplate = ({
 		</Html>
 	)
 }
-
-export default EmailTemplate
 
 const main = {
 	backgroundColor: '#ffffff',

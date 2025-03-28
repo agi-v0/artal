@@ -1,7 +1,7 @@
 import { PortableText } from 'next-sanity'
 import Pretitle from '../Pretitle'
 
-const Awards = ({
+export default function Awards({
 	pretitle,
 	content,
 	awardsList,
@@ -10,7 +10,7 @@ const Awards = ({
 	content: any
 	awardsList: any
 }> &
-	Sanity.Module) => {
+	Sanity.Module) {
 	return (
 		<>
 			<section>
@@ -81,5 +81,3 @@ const Awards = ({
 		</>
 	)
 }
-
-export default Awards

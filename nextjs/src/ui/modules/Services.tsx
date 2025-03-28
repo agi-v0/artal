@@ -2,17 +2,16 @@ import { PortableText } from 'next-sanity'
 import Pretitle from '../Pretitle'
 import { Cursor } from '@/components/ui/cursor'
 
-const Services = ({
+export default function Services({
 	pretitle,
 	content,
 	services,
-	...props
 }: Partial<{
 	pretitle: string
 	content: any
 	services: Sanity.Service
 }> &
-	Sanity.Module) => {
+	Sanity.Module) {
 	return (
 		<section>
 			<div className="mx-auto max-w-7xl border-x border-b border-neutral-400 p-8 lg:py-16">
@@ -73,5 +72,3 @@ const Services = ({
 		</section>
 	)
 }
-
-export default Services
