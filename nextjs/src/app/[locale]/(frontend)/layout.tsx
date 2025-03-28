@@ -8,13 +8,12 @@ import VisualEditingControls from '@/ui/VisualEditingControls'
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import '@/styles/app.css'
-import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
 import { notFound } from 'next/navigation'
 import { routing } from '@/i18n/routing'
 import { IBM_Plex_Sans_Arabic } from 'next/font/google'
 import { Toaster } from '@/components/ui/sonner'
-import Motion from '@/lib/MotionProvider'
+import Providers from '@/lib/providers'
 
 const font = IBM_Plex_Sans_Arabic({
 	subsets: ['latin', 'arabic'],
@@ -45,14 +44,12 @@ export default async function RootLayout({
 					<SkipToContent />
 					<Announcement />
 					<Header />
-					<Motion>
-						<main id="main-content" role="main" tabIndex={-1}>
-							<NextIntlClientProvider messages={messages}>
-								{children}
-								<Toaster />
-							</NextIntlClientProvider>
-						</main>
-					</Motion>
+					<main id="main-content" role="main" tabIndex={-1}>
+						<Providers messages={messages} locale={locale}>
+							{children}
+							<Toaster />
+						</Providers>
+					</main>
 					<Footer />
 					<VisualEditingControls />
 				</NuqsAdapter>
