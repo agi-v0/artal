@@ -40,19 +40,19 @@ export default async function RootLayout({
 			{/* <GoogleTagManager gtmId="" /> */}
 
 			<body className="text-foreground bg-background">
-				<NuqsAdapter>
-					<SkipToContent />
-					<Announcement />
-					<Header />
-					<main id="main-content" role="main" tabIndex={-1}>
-						<Providers messages={messages} locale={locale}>
+				<Providers messages={messages} locale={locale}>
+					<NuqsAdapter>
+						<SkipToContent />
+						<Announcement />
+						<Header />
+						<main id="main-content" role="main" tabIndex={-1}>
 							{children}
 							<Toaster />
-						</Providers>
-					</main>
-					<Footer />
-					{/* <VisualEditingControls /> */}
-				</NuqsAdapter>
+						</main>
+						<Footer />
+						{/* <VisualEditingControls /> */}
+					</NuqsAdapter>
+				</Providers>
 				<Analytics />
 				<SpeedInsights />
 			</body>
