@@ -1,5 +1,4 @@
 'use client'
-
 import { defineConfig } from 'sanity'
 import { projectId, dataset, apiVersion, basePath } from '@/sanity/lib/env'
 import { icon, structure } from './src/sanity/structure'
@@ -12,7 +11,7 @@ import {
 import { infoWidget } from './src/sanity/infoWidget'
 // import { vercelWidget } from 'sanity-plugin-dashboard-widget-vercel'
 import { visionTool } from '@sanity/vision'
-import { codeInput } from '@sanity/code-input'
+// import { codeInput } from '@sanity/code-input'
 import { schemaTypes } from './src/sanity/schemaTypes'
 import { documentInternationalization } from '@sanity/document-internationalization'
 
@@ -43,7 +42,7 @@ export default defineConfig({
 			],
 		}),
 		visionTool({ defaultApiVersion: apiVersion }),
-		codeInput(),
+		// codeInput(),
 		documentInternationalization({
 			// Required configuration
 			supportedLanguages: [

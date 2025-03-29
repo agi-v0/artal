@@ -1,36 +1,147 @@
-import AccordionList from './AccordionList'
-import BlogFrontpage from './blog/BlogFrontpage'
-import BlogList from './blog/BlogList'
-import BlogPostContent from './blog/PostContent'
-import Breadcrumbs from './Breadcrumbs'
-import Callout from './Callout'
-import CardList from './CardList'
-import CreativeModule from './CreativeModule'
-import CustomHTML from './CustomHTML'
-import FlagList from './FlagList'
-import Hero from './Hero'
-import HeroSplit from './HeroSplit'
-import HeroSaaS from './HeroSaaS'
-import LogoList from './LogoList'
-import PersonList from './PersonList'
-import PricingList from './PricingList'
-import Projects from './ProjectList'
-import RichtextModule from './RichtextModule'
-import ScheduleModule from './ScheduleModule'
-import SearchModule from './SearchModule'
-import StatList from './StatList'
-import StepList from './StepList'
-import TabbedContent from './TabbedContent'
-import TestimonialList from './TestimonialList'
-import TestimonialFeatured from './TestimonialFeatured'
-import Services from './Services'
-import About from './About'
-import Process from './Process'
-import Awards from './Awards'
-import Crafted from './Crafted'
-import Why from './Why'
-import FAQ from './Faq'
-import ProjectsFrontpage from './ProjectsFrontpage'
+'use client'
+
+import dynamic from 'next/dynamic'
+
+// Simple loading fallback component
+const ModuleLoader = () => (
+	<div className="w-full py-4 text-center text-neutral-400">
+		<span className="animate-pulse">Loading module...</span>
+	</div>
+)
+
+// Define dynamically imported components with SSR disabled to reduce bundle size
+const About = dynamic(() => import('./About'), {
+	loading: () => <ModuleLoader />,
+	ssr: false,
+})
+const AccordionList = dynamic(() => import('./AccordionList'), {
+	loading: () => <ModuleLoader />,
+	ssr: false,
+})
+const ProjectsFrontpage = dynamic(() => import('./ProjectsFrontpage'), {
+	loading: () => <ModuleLoader />,
+	ssr: false,
+})
+const Awards = dynamic(() => import('./Awards'), {
+	loading: () => <ModuleLoader />,
+	ssr: false,
+})
+const BlogFrontpage = dynamic(() => import('./blog/BlogFrontpage'), {
+	loading: () => <ModuleLoader />,
+	ssr: false,
+})
+const BlogList = dynamic(() => import('./blog/BlogList'), {
+	loading: () => <ModuleLoader />,
+	ssr: false,
+})
+const BlogPostContent = dynamic(() => import('./blog/PostContent'), {
+	loading: () => <ModuleLoader />,
+	ssr: false,
+})
+const Breadcrumbs = dynamic(() => import('./Breadcrumbs'), {
+	loading: () => <ModuleLoader />,
+	ssr: false,
+})
+const Callout = dynamic(() => import('./Callout'), {
+	loading: () => <ModuleLoader />,
+	ssr: false,
+})
+const CardList = dynamic(() => import('./CardList'), {
+	loading: () => <ModuleLoader />,
+	ssr: false,
+})
+const Crafted = dynamic(() => import('./Crafted'), {
+	loading: () => <ModuleLoader />,
+	ssr: false,
+})
+const CreativeModule = dynamic(() => import('./CreativeModule'), {
+	loading: () => <ModuleLoader />,
+	ssr: false,
+})
+const CustomHTML = dynamic(() => import('./CustomHTML'), {
+	loading: () => <ModuleLoader />,
+	ssr: false,
+})
+const FAQ = dynamic(() => import('./Faq'), {
+	loading: () => <ModuleLoader />,
+	ssr: false,
+})
+const FlagList = dynamic(() => import('./FlagList'), {
+	loading: () => <ModuleLoader />,
+	ssr: false,
+})
+const Hero = dynamic(() => import('./Hero'), {
+	loading: () => <ModuleLoader />,
+	ssr: false,
+})
+const HeroSplit = dynamic(() => import('./HeroSplit'), {
+	loading: () => <ModuleLoader />,
+	ssr: false,
+})
+const HeroSaaS = dynamic(() => import('./HeroSaaS'), {
+	loading: () => <ModuleLoader />,
+	ssr: false,
+})
+const LogoList = dynamic(() => import('./LogoList'), {
+	loading: () => <ModuleLoader />,
+	ssr: false,
+})
+const PersonList = dynamic(() => import('./PersonList'), {
+	loading: () => <ModuleLoader />,
+	ssr: false,
+})
+const PricingList = dynamic(() => import('./PricingList'), {
+	loading: () => <ModuleLoader />,
+	ssr: false,
+})
+const Projects = dynamic(() => import('./ProjectList'), {
+	loading: () => <ModuleLoader />,
+	ssr: false,
+})
+const Process = dynamic(() => import('./Process'), {
+	loading: () => <ModuleLoader />,
+	ssr: false,
+})
+const RichtextModule = dynamic(() => import('./RichtextModule'), {
+	loading: () => <ModuleLoader />,
+	ssr: false,
+})
+const ScheduleModule = dynamic(() => import('./ScheduleModule'), {
+	loading: () => <ModuleLoader />,
+	ssr: false,
+})
+const SearchModule = dynamic(() => import('./SearchModule'), {
+	loading: () => <ModuleLoader />,
+	ssr: false,
+})
+const Services = dynamic(() => import('./Services'), {
+	loading: () => <ModuleLoader />,
+	ssr: false,
+})
+const StatList = dynamic(() => import('./StatList'), {
+	loading: () => <ModuleLoader />,
+	ssr: false,
+})
+const StepList = dynamic(() => import('./StepList'), {
+	loading: () => <ModuleLoader />,
+	ssr: false,
+})
+const TabbedContent = dynamic(() => import('./TabbedContent'), {
+	loading: () => <ModuleLoader />,
+	ssr: false,
+})
+const TestimonialList = dynamic(() => import('./TestimonialList'), {
+	loading: () => <ModuleLoader />,
+	ssr: false,
+})
+const TestimonialFeatured = dynamic(() => import('./TestimonialFeatured'), {
+	loading: () => <ModuleLoader />,
+	ssr: false,
+})
+const Why = dynamic(() => import('./Why'), {
+	loading: () => <ModuleLoader />,
+	ssr: false,
+})
 
 export default function Modules({
 	modules,
@@ -44,80 +155,88 @@ export default function Modules({
 	return (
 		<>
 			{modules?.map((module) => {
+				// No need for Suspense with next/dynamic
 				switch (module._type) {
 					case 'about':
-						return <About {...module} key={module._key} />
+						return <About {...(module as any)} key={module._key} />
 					case 'accordion-list':
-						return <AccordionList {...module} key={module._key} />
+						return <AccordionList {...(module as any)} key={module._key} />
 					case 'projects-frontpage':
-						return <ProjectsFrontpage {...module} key={module._key} />
+						return <ProjectsFrontpage {...(module as any)} key={module._key} />
 					case 'awards':
-						return <Awards {...module} key={module._key} />
+						return <Awards {...(module as any)} key={module._key} />
 					case 'blog-frontpage':
-						return <BlogFrontpage {...module} key={module._key} />
+						return <BlogFrontpage {...(module as any)} key={module._key} />
 					case 'blog-list':
-						return <BlogList {...module} key={module._key} />
+						return <BlogList {...(module as any)} key={module._key} />
 					case 'blog-post-content':
-						return <BlogPostContent {...module} post={post} key={module._key} />
+						return (
+							<BlogPostContent
+								{...(module as any)}
+								post={post}
+								key={module._key}
+							/>
+						)
 					case 'breadcrumbs':
 						return (
 							<Breadcrumbs
-								{...module}
+								{...(module as any)}
 								currentPage={post || page}
 								key={module._key}
 							/>
 						)
 					case 'callout':
-						return <Callout {...module} key={module._key} />
+						return <Callout {...(module as any)} key={module._key} />
 					case 'card-list':
-						return <CardList {...module} key={module._key} />
+						return <CardList {...(module as any)} key={module._key} />
 					case 'crafted':
-						return <Crafted {...module} key={module._key} />
+						return <Crafted {...(module as any)} key={module._key} />
 					case 'creative-module':
-						return <CreativeModule {...module} key={module._key} />
+						return <CreativeModule {...(module as any)} key={module._key} />
 					case 'custom-html':
-						return <CustomHTML {...module} key={module._key} />
+						return <CustomHTML {...(module as any)} key={module._key} />
 					case 'faq':
-						return <FAQ {...module} key={module._key} />
+						return <FAQ {...(module as any)} key={module._key} />
 					case 'flag-list':
-						return <FlagList {...module} key={module._key} />
+						return <FlagList {...(module as any)} key={module._key} />
 					case 'hero':
-						return <Hero {...module} key={module._key} />
+						return <Hero {...(module as any)} key={module._key} />
 					case 'hero.split':
-						return <HeroSplit {...module} key={module._key} />
+						return <HeroSplit {...(module as any)} key={module._key} />
 					case 'hero.saas':
-						return <HeroSaaS {...module} key={module._key} />
+						return <HeroSaaS {...(module as any)} key={module._key} />
 					case 'logo-list':
-						return <LogoList {...module} key={module._key} />
+						return <LogoList {...(module as any)} key={module._key} />
 					case 'person-list':
-						return <PersonList {...module} key={module._key} />
+						return <PersonList {...(module as any)} key={module._key} />
 					case 'pricing-list':
-						return <PricingList {...module} key={module._key} />
+						return <PricingList {...(module as any)} key={module._key} />
 					case 'project.list':
-						return <Projects {...module} key={module._key} />
+						return <Projects {...(module as any)} key={module._key} />
 					case 'process':
-						return <Process {...module} key={module._key} />
+						return <Process {...(module as any)} key={module._key} />
 					case 'richtext-module':
-						return <RichtextModule {...module} key={module._key} />
+						return <RichtextModule {...(module as any)} key={module._key} />
 					case 'schedule-module':
-						return <ScheduleModule {...module} key={module._key} />
+						return <ScheduleModule {...(module as any)} key={module._key} />
 					case 'search-module':
-						return <SearchModule {...module} key={module._key} />
+						return <SearchModule {...(module as any)} key={module._key} />
 					case 'service.list':
-						return <Services {...module} key={module._key} />
+						return <Services {...(module as any)} key={module._key} />
 					case 'stat-list':
-						return <StatList {...module} key={module._key} />
+						return <StatList {...(module as any)} key={module._key} />
 					case 'step-list':
-						return <StepList {...module} key={module._key} />
+						return <StepList {...(module as any)} key={module._key} />
 					case 'tabbed-content':
-						return <TabbedContent {...module} key={module._key} />
+						return <TabbedContent {...(module as any)} key={module._key} />
 					case 'testimonial-list':
-						return <TestimonialList {...module} key={module._key} />
+						return <TestimonialList {...(module as any)} key={module._key} />
 					case 'testimonial.featured':
-						return <TestimonialFeatured {...module} key={module._key} />
+						return (
+							<TestimonialFeatured {...(module as any)} key={module._key} />
+						)
 					case 'why':
-						return <Why {...module} key={module._key} />
-
+						return <Why {...(module as any)} key={module._key} />
 					default:
 						return <div data-type={module._type} key={module._key} />
 				}

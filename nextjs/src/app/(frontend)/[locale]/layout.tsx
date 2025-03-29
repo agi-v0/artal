@@ -51,7 +51,7 @@ export default async function RootLayout({
 						</Providers>
 					</main>
 					<Footer />
-					<VisualEditingControls />
+					{/* <VisualEditingControls /> */}
 				</NuqsAdapter>
 				<Analytics />
 				<SpeedInsights />

@@ -8,6 +8,9 @@ export const client = createClient({
 	apiVersion,
 	useCdn: !dev,
 	stega: {
-		studioUrl: '/admin',
+		// Assuming stega is not needed for this client instance by default.
+		// Set enabled: true or configure based on environment (e.g., VERCEL_ENV) if visual editing is required.
+		enabled: false,
+		// studioUrl: '/admin', // Keep this if stega is enabled and needed
 	},
 })

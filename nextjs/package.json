@@ -16,6 +16,7 @@
 	},
 	"dependencies": {
 		"@next/bundle-analyzer": "^15.2.3",
+		"@portabletext/react": "^3.2.1",
 		"@portabletext/to-html": "^2.0.14",
 		"@radix-ui/react-accordion": "^1.2.3",
 		"@radix-ui/react-slot": "^1.1.2",
@@ -27,6 +28,7 @@
 		"@sanity/image-url": "^1.1.0",
 		"@sanity/preview-url-secret": "^2.1.4",
 		"@sanity/types": "^3.76.3",
+		"@sanity/ui": "^2.15.8",
 		"@sanity/vision": "^3.74.1",
 		"@tailwindcss/postcss": "^4.0.4",
 		"@vercel/analytics": "^1.4.1",
