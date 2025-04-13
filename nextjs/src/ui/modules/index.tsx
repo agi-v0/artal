@@ -1,5 +1,3 @@
-'use client'
-
 import dynamic from 'next/dynamic'
 
 // Simple loading fallback component
@@ -12,135 +10,102 @@ const ModuleLoader = () => (
 // Define dynamically imported components with SSR disabled to reduce bundle size
 const About = dynamic(() => import('./About'), {
 	loading: () => <ModuleLoader />,
-	ssr: false,
 })
 const AccordionList = dynamic(() => import('./AccordionList'), {
 	loading: () => <ModuleLoader />,
-	ssr: false,
 })
 const ProjectsFrontpage = dynamic(() => import('./ProjectsFrontpage'), {
-	loading: () => <ModuleLoader />,
-	ssr: false,
+	loading: () => <ModuleLoader />
 })
 const Awards = dynamic(() => import('./Awards'), {
 	loading: () => <ModuleLoader />,
-	ssr: false,
 })
 const BlogFrontpage = dynamic(() => import('./blog/BlogFrontpage'), {
 	loading: () => <ModuleLoader />,
-	ssr: false,
 })
 const BlogList = dynamic(() => import('./blog/BlogList'), {
 	loading: () => <ModuleLoader />,
-	ssr: false,
 })
 const BlogPostContent = dynamic(() => import('./blog/PostContent'), {
 	loading: () => <ModuleLoader />,
-	ssr: false,
 })
 const Breadcrumbs = dynamic(() => import('./Breadcrumbs'), {
 	loading: () => <ModuleLoader />,
-	ssr: false,
 })
 const Callout = dynamic(() => import('./Callout'), {
 	loading: () => <ModuleLoader />,
-	ssr: false,
 })
 const CardList = dynamic(() => import('./CardList'), {
 	loading: () => <ModuleLoader />,
-	ssr: false,
 })
 const Crafted = dynamic(() => import('./Crafted'), {
 	loading: () => <ModuleLoader />,
-	ssr: false,
 })
 const CreativeModule = dynamic(() => import('./CreativeModule'), {
 	loading: () => <ModuleLoader />,
-	ssr: false,
 })
 const CustomHTML = dynamic(() => import('./CustomHTML'), {
 	loading: () => <ModuleLoader />,
-	ssr: false,
 })
 const FAQ = dynamic(() => import('./Faq'), {
 	loading: () => <ModuleLoader />,
-	ssr: false,
 })
 const FlagList = dynamic(() => import('./FlagList'), {
 	loading: () => <ModuleLoader />,
-	ssr: false,
 })
 const Hero = dynamic(() => import('./Hero'), {
 	loading: () => <ModuleLoader />,
-	ssr: false,
 })
 const HeroSplit = dynamic(() => import('./HeroSplit'), {
 	loading: () => <ModuleLoader />,
-	ssr: false,
 })
 const HeroSaaS = dynamic(() => import('./HeroSaaS'), {
 	loading: () => <ModuleLoader />,
-	ssr: false,
 })
 const LogoList = dynamic(() => import('./LogoList'), {
 	loading: () => <ModuleLoader />,
-	ssr: false,
 })
 const PersonList = dynamic(() => import('./PersonList'), {
 	loading: () => <ModuleLoader />,
-	ssr: false,
 })
 const PricingList = dynamic(() => import('./PricingList'), {
 	loading: () => <ModuleLoader />,
-	ssr: false,
 })
 const Projects = dynamic(() => import('./ProjectList'), {
 	loading: () => <ModuleLoader />,
-	ssr: false,
 })
 const Process = dynamic(() => import('./Process'), {
 	loading: () => <ModuleLoader />,
-	ssr: false,
 })
 const RichtextModule = dynamic(() => import('./RichtextModule'), {
 	loading: () => <ModuleLoader />,
-	ssr: false,
 })
 const ScheduleModule = dynamic(() => import('./ScheduleModule'), {
 	loading: () => <ModuleLoader />,
-	ssr: false,
 })
 const SearchModule = dynamic(() => import('./SearchModule'), {
 	loading: () => <ModuleLoader />,
-	ssr: false,
 })
 const Services = dynamic(() => import('./Services'), {
 	loading: () => <ModuleLoader />,
-	ssr: false,
 })
 const StatList = dynamic(() => import('./StatList'), {
 	loading: () => <ModuleLoader />,
-	ssr: false,
 })
 const StepList = dynamic(() => import('./StepList'), {
 	loading: () => <ModuleLoader />,
-	ssr: false,
 })
 const TabbedContent = dynamic(() => import('./TabbedContent'), {
 	loading: () => <ModuleLoader />,
-	ssr: false,
 })
 const TestimonialList = dynamic(() => import('./TestimonialList'), {
 	loading: () => <ModuleLoader />,
-	ssr: false,
 })
 const TestimonialFeatured = dynamic(() => import('./TestimonialFeatured'), {
 	loading: () => <ModuleLoader />,
-	ssr: false,
 })
 const Why = dynamic(() => import('./Why'), {
 	loading: () => <ModuleLoader />,
-	ssr: false,
 })
 
 export default function Modules({
