@@ -1,4 +1,5 @@
 import dynamic from 'next/dynamic'
+import ContactUS from './ContactUs'
 
 // Simple loading fallback component
 const ModuleLoader = () => (
@@ -154,6 +155,8 @@ export default function Modules({
 						return <Callout {...(module as any)} key={module._key} />
 					case 'card-list':
 						return <CardList {...(module as any)} key={module._key} />
+					case 'contact-us':
+						return <ContactUS {...(module as any)} key={module._key} />
 					case 'crafted':
 						return <Crafted {...(module as any)} key={module._key} />
 					case 'creative-module':

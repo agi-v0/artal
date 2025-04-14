@@ -58,6 +58,7 @@ import why from './modules/why'
 import faq from './modules/faq'
 import allProjects from './modules/project-frontpage'
 import contactMessage from './documents/contactMessage'
+import contactUs from './modules/contact-us'
 
 export const schemaTypes: SchemaTypeDefinition[] = [
 	// documents
@@ -95,6 +96,7 @@ export const schemaTypes: SchemaTypeDefinition[] = [
 	breadcrumbs,
 	callout,
 	cardList,
+	contactUs,
 	crafted,
 	creativeModule,
 	customHtml,

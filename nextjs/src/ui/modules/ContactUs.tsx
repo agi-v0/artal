@@ -1,9 +1,17 @@
 'use client'
 
+import { PortableText } from 'next-sanity'
 import { ChangeEvent, FormEvent, useState } from 'react'
 import { toast } from 'sonner'
 
-export default function ContactUS() {
+export default function ContactUS({
+	pretitle,
+	content,
+}: Partial<{
+	pretitle: string
+	content: any
+}> &
+	Sanity.Module) {
 	const [formData, setFormData] = useState({
 		fullName: '',
 		phoneNumber: '',
@@ -66,6 +74,14 @@ export default function ContactUS() {
 	return (
 		<>
 			<section>
+				<div className="mx-auto max-w-7xl border-x border-b p-8 pt-[calc(32px+var(--header-height))] lg:py-16 lg:pt-[calc(64px+var(--header-height))]">
+					<div className="max-w-2xl">
+						<span className="font-light text-neutral-400">{pretitle}</span>
+						<div className="text-foreground richtext mt-6">
+							<PortableText value={content} />
+						</div>
+					</div>
+				</div>
 				<div className="mx-auto max-w-7xl border-x border-b border-neutral-400 p-8 lg:py-32">
 					<div className="mx-auto max-w-2xl">
 						<form onSubmit={handleSubmit}>
@@ -135,7 +151,7 @@ export default function ContactUS() {
 							</div>
 							<div>
 								<button
-									className="rounded-md bg-black px-8 py-3 text-base font-semibold text-white outline-none cursor-pointer"
+									className="cursor-pointer rounded-md bg-black px-8 py-3 text-base font-semibold text-white outline-none"
 									disabled={isSending}
 								>
 									Submit
