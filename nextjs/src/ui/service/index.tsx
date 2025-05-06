@@ -5,9 +5,9 @@ export default function Service({ service }: { service: Sanity.Service }) {
 	return (
 		<>
 			<section>
-				<div className="mx-auto max-w-7xl border-x border-b border-neutral-400 p-8 lg:py-32">
+				<div className="mx-auto max-w-7xl border-x border-b p-8 lg:py-32">
 					<div className="mx-auto max-w-2xl">
-						<h1 className="font-light text-neutral-400">{service.title}</h1>
+						<h1 className="text-foreground/50 font-light">{service.title}</h1>
 					</div>
 					<div className="prose-styles">
 						<slot />
@@ -15,7 +15,7 @@ export default function Service({ service }: { service: Sanity.Service }) {
 				</div>
 			</section>
 			<section>
-				<div className="mx-auto max-w-7xl border-x border-b border-neutral-400 p-8">
+				<div className="mx-auto max-w-7xl border-x border-b p-8">
 					<Img
 						className={'h-[75vh] w-full object-cover object-top'}
 						image={service.serviceImage}

@@ -25,7 +25,7 @@ export default function About({
 					)
 				}
 				return (
-					<p className="mt-6 text-neutral-400">
+					<p className="text-foreground/50 mt-6">
 						{value.children.map((child: any) => child.text).join('')}
 					</p>
 				)
@@ -34,14 +34,15 @@ export default function About({
 	}
 
 	return (
-		<section>
-			<div className="bg-background-highlight mx-auto max-w-7xl border-x border-b border-neutral-400 p-8 lg:py-16">
-				<div className="max-w-2xl">
-					<Pretitle>{pretitle}</Pretitle>
-					<div className="text-foreground richtext mt-6">
+		<section className="">
+			<div className="section p-xl dark bg-grid-white/10 relative bg-red-800">
+				<div className="relative z-2 max-w-2xl">
+					<Pretitle className="border-white/50 text-white">{pretitle}</Pretitle>
+					<div className="richtext text-foreground mt-6">
 						<PortableText value={content} />
 					</div>
 				</div>
+				<div className="absolute inset-0 h-full w-full bg-gradient-to-tr from-red-800 to-red-800/0" />
 			</div>
 		</section>
 	)

@@ -16,7 +16,7 @@ export default async function Reputation({
 		await getCachedRepoData(reputation)
 
 	const imgClassname = cn(
-		'aspect-square h-8 w-auto rounded-full border-2 border-canvas bg-canvas object-cover -mr-2 last:mr-0',
+		'aspect-square h-8 w-auto rounded-full border-2 border-white bg-white object-cover -mr-2 last:mr-0',
 	)
 
 	const { limit = 5 } = reputation

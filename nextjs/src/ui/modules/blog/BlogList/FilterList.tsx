@@ -12,9 +12,7 @@ export default async function FilterList() {
 			count(*[_type == 'blog.post' && references(^._id)]) > 0
 		]|order(title)`,
 	})
-
 	if (!categories) return null
-
 	return (
 		<fieldset>
 			<legend className="sr-only">Filter by category</legend>
@@ -27,7 +25,6 @@ export default async function FilterList() {
 			>
 				<Suspense>
 					<Filter label="All" />
-
 					{categories?.map((category, key) => (
 						<Filter
 							label={category.title}

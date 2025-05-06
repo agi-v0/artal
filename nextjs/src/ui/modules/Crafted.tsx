@@ -3,8 +3,6 @@ import {
 	Carousel,
 	CarouselContent,
 	CarouselItem,
-	CarouselNext,
-	CarouselPrevious,
 } from '@/components/ui/carousel'
 import Pretitle from '../Pretitle'
 import Img from '../Img'
@@ -22,7 +20,7 @@ export default function Crafted({
 	return (
 		<>
 			<section>
-				<div className="mx-auto max-w-7xl border-x border-b border-neutral-400 p-8 lg:py-16">
+				<div className="section">
 					<div className="max-w-2xl">
 						<Pretitle>{pretitle}</Pretitle>
 						<div className="text-foreground richtext mt-6">
@@ -32,7 +30,7 @@ export default function Crafted({
 				</div>
 			</section>
 			<section>
-				<div className="mx-auto max-w-7xl border-x border-b border-neutral-400">
+				<div className="mx-auto max-w-7xl border-x border-b">
 					<Carousel className="w-full">
 						<CarouselContent>
 							{carousel.map((image: any, index: string) => (
@@ -50,8 +48,8 @@ export default function Crafted({
 								</CarouselItem>
 							))}
 						</CarouselContent>
-						<CarouselPrevious size="lg" />
-						<CarouselNext size="lg" />
+						{/* <CarouselPrevious size="lg" />
+						<CarouselNext size="lg" /> */}
 					</Carousel>
 				</div>
 			</section>

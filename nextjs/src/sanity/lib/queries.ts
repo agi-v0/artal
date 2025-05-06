@@ -20,10 +20,10 @@ export const CTA_QUERY = groq`
 	link{ ${LINK_QUERY} }
 `
 
-export async function getSite() {
+export async function getSite(locale: string) {
 	const data = await fetchSanityLive<Sanity.Site>({
 		query: groq`
-			*[_type == 'site'][0]{
+			*[_type == 'site' && language == $locale][0]{
 				...,
 				ctas[]{ ${CTA_QUERY} },
 				headerMenu->{ ${NAVIGATION_QUERY} },
@@ -32,6 +32,7 @@ export async function getSite() {
 				'ogimage': ogimage.asset->url
 			}
 		`,
+		params: { locale },
 	})
 
 	if (!data) throw Error('No `site` document found in the Studio')

@@ -16,7 +16,7 @@ const AccordionList = dynamic(() => import('./AccordionList'), {
 	loading: () => <ModuleLoader />,
 })
 const ProjectsFrontpage = dynamic(() => import('./ProjectsFrontpage'), {
-	loading: () => <ModuleLoader />
+	loading: () => <ModuleLoader />,
 })
 const Awards = dynamic(() => import('./Awards'), {
 	loading: () => <ModuleLoader />,
@@ -157,8 +157,8 @@ export default function Modules({
 						return <CardList {...(module as any)} key={module._key} />
 					case 'contact-us':
 						return <ContactUS {...(module as any)} key={module._key} />
-					case 'crafted':
-						return <Crafted {...(module as any)} key={module._key} />
+					// case 'crafted':
+					// 	return <Crafted {...(module as any)} key={module._key} />
 					case 'creative-module':
 						return <CreativeModule {...(module as any)} key={module._key} />
 					case 'custom-html':

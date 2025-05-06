@@ -2,12 +2,12 @@ import { getSite } from '@/sanity/lib/queries'
 import CTA from '@/ui/CTA'
 import LinkList from './LinkList'
 
-export default async function Menu() {
-	const { headerMenu } = await getSite()
+export default async function Menu({ locale }: { locale: string }) {
+	const { headerMenu } = await getSite(locale)
 
 	return (
 		<nav
-			className="max-md:anim-fade-to-r flex gap-y-2 [grid-area:nav] max-md:my-4 max-md:flex-col max-md:header-closed:hidden md:justify-center"
+			className="max-md:anim-fade-to-r max-md:header-closed:hidden flex gap-y-2 [grid-area:nav] max-md:my-4 max-md:flex-col md:justify-end"
 			role="navigation"
 		>
 			{headerMenu?.items?.map((item, key) => {

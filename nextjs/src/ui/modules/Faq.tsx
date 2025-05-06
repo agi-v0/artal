@@ -20,7 +20,7 @@ export default function FAQ({
 	return (
 		<>
 			<section>
-				<div className="mx-auto max-w-7xl border-x border-b border-neutral-400 p-8 lg:border-b-0 lg:py-16">
+				<div className="section">
 					<div className="max-w-2xl">
 						<Pretitle>{pretitle}</Pretitle>
 						<div className="text-foreground richtext mt-6">
@@ -28,27 +28,27 @@ export default function FAQ({
 						</div>
 					</div>
 				</div>
-			</section>
-			<section>
-				<div className="mx-auto max-w-7xl">
-					<div className="bg-vulcan-900 relative mx-auto border border-neutral-400">
-						<Accordion
-							type="single"
-							collapsible
-							className="text-foreground w-full"
-						>
-							{faqs.map((faq: any, index: string) => (
-								<AccordionItem key={index} value={index + 1} className="p-4">
-									<AccordionTrigger className="text-foreground text-h6 flex cursor-pointer justify-between">
-										{faq.question}
-									</AccordionTrigger>
-									<AccordionContent className="text-body-l text-neutral-400">
-										<PortableText value={faq.answer} />
-									</AccordionContent>
-								</AccordionItem>
-							))}
-						</Accordion>
-					</div>
+				<div className="section p-0">
+					<Accordion
+						type="single"
+						collapsible
+						className="text-foreground w-full"
+					>
+						{faqs.map((faq: any, index: string) => (
+							<AccordionItem
+								key={index}
+								value={index + 1}
+								className="px-site py-md transition-colors data-[state=open]:bg-neutral-50"
+							>
+								<AccordionTrigger className="text-foreground text-h6 flex cursor-pointer justify-between">
+									{faq.question}
+								</AccordionTrigger>
+								<AccordionContent className="[&_p]:text-body-l text-foreground/50">
+									<PortableText value={faq.answer} />
+								</AccordionContent>
+							</AccordionItem>
+						))}
+					</Accordion>
 				</div>
 			</section>
 		</>

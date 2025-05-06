@@ -18,7 +18,7 @@ export default function PostPreview({
 
 	return (
 		<Root
-			className="group flex h-full flex-col space-y-2"
+			className="group p-md flex h-full flex-col space-y-2 ps-0"
 			href={resolveUrl(post, { base: false })}
 		>
 			<figure className="relative aspect-video overflow-hidden bg-neutral-50">
@@ -53,9 +53,7 @@ export default function PostPreview({
 					skeleton={skeleton}
 				/>
 			)}
-
 			<hr />
-
 			<div className="empty:skeleton flex flex-wrap gap-x-4 text-sm">
 				<Date value={post?.publishDate} />
 				<Categories

@@ -1,4 +1,5 @@
 import { getSite } from '@/sanity/lib/queries'
+import { getLocale } from 'next-intl/server'
 import { ImageResponse } from 'next/og'
 import type { NextRequest } from 'next/server'
 
@@ -8,7 +9,8 @@ const color = '#1d1d1f'
 
 export async function GET(request: NextRequest) {
 	const { searchParams } = new URL(request.url)
-	const site = await getSite()
+	const locale = await getLocale()
+	const site = await getSite(locale)
 
 	// remove divider and site.title in metadata.title
 	const regex = new RegExp(` [-—|] ${site.title}$`)

@@ -11,12 +11,18 @@ import '@/styles/app.css'
 import { getMessages } from 'next-intl/server'
 import { notFound } from 'next/navigation'
 import { routing } from '@/i18n/routing'
-import { IBM_Plex_Sans_Arabic } from 'next/font/google'
+import { IBM_Plex_Sans_Arabic, Inter } from 'next/font/google'
 import { Toaster } from '@/components/ui/sonner'
 import Providers from '@/lib/providers'
 
 const font = IBM_Plex_Sans_Arabic({
 	subsets: ['latin', 'arabic'],
+	display: 'swap',
+	weight: ['400', '500', '600'],
+})
+
+const font2 = Inter({
+	subsets: ['latin'],
 	display: 'swap',
 	weight: ['400', '500', '600'],
 })
@@ -36,20 +42,24 @@ export default async function RootLayout({
 	const messages = await getMessages()
 
 	return (
-		<html lang={locale} className={font.className}>
+		<html
+			lang={locale}
+			className={font.className}
+			dir={locale === 'ar' ? 'rtl' : 'ltr'}
+		>
 			{/* <GoogleTagManager gtmId="" /> */}
 
-			<body className="text-foreground bg-background">
+			<body className="text-foreground bg-background relative w-full">
 				<Providers messages={messages} locale={locale}>
 					<NuqsAdapter>
 						<SkipToContent />
 						<Announcement />
-						<Header />
+						<Header locale={locale} />
 						<main id="main-content" role="main" tabIndex={-1}>
 							{children}
 							<Toaster />
 						</main>
-						<Footer />
+						<Footer locale={locale} />
 						{/* <VisualEditingControls /> */}
 					</NuqsAdapter>
 				</Providers>

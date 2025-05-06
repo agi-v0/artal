@@ -10,7 +10,11 @@
 			width: anchor-size(--filter width);
 			height: anchor-size(--filter height);
 			border-radius: 0.25rem;
-			background-color: color-mix(in oklab, var(--color-ink) 5%, transparent);
+			background-color: color-mix(
+				in oklab,
+				var(--color-foreground) 5%,
+				transparent
+			);
 			transition: all var(--default-transition-duration)
 				var(--default-transition-timing-function);
 		}

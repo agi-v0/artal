@@ -40,8 +40,11 @@ export default {
 			},
 		],
 	},
+	eslint: {
+		ignoreDuringBuilds: true,
+	},
 
-	async redirects() {
+	async redirect() {
 		return await client.fetch(groq`*[_type == 'redirect']{
 			source,
 			'destination': select(

@@ -33,13 +33,10 @@ export default async function BlogFrontpage({
 		stegaClean(mainPost) === 'featured' ? sortFeaturedPosts(posts) : posts
 
 	return (
-		<section className="section space-y-12">
+		<section className="section space-y-lg mt-(--header-height)">
 			<PostPreviewLarge post={firstPost} />
-
-			<hr />
-
+			<hr className="border-neutral-200" />
 			<FilterList />
-
 			<Suspense
 				fallback={
 					<ul className="grid gap-x-8 gap-y-12 sm:grid-cols-[repeat(auto-fill,minmax(300px,1fr))]">
