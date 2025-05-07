@@ -18,7 +18,7 @@ import { documentInternationalization } from '@sanity/document-internationalizat
 const singletonTypes = ['site']
 
 export default defineConfig({
-	title: 'SanityPress',
+	title: 'Artal Group',
 	icon,
 	projectId,
 	dataset,

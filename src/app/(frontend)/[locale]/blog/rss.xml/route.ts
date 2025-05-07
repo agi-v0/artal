@@ -47,7 +47,7 @@ export async function GET() {
 		copyright,
 		favicon: process.env.NEXT_PUBLIC_BASE_URL + '/favicon.ico',
 		language: 'en',
-		generator: 'https://sanitypress.dev',
+		generator: 'https://artalgroup.dev',
 	})
 
 	posts.map((post) =>

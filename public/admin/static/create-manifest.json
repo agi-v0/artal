@@ -4,11 +4,11 @@
 	"workspaces": [
 		{
 			"name": "default",
-			"title": "SanityPress",
+			"title": "Artal Group",
 			"basePath": "/admin",
 			"projectId": "82i93b28",
 			"dataset": "production",
-			"icon": "<img alt=\"SanityPress\" src=\"/favicon.ico\" style=\"width:100%;aspect-ratio:1\">",
+			"icon": "<img alt=\"Artal Group\" src=\"/favicon.ico\" style=\"width:100%;aspect-ratio:1\">",
 			"schema": "769128d5.create-schema.json",
 			"tools": "71bb05f3.create-tools.json"
 		}

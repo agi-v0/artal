@@ -24,7 +24,7 @@ function Widget() {
 					<Heading size={1} as="h2">
 						<Flex align="flex-end" justify="space-between" wrap="wrap" gap={4}>
 							<Flex align="center" gap={2}>
-								🖤 SanityPress
+								🖤 Artal Group
 								<Code size={1}>v{pkg.version}</Code>
 							</Flex>
 
@@ -75,22 +75,22 @@ const social: Array<{
 }> = [
 	{
 		icon: SiSanity,
-		url: 'https://sanity.io/templates/sanitypress',
+		url: 'https://sanity.io/templates/artalgroup',
 		label: 'Sanity.io',
 	},
 	{
 		icon: FaGithub,
-		url: 'https://github.com/nuotsu/sanitypress',
+		url: 'https://github.com/nuotsu/artalgroup',
 		label: 'GitHub',
 	},
 	{
 		icon: FaBluesky,
-		url: 'https://bsky.app/profile/sanitypress.dev',
+		url: 'https://bsky.app/profile/artalgroup.dev',
 		label: 'Bluesky',
 	},
 	{
 		icon: FaXTwitter,
-		url: 'https://x.com/sanitypress',
+		url: 'https://x.com/artalgroup',
 		label: 'X',
 	},
 ]
@@ -102,10 +102,10 @@ const linkGroups: Array<{
 	{
 		title: 'Resources',
 		links: [
-			{ label: 'Documentation', url: 'https://sanitypress.dev/docs' },
+			{ label: 'Documentation', url: 'https://artalgroup.dev/docs' },
 			{
-				label: 'The Styled Heart — SanityPress Blog',
-				url: 'https://sanitypress.dev/blog',
+				label: 'The Styled Heart — Artal Group Blog',
+				url: 'https://artalgroup.dev/blog',
 			},
 		],
 	},
@@ -114,27 +114,27 @@ const linkGroups: Array<{
 		links: [
 			{
 				label: 'File Structure',
-				url: 'https://sanitypress.dev/docs/how-sanitypress-works',
+				url: 'https://artalgroup.dev/docs/how-artalgroup-works',
 			},
 			{
 				label: 'Built-in Modules',
-				url: 'https://sanitypress.dev/docs/modules',
+				url: 'https://artalgroup.dev/docs/modules',
 			},
 			{
 				label: 'Customization Guides',
-				url: 'https://sanitypress.dev/blog/the-developers-guide-to-customizing-sanitypress',
+				url: 'https://artalgroup.dev/blog/the-developers-guide-to-customizing-artalgroup',
 			},
 			{
 				label: 'Scheduling Content',
-				url: 'https://sanitypress.dev/blog/introducing-the-schedule-module',
+				url: 'https://artalgroup.dev/blog/introducing-the-schedule-module',
 			},
 			{
 				label: 'Adding New Modules',
-				url: 'https://sanitypress.dev/blog/adding-new-modules',
+				url: 'https://artalgroup.dev/blog/adding-new-modules',
 			},
 			{
 				label: 'A Guide for Nested Routes',
-				url: 'https://sanitypress.dev/blog/a-guide-for-nested-routes',
+				url: 'https://artalgroup.dev/blog/a-guide-for-nested-routes',
 			},
 		],
 	},
@@ -143,15 +143,15 @@ const linkGroups: Array<{
 		links: [
 			{
 				label: 'Changelog',
-				url: 'https://github.com/nuotsu/sanitypress/releases',
+				url: 'https://github.com/nuotsu/artalgroup/releases',
 			},
 			{
 				label: 'Discussions',
-				url: 'https://github.com/nuotsu/sanitypress/discussions',
+				url: 'https://github.com/nuotsu/artalgroup/discussions',
 			},
 			{
 				label: 'Report an issue',
-				url: 'https://github.com/nuotsu/sanitypress/issues',
+				url: 'https://github.com/nuotsu/artalgroup/issues',
 			},
 		],
 	},
