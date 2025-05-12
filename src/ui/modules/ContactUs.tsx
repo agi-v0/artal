@@ -152,7 +152,6 @@ export default function ContactUS({
 							<div>
 								<button
 									className="cursor-pointer rounded-md bg-black px-8 py-3 text-base font-semibold text-white outline-none"
-									className="cursor-pointer rounded-md bg-black px-8 py-3 text-base font-semibold text-white outline-none"
 									disabled={isSending}
 								>
 									Submit

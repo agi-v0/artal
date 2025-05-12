@@ -1,16 +1,16 @@
 {
-	"version": 2,
-	"createdAt": "2025-04-08T14:50:03.995Z",
-	"workspaces": [
-		{
-			"name": "default",
-			"title": "Artal Group",
-			"basePath": "/admin",
-			"projectId": "82i93b28",
-			"dataset": "production",
-			"icon": "<img alt=\"Artal Group\" src=\"/favicon.ico\" style=\"width:100%;aspect-ratio:1\">",
-			"schema": "769128d5.create-schema.json",
-			"tools": "71bb05f3.create-tools.json"
-		}
-	]
+  "version": 2,
+  "createdAt": "2025-05-12T10:42:00.902Z",
+  "workspaces": [
+    {
+      "name": "default",
+      "title": "Artal Group",
+      "basePath": "/admin",
+      "projectId": "82i93b28",
+      "dataset": "production",
+      "icon": "<img alt=\"Artal Group\" src=\"/favicon.ico\" style=\"width:100%;aspect-ratio:1\">",
+      "schema": "32ec177f.create-schema.json",
+      "tools": "71bb05f3.create-tools.json"
+    }
+  ]
 }
